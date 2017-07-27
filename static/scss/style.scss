@@ -1,0 +1,126 @@
+/*
+ *
+ * Main stylesheet file with a .scss extension. This file loads everything and compiles it to /css/style.css
+ *
+ *
+ * TABLE OF CONTENTS
+ * 1. Import
+ * 2. Base styles
+ * 3. Header
+ * 4. Sections
+ *
+ *
+*/
+
+// Import
+@import 'partials/grid';
+@import 'partials/font';
+@import 'partials/vars';
+@import 'partials/mixins';
+
+// Base styles
+body { font-size: 16px; font-family: "Open Sans", sans-serif, helvetica; font-weight: 300; color: $primary_color; -webkit-text-size-adjust: none;
+  text-align: center; }
+.display-table { display: table;
+  .display-table-cell { display: table-cell; width: 100%; height: 100%; vertical-align: middle; }
+}
+.preload * {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
+}
+.align-left { text-align: left; }
+.align-center { text-align: center; }
+.no-scroll { overflow-y: hidden; }
+// Header
+.sidebar-toggle { font-size: 1.5em; color: $primary_color; padding-left: 8px; padding-top: 6px; float: left; cursor: pointer; }
+.header-wrapper { position: fixed; top: 0; left: 0; width: 100%; z-index: 3; display: none; overflow: hidden;  -webkit-transition: height 0.3s; -moz-transition: height 0.3s; transition: height 0.3s; border-bottom: 1px solid $border_color; padding: 15px 10px; background: rgba(255, 255, 255, 0.99); }
+.nav-wrapper { text-align: center; font-size: 0.9em;
+	ul { margin: 0; padding: 0;
+		li { list-style-type: none; display: inline-block; margin-right: 5px;
+			a { text-decoration: none; color: $primary_color; cursor: pointer; }
+			&.current-nav-item {
+				&::after { content: ""; position: relative; top: 5px; left: 0; display: block; height: 1px; width: 70%; margin-left: 15%; background-color: $nav_current_color; }
+			}
+		}
+	}
+}
+
+// Sections
+.separator { height: 1.2px; background-color: $border_color; -ms-transform: rotate(-12deg); -webkit-transform: rotate(-12deg); transform: rotate(-12deg); margin-top: 80px; }
+[class*='site-section'] { padding: 80px 0; }
+.section-wrapper {
+	.section-title { font-size: 1.8em; font-weight: 300; margin-bottom: 5px; }
+    .section-description { font-size: 0.8em; font-weight: 300; margin-bottom: 25px; }
+	.section-content {}
+}
+#portfolio {
+  .section-description { margin-bottom: 20px; }
+  .portfolio-nav { margin-bottom: 20px;
+    li { cursor: pointer; }
+  }
+  [class*='portfolio-section-'] { display: none;
+    .section-item { max-width: 100%; margin: 10px auto; background-color: #FFFFFF; border: 1px solid $border_color; border-radius: 3px; }
+  }
+  .item-content-wrapper { position: relative; width: 355px; height: 230px; }
+  .item-preview { display: none; position: absolute; top: 0; left: 0; bottom: 0; right: 0; background-color: #404040; color: #FFFFFF;
+    .item-preview-content { padding-top: 25px;
+      .item-title { font-size: 1.2em; margin-bottom: 5px; }
+      .item-description { font-size: 0.8em; margin-bottom: 15px; letter-spacing: 0.002em; line-height: 1.2em; }
+      .item-tech-stack {
+        margin-bottom: 15px;
+        .tech-stack-title { margin-bottom: 15px; }
+        .tech-stack-title-text { font-size: 0.9em; position: relative; top: -5px; left: 5px; }
+        .icon-stack { font-size: 1.5em; }
+        .tech-stack-icon { padding: 4px 12px; margin-right: 5px; font-size: 0.7em; letter-spacing: 0.002em; border-radius: 3px; }
+        .lang-css { @include linear-gradient(#4a7ddf, #2b5ec0); }
+        .lang-html { @include linear-gradient(#cc4208, #e96a35); }
+        .lang-js { @include linear-gradient(#e0f038, #b8b607); }
+        .lang-php { @include linear-gradient(#8b38f0, #6c12d9); }
+        .lang-mysql { @include linear-gradient(#1254d9, #4b7ad9); }
+        .lang-python { @include linear-gradient(#1c7aff, #e7ef00); }
+        .lang-java { @include linear-gradient(#ce4040, #b7171d); }
+        .lang-csharp { @include linear-gradient(#6821af, #a65eed); }
+      }
+    }
+    .link-github { font-size: 2em;
+      a { color: #FFFFFF; text-decoration: none; }
+    }
+  }
+  .item-toggle-modal { float: right; font-size: 1.2em; position: relative; top: 7px; right: 7px; color: #FFFFFF; cursor: pointer; }
+
+  .inverse-icon { color: #404040; }
+  .item-preview-modal { position: fixed; top: 0; right: 0; bottom: 0; left: 0; display: none; z-index: 999; background: #404040; overflow-x: hidden; overflow-y: scroll;
+    .item-toggle-modal { display: block; }
+    .modal-wrapper { width: 95%; margin: 5% auto; background-color: #FFFFFF; @include transform(translateY(100%)); @include transition(transform, 500ms);
+      &.open { @include transform(translateY(0px)); }
+      h1, h2, h3 { font-weight: 300; margin: 20px 0; }
+      .modal-header {
+        .project-title { padding-top: 30px; }
+      }
+      .modal-content { padding: 10px 30px 30px 30px; margin-bottom: 20px;
+        a { text-decoration: none; }
+      }
+      .modal-footer {
+        padding: 20px;
+        .icon-github { font-size: 2em; }
+        a { text-decoration: none; }
+      }
+    }
+  }
+}
+#connect {
+  ul { margin: 0; padding: 0;
+    li { list-style-type: none; display: inline-block; margin-right: 5px;
+      a { color: #404040; text-decoration: none; font-size: 0.8em; }
+    }
+  }
+}
+.footer-wrapper { color: #999999; font-size: 0.8em; padding: 30px; opacity: 0.7; @include transition(opacity, 400ms);
+  p { margin-bottom: 5px; }
+  &:hover { opacity: 1; }
+  .icon-heart-footer { opacity: 0.7; @include transition(all, 800ms);
+    &:hover { color: #db1111; opacity: 1; }
+  }
+}

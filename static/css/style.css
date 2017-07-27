@@ -1,0 +1,474 @@
+/*
+ *
+ * Main stylesheet file with a .scss extension. This file loads everything and compiles it to /css/style.css
+ *
+ *
+ * TABLE OF CONTENTS
+ * 1. Import
+ * 2. Base styles
+ * 3. Header
+ * 4. Sections
+ *
+ *
+*/
+/* Global reset styles */
+*, *:after, *:before {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+img {
+  width: auto;
+  max-width: 100%;
+  height: auto !important; }
+
+/* Content wrapper */
+.content-wrapper {
+  width: 100%;
+  margin: 0 auto; }
+
+/* Rows, Clearfix */
+.content-wrapper:after, .row:after, .clearfix {
+  content: "";
+  display: table;
+  clear: both; }
+
+/* Columns */
+/* The [class*=] selector applies the rules on any element that contains the string "column-" */
+/* The min-height property is set so that the column displays properly even if it doesn't have any content */
+[class*='column-'] {
+  float: left;
+  /*padding: 1em; */
+  width: 100%;
+  min-height: 1px; }
+
+/* Responsive 12-column grid grid */
+@media only screen and (min-width: 45em) {
+  /* Make the wrapper 95% of the width of the page so that there's a little space between the edges on larger screens */
+  .content-wrapper {
+    width: 95%;
+    max-width: 85em; }
+
+  /* .column-1 (12 columns / 1 = 12 . 100% / 12 = 8.33333%) */
+  .column-1 {
+    width: 8.33333%; }
+
+  /* .column-2 (12 columns / 2 = 6. 100% / 6 = 16.66667%) */
+  .column-2 {
+    width: 16.66667%; }
+
+  /* .column-3 (12 columns / 3 = 4. 100% / 4 = 25%) */
+  .column-3 {
+    width: 25%; }
+
+  /* .column-4 (12 columns / 4 = 3. 100% / 3 = 33.33333%) */
+  .column-4 {
+    width: 33.33333%; }
+
+  /* .column-5 (12 columns / 5 = 2.4. 100% / 2.4 = 41.66667%) */
+  .column-5 {
+    width: 41.66667%; }
+
+  /* .column-6 (12 columns / 6 = 2. 100% / 2 = 50%) */
+  .column-6 {
+    width: 50%; }
+
+  /* .column-7 (12 columns / 7 = 1.71429. 100% / 1.71429 = 58.33333%) */
+  .column-7 {
+    width: 58.33333%; }
+
+  /* .column-8 (12 columns / 8 = 1.5. 100% / 1.5 = 66.66667%) */
+  .column-8 {
+    width: 66.66667%; }
+
+  /* .column-9 (12 columns / 9 = 1.33333. 100% / 1.33333 = 16.66667%) */
+  .column-9 {
+    width: 75%; }
+
+  /* .column-10 (12 columns / 10 = 1.2. 100% / 1.2 = 83.33333%) */
+  .column-10 {
+    width: 83.33333%; }
+
+  /* .column-11 (12 columns / 11 = 1.09090. 100% / 6 = 91.66667%) */
+  .column-11 {
+    width: 91.66667%; }
+
+  /* .column-12 (12 columns / 12 = 1. 100% / 1 = 100%) */
+  .column-12 {
+    width: 100%; } }
+@font-face {
+  font-family: 'icomoon';
+  src: url("../assets/fonts/icomoon.eot?tawuau");
+  src: url("../assets/fonts/icomoon.eot?tawuau#iefix") format("embedded-opentype"), url("../assets/fonts/icomoon.ttf?tawuau") format("truetype"), url("../assets/fonts/icomoon.woff?tawuau") format("woff"), url("../assets/fonts/icomoon.svg?tawuau#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+.icon {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.icon-stack:before {
+  content: "\e92e"; }
+
+.icon-quotes-left:before {
+  content: "\e977"; }
+
+.icon-quotes-right:before {
+  content: "\e978"; }
+
+.icon-menu:before {
+  content: "\e9bd"; }
+
+.icon-heart:before {
+  content: "\e9da"; }
+
+.icon-cancel-circle:before {
+  content: "\ea0d"; }
+
+.icon-circle-up:before {
+  content: "\ea41"; }
+
+.icon-github:before {
+  content: "\eab0"; }
+
+/*
+ *
+ * This partial file contains variables that hold different values. These variables will help us be less
+ * redundant when writing SCSS code.
+ *
+ *
+*/
+/*
+ * Partial SCSS file for defining different types of mixins
+ *
+ */
+body {
+  font-size: 16px;
+  font-family: "Open Sans", sans-serif, helvetica;
+  font-weight: 300;
+  color: #404040;
+  -webkit-text-size-adjust: none;
+  text-align: center; }
+
+.display-table {
+  display: table; }
+  .display-table .display-table-cell {
+    display: table-cell;
+    width: 100%;
+    height: 100%;
+    vertical-align: middle; }
+
+.preload * {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important; }
+
+.align-left {
+  text-align: left; }
+
+.align-center {
+  text-align: center; }
+
+.no-scroll {
+  overflow-y: hidden; }
+
+.sidebar-toggle {
+  font-size: 1.5em;
+  color: #404040;
+  padding-left: 8px;
+  padding-top: 6px;
+  float: left;
+  cursor: pointer; }
+
+.header-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 3;
+  display: none;
+  overflow: hidden;
+  -webkit-transition: height 0.3s;
+  -moz-transition: height 0.3s;
+  transition: height 0.3s;
+  border-bottom: 1px solid #F4F4F4;
+  padding: 15px 10px;
+  background: rgba(255, 255, 255, 0.99); }
+
+.nav-wrapper {
+  text-align: center;
+  font-size: 0.9em; }
+  .nav-wrapper ul {
+    margin: 0;
+    padding: 0; }
+    .nav-wrapper ul li {
+      list-style-type: none;
+      display: inline-block;
+      margin-right: 5px; }
+      .nav-wrapper ul li a {
+        text-decoration: none;
+        color: #404040;
+        cursor: pointer; }
+      .nav-wrapper ul li.current-nav-item::after {
+        content: "";
+        position: relative;
+        top: 5px;
+        left: 0;
+        display: block;
+        height: 1px;
+        width: 70%;
+        margin-left: 15%;
+        background-color: #CCCCCC; }
+
+.separator {
+  height: 1.2px;
+  background-color: #F4F4F4;
+  -ms-transform: rotate(-12deg);
+  -webkit-transform: rotate(-12deg);
+  transform: rotate(-12deg);
+  margin-top: 80px; }
+
+[class*='site-section'] {
+  padding: 80px 0; }
+
+.section-wrapper .section-title {
+  font-size: 1.8em;
+  font-weight: 300;
+  margin-bottom: 5px; }
+.section-wrapper .section-description {
+  font-size: 0.8em;
+  font-weight: 300;
+  margin-bottom: 25px; }
+
+#portfolio .section-description {
+  margin-bottom: 20px; }
+#portfolio .portfolio-nav {
+  margin-bottom: 20px; }
+  #portfolio .portfolio-nav li {
+    cursor: pointer; }
+#portfolio [class*='portfolio-section-'] {
+  display: none; }
+  #portfolio [class*='portfolio-section-'] .section-item {
+    max-width: 100%;
+    margin: 10px auto;
+    background-color: #FFFFFF;
+    border: 1px solid #F4F4F4;
+    border-radius: 3px; }
+#portfolio .item-content-wrapper {
+  position: relative;
+  width: 355px;
+  height: 230px; }
+#portfolio .item-preview {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: #404040;
+  color: #FFFFFF; }
+  #portfolio .item-preview .item-preview-content {
+    padding-top: 25px; }
+    #portfolio .item-preview .item-preview-content .item-title {
+      font-size: 1.2em;
+      margin-bottom: 5px; }
+    #portfolio .item-preview .item-preview-content .item-description {
+      font-size: 0.8em;
+      margin-bottom: 15px;
+      letter-spacing: 0.002em;
+      line-height: 1.2em; }
+    #portfolio .item-preview .item-preview-content .item-tech-stack {
+      margin-bottom: 15px; }
+      #portfolio .item-preview .item-preview-content .item-tech-stack .tech-stack-title {
+        margin-bottom: 15px; }
+      #portfolio .item-preview .item-preview-content .item-tech-stack .tech-stack-title-text {
+        font-size: 0.9em;
+        position: relative;
+        top: -5px;
+        left: 5px; }
+      #portfolio .item-preview .item-preview-content .item-tech-stack .icon-stack {
+        font-size: 1.5em; }
+      #portfolio .item-preview .item-preview-content .item-tech-stack .tech-stack-icon {
+        padding: 4px 12px;
+        margin-right: 5px;
+        font-size: 0.7em;
+        letter-spacing: 0.002em;
+        border-radius: 3px; }
+      #portfolio .item-preview .item-preview-content .item-tech-stack .lang-css {
+        background: #2b5ec0;
+        background: -moz-linear-gradient(top, #4a7ddf 0%, #2b5ec0 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #4a7ddf), color-stop(100%, #2b5ec0));
+        background: -webkit-linear-gradient(top, #4a7ddf 0%, #2b5ec0 100%);
+        background: -o-linear-gradient(top, #4a7ddf 0%, #2b5ec0 100%);
+        background: linear-gradient(to bottom, #4a7ddf 0%, #2b5ec0 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#4a7ddf, endColorstr=#2b5ec0); }
+      #portfolio .item-preview .item-preview-content .item-tech-stack .lang-html {
+        background: #e96a35;
+        background: -moz-linear-gradient(top, #cc4208 0%, #e96a35 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #cc4208), color-stop(100%, #e96a35));
+        background: -webkit-linear-gradient(top, #cc4208 0%, #e96a35 100%);
+        background: -o-linear-gradient(top, #cc4208 0%, #e96a35 100%);
+        background: linear-gradient(to bottom, #cc4208 0%, #e96a35 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#cc4208, endColorstr=#e96a35); }
+      #portfolio .item-preview .item-preview-content .item-tech-stack .lang-js {
+        background: #b8b607;
+        background: -moz-linear-gradient(top, #e0f038 0%, #b8b607 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #e0f038), color-stop(100%, #b8b607));
+        background: -webkit-linear-gradient(top, #e0f038 0%, #b8b607 100%);
+        background: -o-linear-gradient(top, #e0f038 0%, #b8b607 100%);
+        background: linear-gradient(to bottom, #e0f038 0%, #b8b607 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#e0f038, endColorstr=#b8b607); }
+      #portfolio .item-preview .item-preview-content .item-tech-stack .lang-php {
+        background: #6c12d9;
+        background: -moz-linear-gradient(top, #8b38f0 0%, #6c12d9 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #8b38f0), color-stop(100%, #6c12d9));
+        background: -webkit-linear-gradient(top, #8b38f0 0%, #6c12d9 100%);
+        background: -o-linear-gradient(top, #8b38f0 0%, #6c12d9 100%);
+        background: linear-gradient(to bottom, #8b38f0 0%, #6c12d9 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#8b38f0, endColorstr=#6c12d9); }
+      #portfolio .item-preview .item-preview-content .item-tech-stack .lang-mysql {
+        background: #4b7ad9;
+        background: -moz-linear-gradient(top, #1254d9 0%, #4b7ad9 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #1254d9), color-stop(100%, #4b7ad9));
+        background: -webkit-linear-gradient(top, #1254d9 0%, #4b7ad9 100%);
+        background: -o-linear-gradient(top, #1254d9 0%, #4b7ad9 100%);
+        background: linear-gradient(to bottom, #1254d9 0%, #4b7ad9 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#1254d9, endColorstr=#4b7ad9); }
+      #portfolio .item-preview .item-preview-content .item-tech-stack .lang-python {
+        background: #e7ef00;
+        background: -moz-linear-gradient(top, #1c7aff 0%, #e7ef00 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #1c7aff), color-stop(100%, #e7ef00));
+        background: -webkit-linear-gradient(top, #1c7aff 0%, #e7ef00 100%);
+        background: -o-linear-gradient(top, #1c7aff 0%, #e7ef00 100%);
+        background: linear-gradient(to bottom, #1c7aff 0%, #e7ef00 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#1c7aff, endColorstr=#e7ef00); }
+      #portfolio .item-preview .item-preview-content .item-tech-stack .lang-java {
+        background: #b7171d;
+        background: -moz-linear-gradient(top, #ce4040 0%, #b7171d 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ce4040), color-stop(100%, #b7171d));
+        background: -webkit-linear-gradient(top, #ce4040 0%, #b7171d 100%);
+        background: -o-linear-gradient(top, #ce4040 0%, #b7171d 100%);
+        background: linear-gradient(to bottom, #ce4040 0%, #b7171d 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#ce4040, endColorstr=#b7171d); }
+      #portfolio .item-preview .item-preview-content .item-tech-stack .lang-csharp {
+        background: #a65eed;
+        background: -moz-linear-gradient(top, #6821af 0%, #a65eed 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #6821af), color-stop(100%, #a65eed));
+        background: -webkit-linear-gradient(top, #6821af 0%, #a65eed 100%);
+        background: -o-linear-gradient(top, #6821af 0%, #a65eed 100%);
+        background: linear-gradient(to bottom, #6821af 0%, #a65eed 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#6821af, endColorstr=#a65eed); }
+  #portfolio .item-preview .link-github {
+    font-size: 2em; }
+    #portfolio .item-preview .link-github a {
+      color: #FFFFFF;
+      text-decoration: none; }
+#portfolio .item-toggle-modal {
+  float: right;
+  font-size: 1.2em;
+  position: relative;
+  top: 7px;
+  right: 7px;
+  color: #FFFFFF;
+  cursor: pointer; }
+#portfolio .inverse-icon {
+  color: #404040; }
+#portfolio .item-preview-modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: none;
+  z-index: 999;
+  background: #404040;
+  overflow-x: hidden;
+  overflow-y: scroll; }
+  #portfolio .item-preview-modal .item-toggle-modal {
+    display: block; }
+  #portfolio .item-preview-modal .modal-wrapper {
+    width: 95%;
+    margin: 5% auto;
+    background-color: #FFFFFF;
+    -webkit-transform: translateY(100%);
+    -moz-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    -o-transform: translateY(100%);
+    transform: translateY(100%);
+    -webkit-transition: transform 500ms ease;
+    -moz-transition: transform 500ms ease;
+    -ms-transition: transform 500ms ease;
+    -o-transition: transform 500ms ease;
+    transition: transform 500ms ease; }
+    #portfolio .item-preview-modal .modal-wrapper.open {
+      -webkit-transform: translateY(0px);
+      -moz-transform: translateY(0px);
+      -ms-transform: translateY(0px);
+      -o-transform: translateY(0px);
+      transform: translateY(0px); }
+    #portfolio .item-preview-modal .modal-wrapper h1, #portfolio .item-preview-modal .modal-wrapper h2, #portfolio .item-preview-modal .modal-wrapper h3 {
+      font-weight: 300;
+      margin: 20px 0; }
+    #portfolio .item-preview-modal .modal-wrapper .modal-header .project-title {
+      padding-top: 30px; }
+    #portfolio .item-preview-modal .modal-wrapper .modal-content {
+      padding: 10px 30px 30px 30px;
+      margin-bottom: 20px; }
+      #portfolio .item-preview-modal .modal-wrapper .modal-content a {
+        text-decoration: none; }
+    #portfolio .item-preview-modal .modal-wrapper .modal-footer {
+      padding: 20px; }
+      #portfolio .item-preview-modal .modal-wrapper .modal-footer .icon-github {
+        font-size: 2em; }
+      #portfolio .item-preview-modal .modal-wrapper .modal-footer a {
+        text-decoration: none; }
+
+#connect ul {
+  margin: 0;
+  padding: 0; }
+  #connect ul li {
+    list-style-type: none;
+    display: inline-block;
+    margin-right: 5px; }
+    #connect ul li a {
+      color: #404040;
+      text-decoration: none;
+      font-size: 0.8em; }
+
+.footer-wrapper {
+  color: #999999;
+  font-size: 0.8em;
+  padding: 30px;
+  opacity: 0.7;
+  -webkit-transition: opacity 400ms ease;
+  -moz-transition: opacity 400ms ease;
+  -ms-transition: opacity 400ms ease;
+  -o-transition: opacity 400ms ease;
+  transition: opacity 400ms ease; }
+  .footer-wrapper p {
+    margin-bottom: 5px; }
+  .footer-wrapper:hover {
+    opacity: 1; }
+  .footer-wrapper .icon-heart-footer {
+    opacity: 0.7;
+    -webkit-transition: all 800ms ease;
+    -moz-transition: all 800ms ease;
+    -ms-transition: all 800ms ease;
+    -o-transition: all 800ms ease;
+    transition: all 800ms ease; }
+    .footer-wrapper .icon-heart-footer:hover {
+      color: #db1111;
+      opacity: 1; }
+
+/*# sourceMappingURL=style.css.map */

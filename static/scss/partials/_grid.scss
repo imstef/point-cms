@@ -1,0 +1,105 @@
+/* Global reset styles */
+*, *:after, *:before {
+	margin: 0;
+	padding: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+img {
+	width: auto;
+	max-width: 100%;
+	height: auto !important;
+}
+
+/* Content wrapper */
+.content-wrapper {
+	width: 100%;
+	margin: 0 auto;
+}
+
+/* Rows, Clearfix */
+.content-wrapper:after, .row:after, .clearfix {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+/* Columns */
+/* The [class*=] selector applies the rules on any element that contains the string "column-" */
+/* The min-height property is set so that the column displays properly even if it doesn't have any content */
+[class*='column-'] {
+	float: left;
+	/*padding: 1em; */
+	width: 100%;
+	min-height: 1px;
+}
+
+/* Responsive 12-column grid grid */
+@media only screen and (min-width: 45em) {
+	/* Make the wrapper 95% of the width of the page so that there's a little space between the edges on larger screens */
+	.content-wrapper {
+		width: 95%;
+		max-width: 85em;
+	}
+
+	/* .column-1 (12 columns / 1 = 12 . 100% / 12 = 8.33333%) */
+	.column-1 {
+		width: 8.33333%;
+	}
+
+	/* .column-2 (12 columns / 2 = 6. 100% / 6 = 16.66667%) */
+	.column-2 {
+		width: 16.66667%;
+	}
+
+	/* .column-3 (12 columns / 3 = 4. 100% / 4 = 25%) */
+	.column-3 {
+		width: 25%;
+	}
+
+	/* .column-4 (12 columns / 4 = 3. 100% / 3 = 33.33333%) */
+	.column-4 {
+		width: 33.33333%;
+	}
+
+	/* .column-5 (12 columns / 5 = 2.4. 100% / 2.4 = 41.66667%) */
+	.column-5 {
+		width: 41.66667%;
+	}
+
+	/* .column-6 (12 columns / 6 = 2. 100% / 2 = 50%) */
+	.column-6 {
+		width: 50%;
+	}
+
+	/* .column-7 (12 columns / 7 = 1.71429. 100% / 1.71429 = 58.33333%) */
+	.column-7 {
+		width: 58.33333%;
+	}
+
+	/* .column-8 (12 columns / 8 = 1.5. 100% / 1.5 = 66.66667%) */
+	.column-8 {
+		width: 66.66667%
+	}
+
+	/* .column-9 (12 columns / 9 = 1.33333. 100% / 1.33333 = 16.66667%) */
+	.column-9 {
+		width: 75%;
+	}
+
+	/* .column-10 (12 columns / 10 = 1.2. 100% / 1.2 = 83.33333%) */
+	.column-10 {
+		width: 83.33333%;
+	}
+
+	/* .column-11 (12 columns / 11 = 1.09090. 100% / 6 = 91.66667%) */
+	.column-11 {
+		width: 91.66667%;
+	}
+
+	/* .column-12 (12 columns / 12 = 1. 100% / 1 = 100%) */
+	.column-12 {
+		width: 100%;
+	}
+}

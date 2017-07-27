@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<title>Welcome</title>
+		<meta charset="utf-8">
+	    <meta name="description" content="Test description.">
+	    <meta name="author" content="@imstef, @me">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <!-- CSS, Fonts, Links -->
+	    <link rel="profile" href="https://gmpg.org/xfn/11">
+	    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">
+	    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+	</head>
+
+
+	<body class="preload">
+
+		<div class="content-wrapper">
+
+			{% block body %}{% endblock %}
+
+		</div>
+
+		<!-- JS Scripts -->
+		<script type="text/javascript" src="{{ url_for('static', filename='js/min/jquery-3.2.1.min.js') }}"></script>
+		<script type="text/javascript" src=" {{ url_for('static', filename='js/main.js') }} "></script>
+
+	</body>
+
+</html>
