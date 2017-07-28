@@ -76,7 +76,7 @@ $(document).ready(function() {
             // First section and nav element
             if (scrollY < top_limit) {
                 $('.item-' + first_item).addClass('current-nav-item');
-                $('.main-nav-item:not(.item-' + first_item).each(function(i, obj) {
+                $('.main-nav-item:not(.item-' + first_item).each(function() {
                     $(this).removeClass('current-nav-item');
                 });
                 //console.log('First item!');
@@ -105,45 +105,6 @@ $(document).ready(function() {
             }
         }
 	});
-
-    /**
-     * Portfolio items nav bar that shows/displays current section with the appropriate
-     * nav indicator in the portfolio nav bar.
-     */
-
-    // Defaults
-    $('.nav-item-section-1').addClass('current-nav-item');
-    $('.portfolio-section-1').fadeIn(850);
-
-    // First section
-    $('.nav-item-section-1').on('click', function() {
-        $(this).addClass('current-nav-item');
-        $('.nav-item-section-2').removeClass('current-nav-item');
-        $('.nav-item-section-3').removeClass('current-nav-item');
-        $('.portfolio-section-2').css({ 'display': 'none' });
-        $('.portfolio-section-3').css({ 'display': 'none' });
-        $('.portfolio-section-1').fadeIn(850);
-    });
-
-    // Second section
-    $('.nav-item-section-2').on('click', function() {
-        $(this).addClass('current-nav-item');
-        $('.nav-item-section-1').removeClass('current-nav-item');
-        $('.nav-item-section-3').removeClass('current-nav-item');
-        $('.portfolio-section-1').css({ 'display': 'none' });
-        $('.portfolio-section-3').css({ 'display': 'none' });
-        $('.portfolio-section-2').fadeIn(850);
-    });
-
-    // Third section
-    $('.nav-item-section-3').on('click', function() {
-        $(this).addClass('current-nav-item');
-        $('.nav-item-section-1').removeClass('current-nav-item');
-        $('.nav-item-section-2').removeClass('current-nav-item');
-        $('.portfolio-section-1').css({ 'display': 'none' });
-        $('.portfolio-section-2').css({ 'display': 'none' });
-        $('.portfolio-section-3').fadeIn(850);
-    });
 
     /**
      * Portfolio item preview functionality
@@ -185,7 +146,7 @@ $(document).ready(function() {
      */
     var portfolio_sections = [];
     var num_items = [];
-    $('[class*=\'portfolio-section\']').each(function() {
+    $('.portfolio-section').each(function() {
         portfolio_sections.push($(this));
         num_items.push($(this).data("numitems"));
     });
@@ -194,9 +155,6 @@ $(document).ready(function() {
         var elem_items = parseInt(num_items[i]);
 
         switch(elem_items) {
-            case 3:
-                elem.find('.column-4').addClass('column-4');
-                break;
             case 2:
                 elem.find('.column-4').addClass('column-6');
                 break;
@@ -204,12 +162,53 @@ $(document).ready(function() {
                 elem.find('.column-4').addClass('column-12');
                 break;
             default:
-                console.log("Max number of portfolio items per row is 3")
+                elem.find('.column-4').addClass('column-4');
                 break;
         }
     });
-});
 
+    /**
+     * Portfolio items nav bar that shows/displays current section with the appropriate
+     * nav indicator in the portfolio nav bar.
+     */
+
+    var portfolio_nav_items = [];
+    var portfolio_nav_item_names = [];
+    var first_portfolio_item = 0;
+
+    $('.portfolio-nav-item').each(function(i) {
+        portfolio_nav_items.push($(this));
+        portfolio_nav_item_names.push($(this).text());
+        $(this).addClass('portfolio-nav-item-' + ++i);
+    });
+
+    $('.portfolio-section').each(function(i) {
+        $(this).addClass('section-' + portfolio_nav_item_names[i]);
+    });
+
+    // console.log(portfolio_nav_items);
+    // console.log(portfolio_nav_item_names);
+    // console.log(portfolio_sections);
+
+    portfolio_nav_items[first_portfolio_item].addClass('current-nav-item');
+    portfolio_sections[0].fadeIn();
+
+    $('.portfolio-nav-item').on('click', function() {
+        $('.portfolio-nav-item').each(function(i, obj) {
+            $(this).removeClass('current-nav-item');
+        });
+        $(this).addClass('current-nav-item');
+
+        $.each(portfolio_sections, function(i, obj) {
+            if (portfolio_nav_items[i].hasClass('current-nav-item')) {
+                obj.fadeIn();
+            } else {
+                obj.css({'display' : 'none'});
+            }
+        });
+    });
+});
+    
 /*
  * Helper functions
  *

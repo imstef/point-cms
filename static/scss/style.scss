@@ -60,7 +60,7 @@ body { font-size: 16px; font-family: "Open Sans", sans-serif, helvetica; font-we
   .portfolio-nav { margin-bottom: 20px;
     li { cursor: pointer; }
   }
-  [class*='portfolio-section-'] { display: none;
+  [class*='portfolio-section'] { display: none;
     .section-item { max-width: 100%; margin: 10px auto; background-color: #FFFFFF; border: 1px solid $border_color; border-radius: 3px; }
   }
   .item-content-wrapper { position: relative; width: 355px; height: 230px; }
