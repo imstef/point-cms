@@ -257,9 +257,9 @@ body {
   margin-bottom: 20px; }
   #portfolio .portfolio-nav li {
     cursor: pointer; }
-#portfolio [class*='portfolio-section-'] {
+#portfolio [class*='portfolio-section'] {
   display: none; }
-  #portfolio [class*='portfolio-section-'] .section-item {
+  #portfolio [class*='portfolio-section'] .section-item {
     max-width: 100%;
     margin: 10px auto;
     background-color: #FFFFFF;
