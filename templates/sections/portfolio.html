@@ -1,289 +1,89 @@
 
 {% block body %}
+    
+     {% set info = execute_query("SELECT title, description FROM template_portfolio JOIN section_list USING(sid) WHERE class_id = '%s'" % class_id) %}
 
-    <h1 class="section-title">portfolio</h1>
-    <h4 class="section-description">some of the projects I've worked on</h4>
+    <h1 class="section-title">{{ info[0]["title"] }}</h1>
+    <h4 class="section-description">{{ info[0]["description"] }}</h4>
     <div class="nav-wrapper portfolio-nav ">
         <nav>
+            {% set categories = execute_query("SELECT category FROM template_portfolio_categories ORDER BY position") %}
             <ul>
-                <li class="nav-item nav-item-section-1">web</li>
-                <li class="nav-item nav-item-section-2">games</li>
-                <li class="nav-item nav-item-section-3">design</li>
+                {% for i in range (0, categories | length) %}
+                    {% set temp = i + 1 %}
+                    <li class="nav-item nav-item-section-{{ temp }}">{{ categories[i]["category"] }}</li>
+                {% endfor %}
             </ul>
         </nav>
     </div>
+
     <div class="item-preview-modal">
         <div class="modal-wrapper">
             <span class="icon icon-cancel-circle item-toggle-modal inverse-icon"></span>
-            <div class="project-1">
-                <div class="modal-header">
-                    <h1 class="project-title">Twitter Clone</h1>
-                </div>
-                <div class="modal-content align-left">
-                    <h2>Project Description</h2>
-                    <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid animi asperiores consequatur cupiditate distinctio doloribus eos excepturi exercitationem fugiat, ipsam laborum maiores natus praesentium quam quis, saepe sunt ullam veritatis.</span><span>Amet dolorum ducimus earum iure labore nam pariatur quod rem soluta vel. Accusamus amet aperiam consequuntur culpa deserunt eaque eius excepturi id maiores molestiae non odio, praesentium rem, tempore temporibus.</span><span>Consectetur consequatur, deleniti dicta ea magnam minus non quo quos saepe vitae! Aliquid blanditiis, cumque cupiditate earum exercitationem laborum magni minima natus odio officia, quas quia reprehenderit tenetur unde vel.</span><span>Adipisci est illum labore necessitatibus omnis, pariatur qui quibusdam suscipit? Aliquam atque dignissimos maxime obcaecati perspiciatis. A deserunt hic ipsa iure nam nostrum, odit quo soluta totam velit. Ex, in.</span><span>Atque dignissimos ratione veritatis vero. Accusamus dolorem, enim hic ipsa laborum molestias, mollitia nisi nostrum nulla pariatur quasi ratione rem sequi. Dolore laboriosam officia possimus quam quasi reiciendis, saepe vel!</span></p>
-                    <h2>Technologies and Frameworks</h2>
-                    <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, consequatur cupiditate est exercitationem iste iure magni nesciunt nostrum officiis placeat quaerat quisquam quo ullam, voluptate voluptatibus! Dolorem expedita incidunt repellat.</span><span>Dolores laudantium magnam nam non quas tempore vel? Animi eos eum ipsum obcaecati odit possimus quo. Aliquid, atque corporis dolor illo iste nemo nobis officiis quasi repudiandae sequi, tempora unde!</span>
-                    </p>
-                    <h2>Screenshots</h2>
-                    <div class="gallery">
-                        Screenshot 1
-                        Screenshot 2
-                        Screenshot 3
+
+            {% set query =  "SELECT tpc.category, tpp.title, tpp.description, tpp.logo, tpp.modal_content, tpp.technologies FROM template_portfolio JOIN section_list sl USING (sid) JOIN template_portfolio_projects tpp USING(tpid) JOIN template_portfolio_categories tpc USING (cid) WHERE class_id = '%s' ORDER BY tpc.position" % class_id %}
+
+            {% set data = execute_query(query) %} 
+
+            {% for i in range(0, data | length) %}
+                {% set temp = i + 1 %}
+                <div class="project-{{ temp }}">
+                    <div class="modal-header">
+                        <h1 class="project-title">{{ data[i]["title"] }}</h1>
+                    </div>
+                    <div class="modal-content align-left">
+                        {{ data[i]["modal_content"] | safe }}
                     </div>
                 </div>
-                <div class="modal-footer">
+                <!--<div class="modal-footer">
                     <div class="link-github align-center"><a href="#"><span class="icon icon-github inverse-icon"></span></a></div>
-                </div>
-            </div>
-            <div class="project-2">
-                <div class="modal-header">
-                    <h1 class="project-title">Weather App</h1>
-                </div>
-                <div class="modal-content align-left">
-                    <h2>Project Description</h2>
-                    <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid animi asperiores consequatur cupiditate distinctio doloribus eos excepturi exercitationem fugiat, ipsam laborum maiores natus praesentium quam quis, saepe sunt ullam veritatis.</span><span>Amet dolorum ducimus earum iure labore nam pariatur quod rem soluta vel. Accusamus amet aperiam consequuntur culpa deserunt eaque eius excepturi id maiores molestiae non odio, praesentium rem, tempore temporibus.</span><span>Consectetur consequatur, deleniti dicta ea magnam minus non quo quos saepe vitae! Aliquid blanditiis, cumque cupiditate earum exercitationem laborum magni minima natus odio officia, quas quia reprehenderit tenetur unde vel.</span><span>Adipisci est illum labore necessitatibus omnis, pariatur qui quibusdam suscipit? Aliquam atque dignissimos maxime obcaecati perspiciatis. A deserunt hic ipsa iure nam nostrum, odit quo soluta totam velit. Ex, in.</span><span>Atque dignissimos ratione veritatis vero. Accusamus dolorem, enim hic ipsa laborum molestias, mollitia nisi nostrum nulla pariatur quasi ratione rem sequi. Dolore laboriosam officia possimus quam quasi reiciendis, saepe vel!</span></p>
-                    <h2>Technologies and Frameworks</h2>
-                    <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, consequatur cupiditate est exercitationem iste iure magni nesciunt nostrum officiis placeat quaerat quisquam quo ullam, voluptate voluptatibus! Dolorem expedita incidunt repellat.</span><span>Dolores laudantium magnam nam non quas tempore vel? Animi eos eum ipsum obcaecati odit possimus quo. Aliquid, atque corporis dolor illo iste nemo nobis officiis quasi repudiandae sequi, tempora unde!</span>
-                    </p>
-                    <h2>Screenshots</h2>
-                    <div class="gallery">
-                        Screenshot 1
-                        Screenshot 2
-                        Screenshot 3
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <div class="link-github align-center"><a href="#"><span class="icon icon-github inverse-icon"></span></a></div>
-                </div>
-            </div>
-            <div class="project-3">
-                <div class="modal-header">
-                    <h1 class="project-title">Social Network App</h1>
-                </div>
-                <div class="modal-content align-left">
-                    <h2>Project Description</h2>
-                    <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid animi asperiores consequatur cupiditate distinctio doloribus eos excepturi exercitationem fugiat, ipsam laborum maiores natus praesentium quam quis, saepe sunt ullam veritatis.</span><span>Amet dolorum ducimus earum iure labore nam pariatur quod rem soluta vel. Accusamus amet aperiam consequuntur culpa deserunt eaque eius excepturi id maiores molestiae non odio, praesentium rem, tempore temporibus.</span><span>Consectetur consequatur, deleniti dicta ea magnam minus non quo quos saepe vitae! Aliquid blanditiis, cumque cupiditate earum exercitationem laborum magni minima natus odio officia, quas quia reprehenderit tenetur unde vel.</span><span>Adipisci est illum labore necessitatibus omnis, pariatur qui quibusdam suscipit? Aliquam atque dignissimos maxime obcaecati perspiciatis. A deserunt hic ipsa iure nam nostrum, odit quo soluta totam velit. Ex, in.</span><span>Atque dignissimos ratione veritatis vero. Accusamus dolorem, enim hic ipsa laborum molestias, mollitia nisi nostrum nulla pariatur quasi ratione rem sequi. Dolore laboriosam officia possimus quam quasi reiciendis, saepe vel!</span></p>
-                    <h2>Technologies and Frameworks</h2>
-                    <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, consequatur cupiditate est exercitationem iste iure magni nesciunt nostrum officiis placeat quaerat quisquam quo ullam, voluptate voluptatibus! Dolorem expedita incidunt repellat.</span><span>Dolores laudantium magnam nam non quas tempore vel? Animi eos eum ipsum obcaecati odit possimus quo. Aliquid, atque corporis dolor illo iste nemo nobis officiis quasi repudiandae sequi, tempora unde!</span>
-                    </p>
-                    <h2>Screenshots</h2>
-                    <div class="gallery">
-                        Screenshot 1
-                        Screenshot 2
-                        Screenshot 3
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <div class="link-github align-center"><a href="#"><span class="icon icon-github inverse-icon"></span></a></div>
-                </div>
-            </div>
-            <div class="project-4">
-                <div class="modal-header">
-                    <h1 class="project-title">Snake game</h1>
-                </div>
-                <div class="modal-content align-left">
-                    <h2>Project Description</h2>
-                    <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid animi asperiores consequatur cupiditate distinctio doloribus eos excepturi exercitationem fugiat, ipsam laborum maiores natus praesentium quam quis, saepe sunt ullam veritatis.</span><span>Amet dolorum ducimus earum iure labore nam pariatur quod rem soluta vel. Accusamus amet aperiam consequuntur culpa deserunt eaque eius excepturi id maiores molestiae non odio, praesentium rem, tempore temporibus.</span><span>Consectetur consequatur, deleniti dicta ea magnam minus non quo quos saepe vitae! Aliquid blanditiis, cumque cupiditate earum exercitationem laborum magni minima natus odio officia, quas quia reprehenderit tenetur unde vel.</span><span>Adipisci est illum labore necessitatibus omnis, pariatur qui quibusdam suscipit? Aliquam atque dignissimos maxime obcaecati perspiciatis. A deserunt hic ipsa iure nam nostrum, odit quo soluta totam velit. Ex, in.</span><span>Atque dignissimos ratione veritatis vero. Accusamus dolorem, enim hic ipsa laborum molestias, mollitia nisi nostrum nulla pariatur quasi ratione rem sequi. Dolore laboriosam officia possimus quam quasi reiciendis, saepe vel!</span></p>
-                    <h2>Technologies and Frameworks</h2>
-                    <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, consequatur cupiditate est exercitationem iste iure magni nesciunt nostrum officiis placeat quaerat quisquam quo ullam, voluptate voluptatibus! Dolorem expedita incidunt repellat.</span><span>Dolores laudantium magnam nam non quas tempore vel? Animi eos eum ipsum obcaecati odit possimus quo. Aliquid, atque corporis dolor illo iste nemo nobis officiis quasi repudiandae sequi, tempora unde!</span>
-                    </p>
-                    <h2>Screenshots</h2>
-                    <div class="gallery">
-                        Screenshot 1
-                        Screenshot 2
-                        Screenshot 3
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <div class="link-github align-center"><a href="#"><span class="icon icon-github inverse-icon"></span></a></div>
-                </div>
-            </div>
+                </div>-->
+            {% endfor %}
         </div>
     </div>
+
     <div class="section-content">
-        <div class="portfolio-section-1" data-numitems="3">
-            <div class="column-4">
-                <div class="section-item display-table">
-                    <div class="item-content-wrapper display-table-cell">
-                        <div class="item-title">Twitter Clone</div>
-                        <div class="item-logo">Logo</div>
-                        <div class="item-preview">
-                            <span class="icon icon-circle-up item-toggle-modal" data-mod="project-1"></span>
-                            <div class="item-preview-content">
-                                <div class="item-title">Twitter Clone</div>
-                                <div class="item-description">lightweight and minimal Twitter-like updates sharing platform.</div>
-                                <div class="item-tech-stack">
-                                    <div class="tech-stack-title">
-                                        <span class="icon icon-stack"></span><span class="tech-stack-title-text">Tech Stack</span>
+        {% set project_numb = [1] %}
+        {% for i in range(0, categories | length) %}
+            {% set temp = i + 1 %}
+            <div class="portfolio-section-{{ temp }}" data-numitems="2">
+                {% for j in range(0, data | length) %}
+                    {% if categories[i]["category"] == data[j]["category"] %}
+                        <div class="column-4">
+                            <div class="section-item display-table">
+                                <div class="item-content-wrapper display-table-cell">
+                                    <div class="item-title">{{ data[j]["title"] }}</div>
+                                    <div class="item-logo">{{ data[j]["logo"] }}</div>
+                                    <div class="item-preview">
+                                        <span class="icon icon-circle-up item-toggle-modal" data-mod="project-{{ project_numb[0] }}"></span>
+                                        <div class="item-preview-content">
+                                            <div class="item-title">{{ data[j]["title"] }}</div>
+                                            <div class="item-description">{{ data[j]["description"] }}</div>
+                                            <div class="item-tech-stack">
+                                                <div class="tech-stack-title">
+                                                    <span class="icon icon-stack"></span><span class="tech-stack-title-text">Tech Stack</span>
+                                                </div>
+                                                <span class="tech-stack-icon lang-php">PHP</span>
+                                                <span class="tech-stack-icon lang-js">JS</span>
+                                                <span class="tech-stack-icon lang-python">Python</span>
+                                                <span class="tech-stack-icon lang-java">Java</span>
+                                                <span class="tech-stack-icon lang-csharp">C#</span>
+                                            </div>
+                                            <div class="link-github"><a href="#" target="_blank"><span class="icon icon-github"></span></a></div>
+                                        </div>
                                     </div>
-                                    <span class="tech-stack-icon lang-php">PHP</span>
-                                    <span class="tech-stack-icon lang-js">JS</span>
-                                    <span class="tech-stack-icon lang-python">Python</span>
-                                    <span class="tech-stack-icon lang-java">Java</span>
-                                    <span class="tech-stack-icon lang-csharp">C#</span>
                                 </div>
-                                <div class="link-github"><a href="#" target="_blank"><span class="icon icon-github"></span></a></div>
                             </div>
                         </div>
-                    </div>
-                </div>
+                        {% if project_numb.append(project_numb.pop() + 1) %}{% endif %}
+                    {% endif %}
+
+                {% endfor %}
+               <div class="clearfix"></div>
             </div>
-            <div class="column-4">
-                <div class="section-item display-table">
-                    <div class="item-content-wrapper display-table-cell">
-                        <div class="item-title">Weather App</div>
-                        <div class="item-logo">Logo</div>
-                        <div class="item-preview">
-                            <span class="icon icon-circle-up item-toggle-modal" data-mod="project-2"></span>
-                            <div class="item-preview-content">
-                                <div class="item-title">Weather App</div>
-                                <div class="item-description">weather app.</div>
-                                <div class="item-tech-stack">
-                                    <div class="tech-stack-title">
-                                        <span class="icon icon-stack"></span><span class="tech-stack-title-text">Tech Stack</span>
-                                    </div>
-                                    <span class="tech-stack-icon lang-php">PHP</span>
-                                    <span class="tech-stack-icon lang-js">JS</span>
-                                </div>
-                                <div class="link-github"><a href="#" target="_blank"><span class="icon icon-github"></span></a></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="column-4">
-                <div class="section-item display-table">
-                    <div class="item-content-wrapper display-table-cell">
-                        <div class="item-title">Social Network</div>
-                        <div class="item-logo">Logo</div>
-                        <div class="item-preview">
-                            <span class="icon icon-circle-up item-toggle-modal" data-mod="project-3"></span>
-                            <div class="item-preview-content">
-                                <div class="item-title">Social Network</div>
-                                <div class="item-description">MVC-based social network</div>
-                                <div class="item-tech-stack">
-                                    <div class="tech-stack-title">
-                                        <span class="icon icon-stack"></span><span class="tech-stack-title-text">Tech Stack</span>
-                                    </div>
-                                    <span class="tech-stack-icon lang-java">JAVA</span>
-                                    <span class="tech-stack-icon lang-js">JS</span>
-                                    <span class="tech-stack-icon lang-html">HTML</span>
-                                    <span class="tech-stack-icon lang-css">CSS</span>
-                                </div>
-                                <div class="link-github"><a href="#" target="_blank"><span class="icon icon-github"></span></a></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="column-4">
-                <div class="section-item display-table">
-                    <div class="item-content-wrapper display-table-cell">
-                        <div class="item-title">Healthy Lifestyle</div>
-                        <div class="item-logo">Logo</div>
-                        <div class="item-preview">
-                            <span class="icon icon-circle-up item-toggle-modal" data-mod="project-3"></span>
-                            <div class="item-preview-content">
-                                <div class="item-title">Social Network</div>
-                                <div class="item-description">MVC-based social network</div>
-                                <div class="item-tech-stack">
-                                    <div class="tech-stack-title">
-                                        <span class="icon icon-stack"></span><span class="tech-stack-title-text">Tech Stack</span>
-                                    </div>
-                                    <span class="tech-stack-icon lang-java">JAVA</span>
-                                    <span class="tech-stack-icon lang-js">JS</span>
-                                    <span class="tech-stack-icon lang-html">HTML</span>
-                                    <span class="tech-stack-icon lang-css">CSS</span>
-                                </div>
-                                <div class="link-github"><a href="#" target="_blank"><span class="icon icon-github"></span></a></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="column-4">
-                <div class="section-item display-table">
-                    <div class="item-content-wrapper display-table-cell">
-                        <div class="item-title">Social App</div>
-                        <div class="item-logo">Logo</div>
-                        <div class="item-preview">
-                            <span class="icon icon-circle-up item-toggle-modal" data-mod="project-3"></span>
-                            <div class="item-preview-content">
-                                <div class="item-title">Social Network</div>
-                                <div class="item-description">MVC-based social network</div>
-                                <div class="item-tech-stack">
-                                    <div class="tech-stack-title">
-                                        <span class="icon icon-stack"></span><span class="tech-stack-title-text">Tech Stack</span>
-                                    </div>
-                                    <span class="tech-stack-icon lang-java">JAVA</span>
-                                    <span class="tech-stack-icon lang-js">JS</span>
-                                    <span class="tech-stack-icon lang-html">HTML</span>
-                                    <span class="tech-stack-icon lang-css">CSS</span>
-                                </div>
-                                <div class="link-github"><a href="#" target="_blank"><span class="icon icon-github"></span></a></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="column-4">
-                <div class="section-item display-table">
-                    <div class="item-content-wrapper display-table-cell">
-                        <div class="item-title">Network Crawl</div>
-                        <div class="item-logo">Logo</div>
-                        <div class="item-preview">
-                            <span class="icon icon-circle-up item-toggle-modal" data-mod="project-3"></span>
-                            <div class="item-preview-content">
-                                <div class="item-title">Social Network</div>
-                                <div class="item-description">MVC-based social network</div>
-                                <div class="item-tech-stack">
-                                    <div class="tech-stack-title">
-                                        <span class="icon icon-stack"></span><span class="tech-stack-title-text">Tech Stack</span>
-                                    </div>
-                                    <span class="tech-stack-icon lang-java">JAVA</span>
-                                    <span class="tech-stack-icon lang-js">JS</span>
-                                    <span class="tech-stack-icon lang-html">HTML</span>
-                                    <span class="tech-stack-icon lang-css">CSS</span>
-                                </div>
-                                <div class="link-github"><a href="#" target="_blank"><span class="icon icon-github"></span></a></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="clearfix"></div>
-        </div>
-        <div class="portfolio-section-2" data-numitems="2">
-            <div class="column-4">
-                <div class="section-item display-table">
-                    <div class="item-content-wrapper display-table-cell">
-                        <div class="item-title">Snake Game</div>
-                        <div class="item-logo">Logo</div>
-                        <div class="item-preview">
-                            <span class="icon icon-circle-up item-toggle-modal" data-mod="project-4"></span>
-                            <div class="item-preview-content">
-                                <div class="item-title">Snake Game</div>
-                                <div class="item-description">snake game</div>
-                                <div class="item-tech-stack">
-                                    <div class="tech-stack-title">
-                                        <span class="icon icon-stack"></span><span class="tech-stack-title-text">Tech Stack</span>
-                                    </div>
-                                    <span class="tech-stack-icon lang-java">JAVA</span>
-                                </div>
-                                <div class="link-github"><a href="#" target="_blank"><span class="icon icon-github"></span></a></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="column-4">Second Project</div>
-            <div class="clearfix"></div>
-        </div>
-        <div class="portfolio-section-3" data-numitems="1">
-            <div class="column-4">Empty section</div>
-            <div class="clearfix"></div>
-        </div>
+        {% endfor %}
+
     </div>
+
 
 {% endblock %}

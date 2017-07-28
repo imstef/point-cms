@@ -1,5 +1,7 @@
 {% block body %}
+	
+	 {% set query = "SELECT content from template_blank JOIN section_list USING(sid) WHERE class_id = '%s'" % class_id %} 
 
-	{{ data[0]["content"] | safe }}
+	 {{ execute_query(query)[0]["content"] | safe }} 
 
 {% endblock %}

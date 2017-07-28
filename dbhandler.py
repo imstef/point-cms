@@ -1,4 +1,4 @@
-
+import gc
 from flask_mysqldb import MySQL
 
 # global variables
@@ -38,6 +38,8 @@ class DatabaseConnection:
 	# close database connection
 	def close(self):
 		self.cursor.close()
+		gc.collect()
+		return ""
 	# end def
 
 # end class
