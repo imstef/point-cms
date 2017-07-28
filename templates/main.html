@@ -25,10 +25,7 @@
 						<!-- Set path for section template -->
 						{% set path = 'sections/' + attributes["type"] + ".html" %}
 
-						<!-- Get data for given section type and class_id -->
-						{% if attributes["class_id"] != "portfolio" %}
-							{% set data = get_data(attributes["type"], attributes["class_id"] ) %}
-						{% endif %}
+						{% set class_id = attributes["class_id"] %}
 
 						<!-- Include template -->
 						{% include path %} 

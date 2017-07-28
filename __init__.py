@@ -1,6 +1,5 @@
 
 from flask import Flask, render_template, url_for
-import gc
 # files
 from dbhandler import DatabaseConnection
 
@@ -26,29 +25,9 @@ def homepage():
 
 # end def
 
-def get_data(type, arg):
-
-	# query for calling procedure
-	query = "CALL template_{}_procedure('{}')".format(type, arg)
-
-	# execute query and get result
-	data = connection.execute_query(query)
-
-	return data
-
-# end def
-
-def close():
-	# close database connection
-	connection.close()
-	gc.collect()
-	return ""
-# end def
-
 # global variables that cna be accessed from Jinja templates
-app.jinja_env.globals.update(get_data=get_data)
-app.jinja_env.globals.update(close=close)
-
+app.jinja_env.globals.update(close=connection.close)
+app.jinja_env.globals.update(execute_query=connection.execute_query)
 
 if __name__ == "__main__":
     app.run()
