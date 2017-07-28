@@ -10,8 +10,7 @@
             {% set categories = execute_query("SELECT category FROM template_portfolio_categories ORDER BY position") %}
             <ul>
                 {% for i in range (0, categories | length) %}
-                    {% set temp = i + 1 %}
-                    <li class="nav-item nav-item-section-{{ temp }}">{{ categories[i]["category"] }}</li>
+                    <li class="nav-item portfolio-nav-item">{{ categories[i]["category"] }}</li>
                 {% endfor %}
             </ul>
         </nav>
@@ -45,8 +44,7 @@
     <div class="section-content">
         {% set project_numb = [1] %}
         {% for i in range(0, categories | length) %}
-            {% set temp = i + 1 %}
-            <div class="portfolio-section-{{ temp }}" data-numitems="2">
+            <div class="portfolio-section" data-numitems="1">
                 {% for j in range(0, data | length) %}
                     {% if categories[i]["category"] == data[j]["category"] %}
                         <div class="column-4">
