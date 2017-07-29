@@ -20,7 +20,7 @@
         <div class="modal-wrapper">
             <span class="icon icon-cancel-circle item-toggle-modal inverse-icon"></span>
 
-            {% set query =  "SELECT tpc.category, tpp.title, tpp.description, tpp.logo, tpp.modal_content, tpp.technologies FROM template_portfolio JOIN section_list sl USING (sid) JOIN template_portfolio_projects tpp USING(tpid) JOIN template_portfolio_categories tpc USING (cid) WHERE class_id = '%s' ORDER BY tpc.position" % class_id %}
+            {% set query =  "SELECT tpc.category, tpp.title, tpp.description, tpp.logo, tpp.modal_content, tpp.technologies, tpp.link, tpp.link_icon FROM template_portfolio JOIN section_list sl USING (sid) JOIN template_portfolio_projects tpp USING(tpid) JOIN template_portfolio_categories tpc USING (cid) WHERE class_id = '%s' ORDER BY tpc.position" % class_id %}
 
             {% set data = execute_query(query) %} 
 
@@ -33,10 +33,12 @@
                     <div class="modal-content align-left">
                         {{ data[i]["modal_content"] | safe }}
                     </div>
+                    <div class="modal-footer">
+                        <div class="link-{{ data[i]['link_icon'] }} align-center"><a href="{{ data[i]['link'] }}" target="_blank"><span class="icon icon-{{ data[i]['link_icon'] }} inverse-icon"></span></a></div>
+                    </div>
+                    
                 </div>
-                <!--<div class="modal-footer">
-                    <div class="link-github align-center"><a href="#"><span class="icon icon-github inverse-icon"></span></a></div>
-                </div>-->
+                
             {% endfor %}
         </div>
     </div>
@@ -51,7 +53,11 @@
                             <div class="section-item display-table">
                                 <div class="item-content-wrapper display-table-cell">
                                     <div class="item-title">{{ data[j]["title"] }}</div>
-                                    <div class="item-logo">{{ data[j]["logo"] }}</div>
+
+                                    {% set logo = data[j]["logo"] %}
+
+                                    <div class="item-logo"><img src="{{ url_for('static', filename=logo) }}"/></div>
+
                                     <div class="item-preview">
                                         <span class="icon icon-circle-up item-toggle-modal" data-mod="project-{{ project_numb[0] }}"></span>
                                         <div class="item-preview-content">
@@ -61,13 +67,13 @@
                                                 <div class="tech-stack-title">
                                                     <span class="icon icon-stack"></span><span class="tech-stack-title-text">Tech Stack</span>
                                                 </div>
-                                                <span class="tech-stack-icon lang-php">PHP</span>
-                                                <span class="tech-stack-icon lang-js">JS</span>
-                                                <span class="tech-stack-icon lang-python">Python</span>
-                                                <span class="tech-stack-icon lang-java">Java</span>
-                                                <span class="tech-stack-icon lang-csharp">C#</span>
+
+                                                {% for lang in data[j]["technologies"].split(";") %}
+                                                    <span class="tech-stack-icon lang-{{ lang }}">{{ lang }}</span>
+                                                {% endfor %}
+
                                             </div>
-                                            <div class="link-github"><a href="#" target="_blank"><span class="icon icon-github"></span></a></div>
+                                            <div class="link-{{ data[j]['link_icon'] }}"><a href="{{ data[j]['link'] }}" target="_blank" "><span class="icon icon-{{ data[j]['link_icon'] }}"></span></a></div>
                                         </div>
                                     </div>
                                 </div>

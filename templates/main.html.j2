@@ -1,9 +1,9 @@
-{% extends "header.html" %}
+{% extends "header.html.j2" %}
 
 {% block body %}
 	
 	<!-- Include navigation file -->
-	{% include "sections/main_navigation.html" %}
+	{% include "sections/main_navigation.html.j2" %}
 
 	<!-- Loop thought all dictionaries -->
 	{% for i in range(0, sections | length) %}
@@ -23,7 +23,7 @@
 					<div class="section-wrapper">
 
 						<!-- Set path for section template -->
-						{% set path = 'sections/' + attributes["type"] + ".html" %}
+						{% set path = 'sections/' + attributes["type"] + ".html.j2" %}
 
 						{% set class_id = attributes["class_id"] %}
 
@@ -42,7 +42,7 @@
 		</div>
 	{% endfor %}
 
-	{% include 'sections/footer.html' %}
+	{% include 'sections/footer.html.j2' %}
 
 	{{ close() }}
 

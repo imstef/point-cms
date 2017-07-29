@@ -20,7 +20,7 @@ def homepage():
 	# execute query and get result
 	sections = connection.execute_query(query)
 
-	return render_template('main.html', sections=sections)
+	return render_template('main.html.j2', sections=sections)
 
 # end def
 

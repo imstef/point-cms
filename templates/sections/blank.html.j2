@@ -1,0 +1,13 @@
+{% block body %}
+	
+	 {% set query = "SELECT title, description, content from template_blank JOIN section_list USING(sid) WHERE class_id = '%s'" % class_id %} 
+
+	 {% set data = execute_query(query) %}
+
+	 <h1 class="section-title">{{ data[0]["title"] }}</h1>
+
+	 <h4 class="section-description">{{ data[0]["description"] }}</h4>
+
+	 <div class="section-content"> {{ data[0]["content"] | safe }} </div>
+
+{% endblock %}
