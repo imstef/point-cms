@@ -140,31 +140,29 @@ $(document).ready(function() {
         });
     });
 
-    /*
-     * Managing how a section displays using a CSS grid system
-     *
-     */
-    var portfolio_sections = [];
-    var num_items = [];
-    $('.portfolio-section').each(function() {
-        portfolio_sections.push($(this));
-        num_items.push($(this).data("numitems"));
+    // On click outside modal content, close the modal
+    $(window).on('click', function(e) {
+        if (e.target == $('.item-preview-modal')[0]) {
+            $(".item-preview-modal").css({'display': 'none'});
+            $('.modal-wrapper').removeClass('open');
+            $('body').removeClass('no-scroll');
+        }
     });
 
-    $.each(portfolio_sections, function(i, elem) {
-        var elem_items = parseInt(num_items[i]);
+    // On esc key, close the modal
+    $(document).keyup(function(e) {
+      if (e.keyCode === 27) {
+        $(".item-preview-modal").css({'display': 'none'});
+        $('.modal-wrapper').removeClass('open');
+        $('body').removeClass('no-scroll');
+      }
+    });
 
-        switch(elem_items) {
-            case 2:
-                elem.find('.column-4').addClass('column-6');
-                break;
-            case 1:
-                elem.find('.column-4').addClass('column-12');
-                break;
-            default:
-                elem.find('.column-4').addClass('column-4');
-                break;
-        }
+    var portfolio_sections = [];
+    var num_items = [];
+
+    $('.portfolio-section').each(function(i) {
+        portfolio_sections.push($(this));
     });
 
     /**
@@ -186,9 +184,33 @@ $(document).ready(function() {
         $(this).addClass('section-' + portfolio_nav_item_names[i]);
     });
 
-    // console.log(portfolio_nav_items);
-    // console.log(portfolio_nav_item_names);
-    // console.log(portfolio_sections);
+    for (var i = 0; i < portfolio_sections.length; i++) {
+        var count = $('.section-'+ portfolio_nav_item_names[i]).find('.column-4').length;
+        num_items.push(count);
+    }
+
+    $('.portfolio-section').each(function(i) {
+        $(this).attr("data-numitems", num_items[i]);
+    });
+
+    /*
+     * Managing how a section displays using a CSS grid system
+     *
+     */
+    $.each(portfolio_sections, function(i, elem) {
+        var elem_items = parseInt(num_items[i]);
+
+        switch(elem_items) {
+            case 2:
+                elem.find('.column-4').addClass('column-6');
+                break;
+            case 1:
+                elem.find('.column-4').addClass('column-12');
+                break;
+        }
+    });
+
+    console.log(num_items);
 
     portfolio_nav_items[first_portfolio_item].addClass('current-nav-item');
     portfolio_sections[0].fadeIn();

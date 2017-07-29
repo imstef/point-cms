@@ -46,7 +46,7 @@
     <div class="section-content">
         {% set project_numb = [1] %}
         {% for i in range(0, categories | length) %}
-            <div class="portfolio-section" data-numitems="1">
+            <div class="portfolio-section" data-numitems="">
                 {% for j in range(0, data | length) %}
                     {% if categories[i]["category"] == data[j]["category"] %}
                         <div class="column-4">
