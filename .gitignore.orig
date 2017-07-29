@@ -1,0 +1,28 @@
+.DS_Store
+.env
+.flaskenv
+*.pyc
+*.pyo
+env
+env*
+dist
+build
+*.egg
+*.egg-info
+_mailinglist
+.tox
+.cache/
+.idea/
+<<<<<<< HEAD
+mbconf.py
+
+=======
+flask/
+.sass-cache/
+mbconf.py
+>>>>>>> a103d6de3da979ccf493f4cb46ed7851a6395014
+# Coverage reports
+htmlcov
+.coverage
+.coverage.*
+*,cover
