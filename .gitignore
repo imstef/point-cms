@@ -14,6 +14,8 @@ _mailinglist
 .cache/
 .idea/
 flask/
+.sass-cache/
+mbconf.py
 # Coverage reports
 htmlcov
 .coverage
