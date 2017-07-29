@@ -29,4 +29,4 @@ app.jinja_env.globals.update(close=connection.close)
 app.jinja_env.globals.update(execute_query=connection.execute_query)
 
 if __name__ == "__main__":
-	app.run()
+	app.run(*RUN_ARGS)
