@@ -1,5 +1,7 @@
 import gc
 from flask_mysqldb import MySQL
+#files
+from mbconf import *
 
 # global variables
 class DatabaseConnection:
@@ -11,10 +13,10 @@ class DatabaseConnection:
 
 	def config(self):
 		# Config MySQL
-		self.app.config['MYSQL_HOST'] = 'localhost'
-		self.app.config['MYSQL_USER'] = 'root'
-		self.app.config['MYSQL_PASSWORD'] = 'jupiter123'
-		self.app.config['MYSQL_DB'] = 'moonbow'
+		self.app.config['MYSQL_HOST'] = MYSQL_HOST
+		self.app.config['MYSQL_USER'] = MYSQL_USER
+		self.app.config['MYSQL_PASSWORD'] = MYSQL_PASSWORD
+		self.app.config['MYSQL_DB'] = MYSQL_DB
 		self.app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 
 		# init MySQL

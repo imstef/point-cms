@@ -2,10 +2,9 @@
 from flask import Flask, render_template, url_for
 # files
 from dbhandler import DatabaseConnection
+from mbconf import *
 
 app = Flask(__name__)
-# debug mode on
-app.debug = True
 
 # config Database
 connection = DatabaseConnection(app)
@@ -30,4 +29,4 @@ app.jinja_env.globals.update(close=connection.close)
 app.jinja_env.globals.update(execute_query=connection.execute_query)
 
 if __name__ == "__main__":
-    app.run()
+	app.run()
