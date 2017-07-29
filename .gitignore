@@ -13,8 +13,14 @@ _mailinglist
 .tox
 .cache/
 .idea/
-mbconf.py
 
+
+
+=======
+flask/
+.sass-cache/
+mbconf.py
+>>>>>>> a103d6de3da979ccf493f4cb46ed7851a6395014
 # Coverage reports
 htmlcov
 .coverage
