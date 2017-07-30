@@ -1,7 +1,6 @@
-
 {% block body %}
     
-     {% set info = execute_query("SELECT title, description FROM template_portfolio JOIN section_list USING(sid) WHERE class_id = '%s'" % class_id) %}
+    {% set info = execute_query("SELECT title, description FROM template_portfolio JOIN section_list USING(sid) WHERE class_id = '%s'" % class_id) %}
 
     <h1 class="section-title">{{ info[0]["title"] }}</h1>
     <h4 class="section-description">{{ info[0]["description"] }}</h4>
@@ -26,7 +25,7 @@
 
             {% for i in range(0, data | length) %}
                 {% set temp = i + 1 %}
-                <div class="project-{{ temp }}">
+                <div class="portfolio-item-{{ temp }}">
                     <div class="modal-header">
                         <h1 class="project-title">{{ data[i]["title"] }}</h1>
                     </div>
@@ -50,8 +49,8 @@
                 {% for j in range(0, data | length) %}
                     {% if categories[i]["category"] == data[j]["category"] %}
                         <div class="column-4">
-                            <div class="section-item display-table">
-                                <div class="item-content-wrapper display-table-cell">
+                            <div class="portfolio-item display-table">
+                                <div class="item-content display-table-cell">
                                     <div class="item-title">{{ data[j]["title"] }}</div>
 
                                     {% set logo = data[j]["logo"] %}
@@ -59,8 +58,8 @@
                                     <div class="item-logo"><img src="{{ url_for('static', filename=logo) }}"/></div>
 
                                     <div class="item-preview">
-                                        <span class="icon icon-circle-up item-toggle-modal" data-mod="project-{{ project_numb[0] }}"></span>
-                                        <div class="item-preview-content">
+                                        <span class="icon icon-circle-up item-toggle-modal" data-mod="portfolio-item-{{ project_numb[0] }}"></span>
+                                        <div class="preview-content">
                                             <div class="item-title">{{ data[j]["title"] }}</div>
                                             <div class="item-description">{{ data[j]["description"] }}</div>
                                             <div class="item-tech-stack">
@@ -88,6 +87,5 @@
         {% endfor %}
 
     </div>
-
 
 {% endblock %}

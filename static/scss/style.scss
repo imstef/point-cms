@@ -61,11 +61,11 @@ body { font-size: 16px; font-family: "Open Sans", sans-serif, helvetica; font-we
     li { cursor: pointer; }
   }
   [class*='portfolio-section'] { display: none;
-    .section-item { max-width: 100%; margin: 10px auto; background-color: #FFFFFF; border: 1px solid $border_color; border-radius: 3px; }
+    .portfolio-item { max-width: 100%; margin: 10px auto; background-color: #FFFFFF; border: 1px solid $border_color; border-radius: 3px; }
   }
-  .item-content-wrapper { position: relative; width: 355px; height: 230px; }
+  .item-content { position: relative; width: 355px; height: 230px; }
   .item-preview { display: none; position: absolute; top: 0; left: 0; bottom: 0; right: 0; background-color: #404040; color: #FFFFFF;
-    .item-preview-content { padding-top: 25px;
+    .preview-content { padding-top: 25px;
       .item-title { font-size: 1.2em; margin-bottom: 5px; }
       .item-description { font-size: 0.8em; margin-bottom: 15px; letter-spacing: 0.002em; line-height: 1.2em; }
       .item-tech-stack {
@@ -73,15 +73,7 @@ body { font-size: 16px; font-family: "Open Sans", sans-serif, helvetica; font-we
         .tech-stack-title { margin-bottom: 15px; }
         .tech-stack-title-text { font-size: 0.9em; position: relative; top: -5px; left: 5px; }
         .icon-stack { font-size: 1.5em; }
-        .tech-stack-icon { padding: 4px 12px; margin-right: 5px; font-size: 0.7em; letter-spacing: 0.002em; border-radius: 3px; }
-        .lang-css { @include linear-gradient(#4a7ddf, #2b5ec0); }
-        .lang-html { @include linear-gradient(#cc4208, #e96a35); }
-        .lang-js { @include linear-gradient(#e0f038, #b8b607); }
-        .lang-php { @include linear-gradient(#8b38f0, #6c12d9); }
-        .lang-mysql { @include linear-gradient(#1254d9, #4b7ad9); }
-        .lang-python { @include linear-gradient(#1c7aff, #e7ef00); }
-        .lang-java { @include linear-gradient(#ce4040, #b7171d); }
-        .lang-csharp { @include linear-gradient(#6821af, #a65eed); }
+        .tech-stack-icon { padding: 4px 12px; margin-right: 5px; font-size: 0.7em; letter-spacing: 0.002em; border-radius: 3px; background: rgba(40, 40, 40, 0.8); color: #FFF;}
       }
     }
     .link-github { font-size: 2em;

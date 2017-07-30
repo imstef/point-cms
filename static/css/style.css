@@ -259,13 +259,13 @@ body {
     cursor: pointer; }
 #portfolio [class*='portfolio-section'] {
   display: none; }
-  #portfolio [class*='portfolio-section'] .section-item {
+  #portfolio [class*='portfolio-section'] .portfolio-item {
     max-width: 100%;
     margin: 10px auto;
     background-color: #FFFFFF;
     border: 1px solid #F4F4F4;
     border-radius: 3px; }
-#portfolio .item-content-wrapper {
+#portfolio .item-content {
   position: relative;
   width: 355px;
   height: 230px; }
@@ -278,97 +278,35 @@ body {
   right: 0;
   background-color: #404040;
   color: #FFFFFF; }
-  #portfolio .item-preview .item-preview-content {
+  #portfolio .item-preview .preview-content {
     padding-top: 25px; }
-    #portfolio .item-preview .item-preview-content .item-title {
+    #portfolio .item-preview .preview-content .item-title {
       font-size: 1.2em;
       margin-bottom: 5px; }
-    #portfolio .item-preview .item-preview-content .item-description {
+    #portfolio .item-preview .preview-content .item-description {
       font-size: 0.8em;
       margin-bottom: 15px;
       letter-spacing: 0.002em;
       line-height: 1.2em; }
-    #portfolio .item-preview .item-preview-content .item-tech-stack {
+    #portfolio .item-preview .preview-content .item-tech-stack {
       margin-bottom: 15px; }
-      #portfolio .item-preview .item-preview-content .item-tech-stack .tech-stack-title {
+      #portfolio .item-preview .preview-content .item-tech-stack .tech-stack-title {
         margin-bottom: 15px; }
-      #portfolio .item-preview .item-preview-content .item-tech-stack .tech-stack-title-text {
+      #portfolio .item-preview .preview-content .item-tech-stack .tech-stack-title-text {
         font-size: 0.9em;
         position: relative;
         top: -5px;
         left: 5px; }
-      #portfolio .item-preview .item-preview-content .item-tech-stack .icon-stack {
+      #portfolio .item-preview .preview-content .item-tech-stack .icon-stack {
         font-size: 1.5em; }
-      #portfolio .item-preview .item-preview-content .item-tech-stack .tech-stack-icon {
+      #portfolio .item-preview .preview-content .item-tech-stack .tech-stack-icon {
         padding: 4px 12px;
         margin-right: 5px;
         font-size: 0.7em;
         letter-spacing: 0.002em;
-        border-radius: 3px; }
-      #portfolio .item-preview .item-preview-content .item-tech-stack .lang-css {
-        background: #2b5ec0;
-        background: -moz-linear-gradient(top, #4a7ddf 0%, #2b5ec0 100%);
-        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #4a7ddf), color-stop(100%, #2b5ec0));
-        background: -webkit-linear-gradient(top, #4a7ddf 0%, #2b5ec0 100%);
-        background: -o-linear-gradient(top, #4a7ddf 0%, #2b5ec0 100%);
-        background: linear-gradient(to bottom, #4a7ddf 0%, #2b5ec0 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#4a7ddf, endColorstr=#2b5ec0); }
-      #portfolio .item-preview .item-preview-content .item-tech-stack .lang-html {
-        background: #e96a35;
-        background: -moz-linear-gradient(top, #cc4208 0%, #e96a35 100%);
-        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #cc4208), color-stop(100%, #e96a35));
-        background: -webkit-linear-gradient(top, #cc4208 0%, #e96a35 100%);
-        background: -o-linear-gradient(top, #cc4208 0%, #e96a35 100%);
-        background: linear-gradient(to bottom, #cc4208 0%, #e96a35 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#cc4208, endColorstr=#e96a35); }
-      #portfolio .item-preview .item-preview-content .item-tech-stack .lang-js {
-        background: #b8b607;
-        background: -moz-linear-gradient(top, #e0f038 0%, #b8b607 100%);
-        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #e0f038), color-stop(100%, #b8b607));
-        background: -webkit-linear-gradient(top, #e0f038 0%, #b8b607 100%);
-        background: -o-linear-gradient(top, #e0f038 0%, #b8b607 100%);
-        background: linear-gradient(to bottom, #e0f038 0%, #b8b607 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#e0f038, endColorstr=#b8b607); }
-      #portfolio .item-preview .item-preview-content .item-tech-stack .lang-php {
-        background: #6c12d9;
-        background: -moz-linear-gradient(top, #8b38f0 0%, #6c12d9 100%);
-        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #8b38f0), color-stop(100%, #6c12d9));
-        background: -webkit-linear-gradient(top, #8b38f0 0%, #6c12d9 100%);
-        background: -o-linear-gradient(top, #8b38f0 0%, #6c12d9 100%);
-        background: linear-gradient(to bottom, #8b38f0 0%, #6c12d9 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#8b38f0, endColorstr=#6c12d9); }
-      #portfolio .item-preview .item-preview-content .item-tech-stack .lang-mysql {
-        background: #4b7ad9;
-        background: -moz-linear-gradient(top, #1254d9 0%, #4b7ad9 100%);
-        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #1254d9), color-stop(100%, #4b7ad9));
-        background: -webkit-linear-gradient(top, #1254d9 0%, #4b7ad9 100%);
-        background: -o-linear-gradient(top, #1254d9 0%, #4b7ad9 100%);
-        background: linear-gradient(to bottom, #1254d9 0%, #4b7ad9 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#1254d9, endColorstr=#4b7ad9); }
-      #portfolio .item-preview .item-preview-content .item-tech-stack .lang-python {
-        background: #e7ef00;
-        background: -moz-linear-gradient(top, #1c7aff 0%, #e7ef00 100%);
-        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #1c7aff), color-stop(100%, #e7ef00));
-        background: -webkit-linear-gradient(top, #1c7aff 0%, #e7ef00 100%);
-        background: -o-linear-gradient(top, #1c7aff 0%, #e7ef00 100%);
-        background: linear-gradient(to bottom, #1c7aff 0%, #e7ef00 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#1c7aff, endColorstr=#e7ef00); }
-      #portfolio .item-preview .item-preview-content .item-tech-stack .lang-java {
-        background: #b7171d;
-        background: -moz-linear-gradient(top, #ce4040 0%, #b7171d 100%);
-        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ce4040), color-stop(100%, #b7171d));
-        background: -webkit-linear-gradient(top, #ce4040 0%, #b7171d 100%);
-        background: -o-linear-gradient(top, #ce4040 0%, #b7171d 100%);
-        background: linear-gradient(to bottom, #ce4040 0%, #b7171d 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#ce4040, endColorstr=#b7171d); }
-      #portfolio .item-preview .item-preview-content .item-tech-stack .lang-csharp {
-        background: #a65eed;
-        background: -moz-linear-gradient(top, #6821af 0%, #a65eed 100%);
-        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #6821af), color-stop(100%, #a65eed));
-        background: -webkit-linear-gradient(top, #6821af 0%, #a65eed 100%);
-        background: -o-linear-gradient(top, #6821af 0%, #a65eed 100%);
-        background: linear-gradient(to bottom, #6821af 0%, #a65eed 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#6821af, endColorstr=#a65eed); }
+        border-radius: 3px;
+        background: rgba(40, 40, 40, 0.8);
+        color: #FFF; }
   #portfolio .item-preview .link-github {
     font-size: 2em; }
     #portfolio .item-preview .link-github a {
