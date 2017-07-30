@@ -3,8 +3,8 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 29, 2017 at 04:31 PM
--- Server version: 5.7.19-0ubuntu0.16.04.1
+-- Generation Time: Jul 30, 2017 at 05:32 PM
+-- Server version: 10.1.25-MariaDB-1~xenial
 -- PHP Version: 7.0.18-0ubuntu0.16.04.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -17,10 +17,8 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `moonbow`
+-- Database: `moonbow_staging`
 --
-CREATE DATABASE IF NOT EXISTS `moonbow` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `moonbow`;
 
 -- --------------------------------------------------------
 
@@ -72,8 +70,8 @@ INSERT INTO `section_type` (`tid`, `type`) VALUES
 
 CREATE TABLE `template_blank` (
   `bid` int(11) NOT NULL,
-  `title` varchar(255) NOT NULL,
-  `description` varchar(255) NOT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
   `content` text,
   `sid` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -85,7 +83,7 @@ CREATE TABLE `template_blank` (
 INSERT INTO `template_blank` (`bid`, `title`, `description`, `content`, `sid`) VALUES
 (1, 'welcome', 'let\'s get to know each other', 'Hi there, I\'m a software developer, tech blogger and hobbyist photographer.', 1),
 (2, 'testimonials', 'what the clients say', 'good', 3),
-(3, 'connect', 'want to get in touch, talk business or just say hi? here\'s where you can find me', '<ul>\n            <li><a href="#">LinkedIn</a></li>\n            <li><a href="#">GitHub</a></li>\n            <li><a href="#">StackOverflow</a></li>\n</ul>', 4);
+(3, 'conenct', 'want to get in touch, talk business or just say hi? here\'s where you can find me', '<ul>\r\n            <li><a href="#">LinkedIn</a></li>\r\n            <li><a href="#">GitHub</a></li>\r\n            <li><a href="#">StackOverflow</a></li>\r\n</ul>', 4);
 
 -- --------------------------------------------------------
 
@@ -139,12 +137,12 @@ CREATE TABLE `template_portfolio_projects` (
   `title` varchar(255) DEFAULT NULL,
   `description` varchar(255) DEFAULT NULL,
   `modal_content` text,
-  `logo` varchar(255) DEFAULT 'logos/nologo.png',
-  `technologies` varchar(255) NOT NULL,
-  `link` varchar(255) NOT NULL,
-  `link_icon` varchar(255) NOT NULL,
-  `tpid` int(11) NOT NULL,
-  `cid` int(11) NOT NULL
+  `logo` varchar(255) DEFAULT NULL,
+  `technologies` varchar(255) DEFAULT NULL,
+  `link` varchar(255) DEFAULT NULL,
+  `link_icon` varchar(255) DEFAULT NULL,
+  `tpid` int(11) DEFAULT NULL,
+  `cid` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -152,9 +150,9 @@ CREATE TABLE `template_portfolio_projects` (
 --
 
 INSERT INTO `template_portfolio_projects` (`pid`, `title`, `description`, `modal_content`, `logo`, `technologies`, `link`, `link_icon`, `tpid`, `cid`) VALUES
-(1, 'Twitter Clone\r\n', 'lightweight and minimal Twitter-like updates sharing platform.', '                    <h2>Project Description</h2>\r\n                    <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid animi asperiores consequatur cupiditate distinctio 123123123123123lorem, enim hic ipsa laborum molestias, mollitia nisi nostrum nulla pariatur quasi ratione rem sequi. Dolore laboriosam officia possimus quam quasi reiciendis, saepe vel!</span></p>\r\n                    <h2>Technologies and Frameworks</h2>\r\n                    <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, consequatur cupiditate est exercitationem iste iure magni nesciunt nostrum officiis placeat quaerat quisquam quo ullam, voluptate voluptatibus! Dolorem expedita incidunt repellat.</span><span>Dolores laudantium magnam nam non quas tempore vel? Animi eos eum ipsum obcaecati odit possimus quo. Aliquid, atque corporis dolor illo iste nemo nobis officiis quasi repudiandae sequi, tempora unde!</span>\r\n                    </p>\r\n                    <h2>Screenshots</h2>\r\n                    <div class="gallery">\r\n                        Screenshot 1\r\n                        Screenshot 2\r\n                        Screenshot 3\r\n                    </div>', 'logos/logo.png', 'php;js;python;java;csharp', '', 'github', 1, 1),
-(2, 'Snake game', 'snake game', '123', '', 'java', '', 'github', 1, 2),
-(3, 'Moonbow CMS', 'test item', 'this is a test text', '', 'html;css;js;python', 'https://github.com/imstef/moonbow-cms', 'github', 1, 3);
+(1, 'Twitter Clone', 'lightweight and minimal Twitter-like updates sharing platform.', '                    <h2>Project Description</h2>\r\n                    <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid animi asperiores consequatur cupiditate distinctio 123123123123123lorem, enim hic ipsa laborum molestias, mollitia nisi nostrum nulla pariatur quasi ratione rem sequi. Dolore laboriosam officia possimus quam quasi reiciendis, saepe vel!</span></p>\r\n                    <h2>Technologies and Frameworks</h2>\r\n                    <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, consequatur cupiditate est exercitationem iste iure magni nesciunt nostrum officiis placeat quaerat quisquam quo ullam, voluptate voluptatibus! Dolorem expedita incidunt repellat.</span><span>Dolores laudantium magnam nam non quas tempore vel? Animi eos eum ipsum obcaecati odit possimus quo. Aliquid, atque corporis dolor illo iste nemo nobis officiis quasi repudiandae sequi, tempora unde!</span>\r\n                    </p>\r\n                    <h2>Screenshots</h2>\r\n                    <div class="gallery">\r\n                        Screenshot 1\r\n                        Screenshot 2\r\n                        Screenshot 3\r\n                    </div>', 'logos/logo.png', 'php;js;python;java;csharp', 'https://github.com/imstef/moonbow-cms', 'github', 1, 1),
+(2, 'Snake game', 'snake game', '123', 'logos/logo.png', '123', 'https://github.com/imstef/moonbow-cms', 'github', 1, 2),
+(3, 'Moonbow CMS', 'test item', 'this is a test text', 'logos/logo.png', 'html;css;js;python', 'https://github.com/imstef/moonbow-cms', 'github', 1, 3);
 
 --
 -- Indexes for dumped tables
@@ -165,7 +163,7 @@ INSERT INTO `template_portfolio_projects` (`pid`, `title`, `description`, `modal
 --
 ALTER TABLE `section_list`
   ADD PRIMARY KEY (`sid`),
-  ADD KEY `type` (`tid`);
+  ADD KEY `tid` (`tid`);
 
 --
 -- Indexes for table `section_type`
@@ -178,7 +176,7 @@ ALTER TABLE `section_type`
 --
 ALTER TABLE `template_blank`
   ADD PRIMARY KEY (`bid`),
-  ADD KEY `class_id` (`sid`);
+  ADD KEY `sid` (`sid`);
 
 --
 -- Indexes for table `template_portfolio`
@@ -201,6 +199,40 @@ ALTER TABLE `template_portfolio_projects`
   ADD KEY `tpid` (`tpid`),
   ADD KEY `cid` (`cid`);
 
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `section_list`
+--
+ALTER TABLE `section_list`
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `section_type`
+--
+ALTER TABLE `section_type`
+  MODIFY `tid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `template_blank`
+--
+ALTER TABLE `template_blank`
+  MODIFY `bid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `template_portfolio`
+--
+ALTER TABLE `template_portfolio`
+  MODIFY `tpid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `template_portfolio_categories`
+--
+ALTER TABLE `template_portfolio_categories`
+  MODIFY `cid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `template_portfolio_projects`
+--
+ALTER TABLE `template_portfolio_projects`
+  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- Constraints for dumped tables
 --
