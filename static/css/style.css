@@ -168,6 +168,44 @@ body {
     height: 100%;
     vertical-align: middle; }
 
+input {
+  -webkit-appearance: none;
+  outline: none;
+  text-align: center;
+  font-size: 0.8em;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  line-height: 1.2em;
+  padding-bottom: 5px; }
+
+::-webkit-input-placeholder {
+  /* WebKit, Blink, Edge */
+  color: #E5E5E5; }
+
+:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #E5E5E5;
+  opacity: 1; }
+
+::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #E5E5E5;
+  opacity: 1; }
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #E5E5E5; }
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #E5E5E5; }
+
+textarea:focus, input:focus {
+  outline: none; }
+
+*:focus {
+  outline: none; }
+
 .preload * {
   -webkit-transition: none !important;
   -moz-transition: none !important;
@@ -408,5 +446,55 @@ body {
     .footer-wrapper .icon-heart-footer:hover {
       color: #db1111;
       opacity: 1; }
+
+.login-bg {
+  background-color: #EEE; }
+
+.login-wrapper {
+  margin: 150px auto;
+  background: #FFF;
+  padding: 80px;
+  -webkit-box-shadow: 0.5px 0.5px 10px 0px #dadada;
+  -moz-box-shadow: 0.5px 0.5px 10px 0px #dadada;
+  box-shadow: 0.5px 0.5px 10px 0px #dadada;
+  color: #707070; }
+  .login-wrapper .login-form .form-group {
+    margin-bottom: 18px; }
+    .login-wrapper .login-form .form-group input {
+      border: 0;
+      width: 225px;
+      border-bottom: 1px solid #F4F4F4;
+      -webkit-transition: border-color 550ms ease;
+      -moz-transition: border-color 550ms ease;
+      -ms-transition: border-color 550ms ease;
+      -o-transition: border-color 550ms ease;
+      transition: border-color 550ms ease; }
+    .login-wrapper .login-form .form-group input:focus {
+      border-color: #3a85c2; }
+  .login-wrapper .login-form .login-text {
+    font-size: 2em;
+    font-weight: 300;
+    margin-bottom: 5px; }
+  .login-wrapper .login-form .login-description {
+    font-size: 0.9em;
+    font-weight: 300;
+    margin-bottom: 70px; }
+  .login-wrapper .login-form .login-btn {
+    border: 1px solid #F4F4F4;
+    font-size: 0.8em;
+    line-height: 1.5em;
+    letter-spacing: 0.02em;
+    background-color: #FFF;
+    padding: 5px 15px;
+    margin-top: 15px;
+    font-weight: 300;
+    cursor: pointer;
+    -webkit-transition: border-color 550ms ease;
+    -moz-transition: border-color 550ms ease;
+    -ms-transition: border-color 550ms ease;
+    -o-transition: border-color 550ms ease;
+    transition: border-color 550ms ease; }
+    .login-wrapper .login-form .login-btn:hover {
+      border-color: #3a85c2; }
 
 /*# sourceMappingURL=style.css.map */

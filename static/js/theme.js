@@ -1,32 +1,16 @@
 /**
  *
- * This is the main JavaScript file that contains different types of functionalities for the front-end
- * of the CMS. It handles animation prevention on page load, dynamic and manual navigation, hover state
- * on portfolio items and modal functionality, dynamic centering of portfolio items using a CSS grid
- * system, and portfolio categories/sections navigation that toggles specific sections that are selected
- * from the portfolio navigation.
+ * This is the main JavaScript file that contains different types of functionalities for the official
+ * theme of the CMS. It handles dynamic and manual navigation, hover state on portfolio items and 
+ * modal functionality, dynamic centering of portfolio items using a CSS grid system, and portfolio
+ * categories/sections navigation that toggles specific sections that are selected from the 
+ * portfolio navigation.
  *
  * @package moonbow
  * @link https://github.com/imstef/moonbow-cms
  *
 **/
 $(document).ready(function() {
-    /**
-     *
-     * Prevent CSS Animations on Page Load
-     *
-     * In order to prevent CSS animation to fire on page load, which can happen from time to time, we
-     * append a class to the body element that blocks any animations. After a short amount
-     * of time, we remove that class using a setTimeout() function, which enables all CSS transitions
-     * and animations to load properly, but only after the page has initially loaded.
-     * 
-     * Function parameters: setTimeout(callback, duration)
-     *
-    **/
-    setTimeout(function() {
-        $("body").removeClass("preload");
-    }, 200);
-
     /**
      *
      * Main Navigation Functionality

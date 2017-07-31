@@ -1,19 +1,28 @@
 {% extends "header.html.j2" %}
 
 {% block body %}
-	<h1>Login</h1>
-	<form action="" method="POST">
-		<div class="">
-			<label>Username</label>
-			<input type="text" name="username" class="" value={{ request.form.username }}>
+	
+	<div class="row">
+		<div class="column-12">
+			<div class="login-wrapper display-table">
+				<div class="login-form display-table-cell">
+					<h1 class="login-text">Moonbow CMS</h1>
+					<h4 class="login-description">Welcome to the login page</h4>
+					<form id="login" action="" method="POST">
+						<div class="form-group">
+							<input type="text" name="username" class="" placeholder="username/email" value={{ request.form.username }}>
+						</div>
+						<div class="form-group">
+							<input type="password" name="password" class="" placeholder="password" value={{ request.form.password }}>
+						</div>
+				    	<button type="submit" class="login-btn">Login</button>
+					</form>
+					<div class="lost-pw">
+						<span></span>
+					</div>
+				</div>	
+			</div>
 		</div>
+	</div>
 
-		<div class="">
-			<label>Password</label>
-			<input type="password" name="password" class="" value={{ request.form.password }}>
-		</div>
-
-    	<button type="submit" class="">Submit</button>
-
-	</form>
 {% endblock %}
