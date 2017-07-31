@@ -46,40 +46,42 @@
         {% set project_numb = [1] %}
         {% for i in range(0, categories | length) %}
             <div class="portfolio-section" data-numitems="">
-                {% for j in range(0, data | length) %}
-                    {% if categories[i]["category"] == data[j]["category"] %}
-                        <div class="column-4">
-                            <div class="portfolio-item display-table">
-                                <div class="item-content display-table-cell">
-                                    <div class="item-title">{{ data[j]["title"] }}</div>
+                {% for j in range(project_numb[0] - 1, data | length) %}
+                    {% if categories[i]["category"] != data[j]["category"] %}
+                        {% break %}
+                    {% endif %}
+                    <div class="column-4">
+                        <div class="portfolio-item display-table">
+                            <div class="item-content display-table-cell">
+                                <div class="item-title">{{ data[j]["title"] }}</div>
 
-                                    {% set logo = data[j]["logo"] %}
+                                {% set logo = data[j]["logo"] %}
 
-                                    <div class="item-logo"><img src="{{ url_for('static', filename=logo) }}"/></div>
+                                <div class="item-logo"><img src="{{ url_for('static', filename=logo) }}"/></div>
 
-                                    <div class="item-preview">
-                                        <span class="icon icon-circle-up item-toggle-modal" data-mod="portfolio-item-{{ project_numb[0] }}"></span>
-                                        <div class="preview-content">
-                                            <div class="item-title">{{ data[j]["title"] }}</div>
-                                            <div class="item-description">{{ data[j]["description"] }}</div>
-                                            <div class="item-tech-stack">
-                                                <div class="tech-stack-title">
-                                                    <span class="icon icon-stack"></span><span class="tech-stack-title-text">Tech Stack</span>
-                                                </div>
-
-                                                {% for lang in data[j]["technologies"].split(";") %}
-                                                    <span class="tech-stack-icon lang-{{ lang }}">{{ lang }}</span>
-                                                {% endfor %}
-
+                                <div class="item-preview">
+                                    <span class="icon icon-circle-up item-toggle-modal" data-mod="portfolio-item-{{ project_numb[0] }}"></span>
+                                    <div class="preview-content">
+                                        <div class="item-title">{{ data[j]["title"] }}</div>
+                                        <div class="item-description">{{ data[j]["description"] }}</div>
+                                        <div class="item-tech-stack">
+                                            <div class="tech-stack-title">
+                                                <span class="icon icon-stack"></span><span class="tech-stack-title-text">Tech Stack</span>
                                             </div>
-                                            <div class="link-{{ data[j]['link_icon'] }}"><a href="{{ data[j]['link'] }}" target="_blank" "><span class="icon icon-{{ data[j]['link_icon'] }}"></span></a></div>
+
+                                            {% for lang in data[j]["technologies"].split(";") %}
+                                                <span class="tech-stack-icon lang-{{ lang }}">{{ lang }}</span>
+                                            {% endfor %}
+
+                                        </div>
+                                        <div class="link-{{ data[j]['link_icon'] }}"><a href="{{ data[j]['link'] }}" target="_blank">   <span class="icon icon-{{ data[j]['link_icon'] }}"></span></a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        {% if project_numb.append(project_numb.pop() + 1) %}{% endif %}
-                    {% endif %}
+                    </div>
+                    {% if project_numb.append(project_numb.pop() + 1) %}{% endif %}
 
                 {% endfor %}
                <div class="clearfix"></div>

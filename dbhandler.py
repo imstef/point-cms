@@ -1,30 +1,27 @@
 import gc
 from flask_mysqldb import MySQL
-#files
+import MySQLdb
+# custom files
 from mbconf import *
 
 # global variables
 class DatabaseConnection:
-	def __init__(self, app):
-		self.app = app
-		self.mysql = None
+	def __init__(self):
+		self.connection = None
 		self.cursor = None
 		self.config()
 
 	def config(self):
 		# Config MySQL
-		self.app.config['MYSQL_HOST'] = MYSQL_HOST
-		self.app.config['MYSQL_USER'] = MYSQL_USER
-		self.app.config['MYSQL_PASSWORD'] = MYSQL_PASSWORD
-		self.app.config['MYSQL_DB'] = MYSQL_DB
-		self.app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
-
-		# init MySQL
-		self.mysql = MySQL(self.app)
+		self.connection = MySQLdb.connect(host=MYSQL_HOST,
+						   user=MYSQL_USER, 
+						   passwd=MYSQL_PASSWORD,
+						   db=MYSQL_DB, 
+						   cursorclass=MySQLdb.cursors.DictCursor)
 	# end def
 
 	def connect(self):
-		self.cursor = self.mysql.connection.cursor()
+		self.cursor = self.connection.cursor()
 	# end def
 
 	def execute_query(self, query):
@@ -40,6 +37,7 @@ class DatabaseConnection:
 	# close database connection
 	def close(self):
 		self.cursor.close()
+		self.connection.close()
 		gc.collect()
 		return ""
 	# end def
