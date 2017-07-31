@@ -1,6 +1,6 @@
 import gc
-from flask_mysqldb import MySQL
 import MySQLdb
+import MySQLdb.cursors
 # custom files
 from mbconf import *
 

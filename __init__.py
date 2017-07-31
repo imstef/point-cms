@@ -1,6 +1,5 @@
 
 from flask import Flask, render_template, url_for, request, redirect
-from wtforms import Form, StringField, TextAreaField, PasswordField, validators
 from passlib.hash import sha256_crypt
 # files
 from dbhandler import DatabaseConnection
