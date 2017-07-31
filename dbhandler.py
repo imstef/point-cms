@@ -9,7 +9,6 @@ class DatabaseConnection:
 	def __init__(self):
 		self.connection = None
 		self.cursor = None
-		self.config()
 
 	def config(self):
 		# Config MySQL
@@ -21,16 +20,15 @@ class DatabaseConnection:
 	# end def
 
 	def connect(self):
+		self.config()
 		self.cursor = self.connection.cursor()
 	# end def
 
 	def execute_query(self, query):
 		# execute query
 		temp = self.cursor.execute(query)
-
 		# convert to list of dictionaries
 		result = self.cursor.fetchall()
-
 		return result
 	# end def
 
