@@ -8,11 +8,9 @@
 				<div class="login-form display-table-cell">
 					<h1 class="login-text">Moonbow CMS</h1>
 					<h4 class="login-description">Welcome to the login page</h4>
-<<<<<<< HEAD
-					<div class="login-status"></div>
-=======
 					
->>>>>>> 4e50a1a3aed690c4aeb5f9c44b0c8085b0bef6fb
+					{% include "_messages.html.j2" %}
+				
 					<form id="login" action="" method="POST">
 						<div class="form-group">
 							<input type="text" name="username" class="login-user" placeholder="username/email" value={{ request.form.username }}>
@@ -20,7 +18,6 @@
 						<div class="form-group">
 							<input type="password" name="password" class="login-pw" placeholder="password" value={{ request.form.password }}>
 						</div>
-						{% include "_messages.html.j2" %}
 				    	<button type="submit" class="login-btn">Login</button>
 					</form>
 					<div class="lost-pw">

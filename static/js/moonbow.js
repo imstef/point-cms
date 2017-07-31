@@ -60,7 +60,5 @@ $(document).ready(function() {
 		}
 	});
 
-	$('.login-pw').on('focusout', function() {
-
-	});
+	$('.login-pw').on('focusout', function() {});
 });
