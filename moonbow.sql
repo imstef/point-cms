@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 30, 2017 at 05:32 PM
+-- Generation Time: Aug 01, 2017 at 12:24 AM
 -- Server version: 10.1.25-MariaDB-1~xenial
 -- PHP Version: 7.0.18-0ubuntu0.16.04.1
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `moonbow_staging`
+-- Database: `moonbow`
 --
 
 -- --------------------------------------------------------
@@ -154,6 +154,18 @@ INSERT INTO `template_portfolio_projects` (`pid`, `title`, `description`, `modal
 (2, 'Snake game', 'snake game', '123', 'logos/logo.png', '123', 'https://github.com/imstef/moonbow-cms', 'github', 1, 2),
 (3, 'Moonbow CMS', 'test item', 'this is a test text', 'logos/logo.png', 'html;css;js;python', 'https://github.com/imstef/moonbow-cms', 'github', 1, 3);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 --
 -- Indexes for dumped tables
 --
@@ -200,6 +212,12 @@ ALTER TABLE `template_portfolio_projects`
   ADD KEY `cid` (`cid`);
 
 --
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -233,6 +251,11 @@ ALTER TABLE `template_portfolio_categories`
 --
 ALTER TABLE `template_portfolio_projects`
   MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- Constraints for dumped tables
 --
