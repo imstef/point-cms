@@ -37,7 +37,30 @@ $(document).ready(function() {
 
 	/**
 	 *
-	 * Login Form Functionality
+	 * Login Form Validation
 	 *
 	**/
+	$('.login-user').on('focusout', function() {
+		var char_length = parseInt($(this).val().length);
+		var text_field = $(this);
+		var status = $('.login-status');
+
+		if (char_length == 0) {
+			text_field.css({'border-color': '#F02C2C'});
+			status.text('Blank!');
+			status.fadeIn('slow');
+		} else if (char_length < 4) {
+			text_field.css({'border-color': '#F02C2C'});
+			status.text('Username too short!');
+			status.fadeIn('slow');
+		} else {
+			text_field.css({'border-color': '#F4F4F4'});
+			status.text('');
+			status.fadeOut('slow');
+		}
+	});
+
+	$('.login-pw').on('focusout', function() {
+
+	});
 });

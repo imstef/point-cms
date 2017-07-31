@@ -176,7 +176,7 @@ input {
   font-weight: 300;
   letter-spacing: 0.05em;
   line-height: 1.2em;
-  padding-bottom: 5px; }
+  padding-bottom: 7px; }
 
 ::-webkit-input-placeholder {
   /* WebKit, Blink, Edge */
@@ -453,7 +453,7 @@ textarea:focus, input:focus {
 .login-wrapper {
   margin: 150px auto;
   background: #FFF;
-  padding: 80px;
+  padding: 80px 80px 40px 80px;
   -webkit-box-shadow: 0.5px 0.5px 10px 0px #dadada;
   -moz-box-shadow: 0.5px 0.5px 10px 0px #dadada;
   box-shadow: 0.5px 0.5px 10px 0px #dadada;
@@ -478,7 +478,7 @@ textarea:focus, input:focus {
   .login-wrapper .login-form .login-description {
     font-size: 0.9em;
     font-weight: 300;
-    margin-bottom: 70px; }
+    margin-bottom: 50px; }
   .login-wrapper .login-form .login-btn {
     border: 1px solid #F4F4F4;
     font-size: 0.8em;
@@ -496,5 +496,16 @@ textarea:focus, input:focus {
     transition: border-color 550ms ease; }
     .login-wrapper .login-form .login-btn:hover {
       border-color: #3a85c2; }
+  .login-wrapper .login-form .lost-pw {
+    padding-top: 40px;
+    font-size: 0.7em;
+    color: #808080; }
+  .login-wrapper .login-form .login-status {
+    border: 1px solid #F4F4F4;
+    font-size: 0.8em;
+    padding: 5px;
+    display: none; }
+  .login-wrapper .login-form #login {
+    margin-top: 20px; }
 
 /*# sourceMappingURL=style.css.map */

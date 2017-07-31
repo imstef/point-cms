@@ -326,15 +326,15 @@ $(document).ready(function() {
         $(this).attr("data-numitems", portfolio_section_items_count[i]);
     });
 
-    $.each(portfolio_sections, function(i, elem) {
+    $.each(portfolio_sections, function(i, obj) {
         var section_items = parseInt(portfolio_section_items_count[i]);
 
         switch(section_items) {
             case 2:
-                elem.find('.column-4').addClass('column-6');
+                obj.find('.column-4').addClass('column-6');
                 break;
             case 1:
-                elem.find('.column-4').addClass('column-12');
+                obj.find('.column-4').addClass('column-12');
                 break;
         }
     });
