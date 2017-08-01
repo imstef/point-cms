@@ -41,18 +41,29 @@ $(document).ready(function() {
 	 *
 	 * Set the input field as active (add border-bottom color) if the user has started typing in the field. This
 	 * is only for convenience. If the user removes the text, set the border of the input field back to its
-	 * default color, by removing the appended style attribute with the different color.
+	 * default color, by removing the appended style attribute with the different color. We do this in a loop so
+	 * that all input fields (in our case 2) are included.
 	 *
 	**/
-	$('.login-user').on('focusout', function() {
-		var char_length = $(this).val().length;
-		var obj = $(this);
+	var input_fields = [];
 
-		if (char_length >= 1) {
-			obj.css({'border-color': '#3a85c2'});
-		} else {
-			obj.removeAttr('style');
-		}
+	$('.form-group').each(function() {
+		input_fields.push($(this));
 	});
+
+	for (var i = 0; i < input_fields.length; i++) {
+		var current_field = input_fields[i].children();
+
+		current_field.on('keyup', function() {
+			var char_length = $(this).val().length;
+			var obj = $(this);
+
+			if (char_length >= 1) {
+				obj.css({'border-color': '#3a85c2'});
+			} else {
+				obj.removeAttr('style');
+			}
+		});
+	}
 
 });
