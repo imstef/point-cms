@@ -187,7 +187,8 @@ textarea:focus, input:focus{
       &:hover { border-color: #3a85c2; }
     }
     .lost-pw { padding-top: 40px; font-size: 0.7em; color: #909090; }
-    .login-status { font-size: 0.8em; padding: 5px; margin: 20px 0; }
+    .login-status-wrapper { margin: 20px 0; height: 50px; }
+    .login-status { font-size: 0.8em; padding: 5px; color: #db3939; border: 1px solid; display: none; }
   }
   .back-home { font-size: 0.7em; color: #909090; position: relative; top: -65px; left: -65px; text-align: left;  }
 }

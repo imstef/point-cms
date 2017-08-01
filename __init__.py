@@ -1,4 +1,3 @@
-
 from flask import Flask, render_template, url_for, request, session, logging, redirect, flash
 from passlib.hash import sha256_crypt
 # files
@@ -8,6 +7,7 @@ from mbconf import *
 from functools import wraps
 
 app = Flask(__name__)
+#app.secret_key = SECRET_KEY
 
 # config Database
 connection = DatabaseConnection()

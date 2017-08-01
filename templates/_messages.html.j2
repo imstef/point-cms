@@ -1,12 +1,13 @@
 {% block body %}
-	<div class="login-status">
-		{% with messages = get_flashed_messages() %}
-			{% if messages %}
-				{% for message in messages %}
-					<p>{{ message }}</p>
-				{% endfor %}
-				</ul>
-			{% endif %}
-		{% endwith %}
+	<div class="login-status-wrapper">
+		<div class="login-status">
+			{% with messages = get_flashed_messages() %}
+				{% if messages %}
+					{% for message in messages %}
+						<p>{{ message }}</p>
+					{% endfor %}
+				{% endif %}
+			{% endwith %}
+		</div>
 	</div>
 {% endblock %}

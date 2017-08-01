@@ -502,10 +502,15 @@ textarea:focus, input:focus {
       padding-top: 40px;
       font-size: 0.7em;
       color: #909090; }
+    .login-wrapper .login-form .login-status-wrapper {
+      margin: 20px 0;
+      height: 50px; }
     .login-wrapper .login-form .login-status {
       font-size: 0.8em;
       padding: 5px;
-      margin: 20px 0; }
+      color: #db3939;
+      border: 1px solid;
+      display: none; }
   .login-wrapper .back-home {
     font-size: 0.7em;
     color: #909090;
