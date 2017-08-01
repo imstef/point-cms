@@ -174,7 +174,7 @@ input {
   text-align: center;
   font-size: 0.8em;
   font-weight: 300;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.02em;
   line-height: 1.2em;
   padding-bottom: 7px; }
 
@@ -278,7 +278,7 @@ textarea:focus, input:focus {
   margin-top: 80px; }
 
 [class*='site-section'] {
-  padding: 80px 0; }
+  padding: 180px 0; }
 
 .section-wrapper .section-title {
   font-size: 1.8em;
@@ -451,61 +451,67 @@ textarea:focus, input:focus {
   background-color: #EEE; }
 
 .login-wrapper {
-  margin: 150px auto;
+  margin: 120px auto;
   background: #FFF;
-  padding: 80px 80px 40px 80px;
   -webkit-box-shadow: 0.5px 0.5px 10px 0px #dadada;
   -moz-box-shadow: 0.5px 0.5px 10px 0px #dadada;
   box-shadow: 0.5px 0.5px 10px 0px #dadada;
   color: #707070; }
-  .login-wrapper .login-form .form-group {
-    margin-bottom: 18px; }
-    .login-wrapper .login-form .form-group input {
-      border: 0;
-      width: 225px;
-      border-bottom: 1px solid #F4F4F4;
-      -webkit-transition: border-color 550ms ease;
-      -moz-transition: border-color 550ms ease;
-      -ms-transition: border-color 550ms ease;
-      -o-transition: border-color 550ms ease;
-      transition: border-color 550ms ease; }
-    .login-wrapper .login-form .form-group input:focus {
-      border-color: #3a85c2; }
-  .login-wrapper .login-form .login-text {
-    font-size: 2em;
-    font-weight: 300;
-    margin-bottom: 5px; }
-  .login-wrapper .login-form .login-description {
-    font-size: 0.9em;
-    font-weight: 300;
-    margin-bottom: 50px; }
-  .login-wrapper .login-form .login-btn {
-    border: 1px solid #F4F4F4;
-    font-size: 0.8em;
-    line-height: 1.5em;
-    letter-spacing: 0.02em;
-    background-color: #FFF;
-    padding: 5px 15px;
-    margin-top: 15px;
-    font-weight: 300;
-    cursor: pointer;
-    -webkit-transition: border-color 550ms ease;
-    -moz-transition: border-color 550ms ease;
-    -ms-transition: border-color 550ms ease;
-    -o-transition: border-color 550ms ease;
-    transition: border-color 550ms ease; }
-    .login-wrapper .login-form .login-btn:hover {
-      border-color: #3a85c2; }
-  .login-wrapper .login-form .lost-pw {
-    padding-top: 40px;
+  .login-wrapper .login-form {
+    padding: 80px 80px 40px 80px; }
+    .login-wrapper .login-form .form-group {
+      margin-bottom: 18px; }
+      .login-wrapper .login-form .form-group input {
+        border: 0;
+        width: 225px;
+        border-bottom: 1px solid #F4F4F4;
+        text-align: left;
+        -webkit-transition: border-color 750ms ease;
+        -moz-transition: border-color 750ms ease;
+        -ms-transition: border-color 750ms ease;
+        -o-transition: border-color 750ms ease;
+        transition: border-color 750ms ease; }
+      .login-wrapper .login-form .form-group input:focus {
+        border-color: #3a85c2; }
+    .login-wrapper .login-form .login-text {
+      font-size: 2em;
+      font-weight: 300;
+      margin-bottom: 5px; }
+    .login-wrapper .login-form .login-description {
+      font-size: 0.9em;
+      font-weight: 300;
+      margin-bottom: 55px; }
+    .login-wrapper .login-form .login-btn {
+      border: 1px solid #F4F4F4;
+      font-size: 0.8em;
+      line-height: 1.5em;
+      letter-spacing: 0.02em;
+      background-color: #FFF;
+      padding: 5px 15px;
+      margin-top: 15px;
+      font-weight: 300;
+      cursor: pointer;
+      -webkit-transition: border-color 750ms ease;
+      -moz-transition: border-color 750ms ease;
+      -ms-transition: border-color 750ms ease;
+      -o-transition: border-color 750ms ease;
+      transition: border-color 750ms ease; }
+      .login-wrapper .login-form .login-btn:hover {
+        border-color: #3a85c2; }
+    .login-wrapper .login-form .lost-pw {
+      padding-top: 40px;
+      font-size: 0.7em;
+      color: #909090; }
+    .login-wrapper .login-form .login-status {
+      font-size: 0.8em;
+      padding: 5px;
+      margin: 20px 0; }
+  .login-wrapper .back-home {
     font-size: 0.7em;
-    color: #808080; }
-  .login-wrapper .login-form .login-status {
-    border: 1px solid #F4F4F4;
-    font-size: 0.8em;
-    padding: 5px;
-    display: none; }
-  .login-wrapper .login-form #login {
-    margin-top: 20px; }
+    color: #909090;
+    position: relative;
+    top: -65px;
+    left: -65px;
+    text-align: left; }
 
 /*# sourceMappingURL=style.css.map */

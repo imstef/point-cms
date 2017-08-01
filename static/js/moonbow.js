@@ -37,28 +37,22 @@ $(document).ready(function() {
 
 	/**
 	 *
-	 * Login Form Validation
+	 * Login Page Validation
+	 *
+	 * Set the input field as active (add border-bottom color) if the user has started typing in the field. This
+	 * is only for convenience. If the user removes the text, set the border of the input field back to its
+	 * default color, by removing the appended style attribute with the different color.
 	 *
 	**/
 	$('.login-user').on('focusout', function() {
-		var char_length = parseInt($(this).val().length);
-		var text_field = $(this);
-		var status = $('.login-status');
+		var char_length = $(this).val().length;
+		var obj = $(this);
 
-		if (char_length == 0) {
-			text_field.css({'border-color': '#F02C2C'});
-			status.text('Blank!');
-			status.fadeIn('slow');
-		} else if (char_length < 4) {
-			text_field.css({'border-color': '#F02C2C'});
-			status.text('Username too short!');
-			status.fadeIn('slow');
+		if (char_length >= 1) {
+			obj.css({'border-color': '#3a85c2'});
 		} else {
-			text_field.css({'border-color': '#F4F4F4'});
-			status.text('');
-			status.fadeOut('slow');
+			obj.removeAttr('style');
 		}
 	});
 
-	$('.login-pw').on('focusout', function() {});
 });

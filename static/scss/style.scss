@@ -31,7 +31,7 @@ input {
   text-align: center;
   font-size: 0.8em;
   font-weight: 300;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.02em;
   line-height: 1.2em;
   padding-bottom: 7px;
 }
@@ -87,7 +87,7 @@ textarea:focus, input:focus{
 
 // Sections
 .separator { height: 1.2px; background-color: $border_color; -ms-transform: rotate(-12deg); -webkit-transform: rotate(-12deg); transform: rotate(-12deg); margin-top: 80px; }
-[class*='site-section'] { padding: 80px 0; }
+[class*='site-section'] { padding: 180px 0; }
 .section-wrapper {
 	.section-title { font-size: 1.8em; font-weight: 300; margin-bottom: 5px; }
     .section-description { font-size: 0.8em; font-weight: 300; margin-bottom: 25px; }
@@ -158,34 +158,36 @@ textarea:focus, input:focus{
 // Login page
 .login-bg { background-color: #EEE; }
 .login-wrapper {
-  margin: 150px auto;
+  margin: 120px auto;
   background: #FFF;
-  padding: 80px 80px 40px 80px;
   -webkit-box-shadow: 0.5px 0.5px 10px 0px rgba(218,218,218,1);
   -moz-box-shadow: 0.5px 0.5px 10px 0px rgba(218,218,218,1);
   box-shadow: 0.5px 0.5px 10px 0px rgba(218,218,218,1);
   color: #707070;
 
   .login-form { 
+    padding: 80px 80px 40px 80px;
     .form-group {
       margin-bottom: 18px;
+
       input {
         border: 0;
         width: 225px;
         border-bottom: 1px solid $border_color;
-        @include transition(border-color, 550ms);
+        text-align: left;
+        @include transition(border-color, 750ms);
       }
       input:focus { border-color: #3a85c2; }
     } 
 
     .login-text { font-size: 2em; font-weight: 300; margin-bottom: 5px; }
-    .login-description { font-size: 0.9em; font-weight: 300; margin-bottom: 50px; }
+    .login-description { font-size: 0.9em; font-weight: 300; margin-bottom: 55px; }
     .login-btn { border: 1px solid $border_color; font-size: 0.8em; line-height: 1.5em; letter-spacing: 0.02em; background-color: #FFF; padding: 5px 15px; margin-top: 15px; font-weight: 300; cursor: pointer; 
-      @include transition(border-color, 550ms);
+      @include transition(border-color, 750ms);
       &:hover { border-color: #3a85c2; }
     }
-    .lost-pw { padding-top: 40px; font-size: 0.7em; color: #808080; }
-    .login-status { border: 1px solid $border_color; font-size: 0.8em; padding: 5px; margin: 20px 0; display: none; }
-    #login { margin-top: 20px; }
+    .lost-pw { padding-top: 40px; font-size: 0.7em; color: #909090; }
+    .login-status { font-size: 0.8em; padding: 5px; margin: 20px 0; }
   }
+  .back-home { font-size: 0.7em; color: #909090; position: relative; top: -65px; left: -65px; text-align: left;  }
 }
