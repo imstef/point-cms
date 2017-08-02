@@ -62,6 +62,8 @@ textarea:focus, input:focus{
     outline: none;
 }
 
+a:link, a:visited { text-decoration: none; }
+
 .preload * {
   -webkit-transition: none !important;
   -moz-transition: none !important;
@@ -156,7 +158,7 @@ textarea:focus, input:focus{
 }
 
 // Login page
-.login-bg { background-color: #EEE; }
+.alternate-bg { background-color: #EEE; }
 .login-wrapper {
   margin: 120px auto;
   background: #FFF;
@@ -192,3 +194,51 @@ textarea:focus, input:focus{
   }
   .back-home { font-size: 0.7em; color: #909090; position: relative; top: -65px; left: -65px; text-align: left;  }
 }
+
+// Dashboard
+.dashboard-wrapper {
+  margin-top: 80px;
+  background-color: #FFF;
+  padding: 80px;
+
+  .dashboard-header { margin-bottom: 60px; }
+  .dashboard-title { font-size: 1.8em; font-weight: 300; margin-bottom: 30px; }
+  .welcome-user { margin-bottom: 5px; font-size: 0.9em;
+    .username { font-weight: 400; }
+  }
+  .user-meta { font-size: 0.8em; color: #707070; letter-spacing: 0.03em; cursor: pointer; @include transition(color, 400ms); margin-right: 10px;
+    &:hover { color: #3a85c2; }
+  }
+
+  .dashboard-content {  
+    padding: 30px;
+
+    [class*='dashboard-section'] { margin-top: -6px; display: none; }
+
+    .dashboard-nav {
+      ul { 
+        margin: 0;
+        padding: 0;
+
+        .dashboard-nav-item {
+          list-style-type: none; width: 150px; text-align: left; padding: 8px 12px; font-size: 0.9em; border: 1px solid $border_color; display: block; margin-bottom: 5px; cursor: pointer;
+          @include transition(background-color, 400ms);
+
+          &.current-nav-item, &:hover {
+            background-color: #505050;
+            color: #FFF;
+          } 
+        }
+      }
+    }
+
+    .section-wrapper { text-align: left; }
+    .db-section-title { font-size: 1.4em; }
+    .db-section-description { font-size: 0.8em; font-style: italic; }
+    .db-section-content { line-height: 1.5em; letter-spacing: 0.02em; }
+
+  }
+}
+
+// Media queries
+@media only screen and (min-width: 85em) {}

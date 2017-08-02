@@ -26,13 +26,13 @@ $(document).ready(function() {
 
 	/**
 	 *
-	 * Detect Login Page
+	 * Detect Login Page and Dashboard Page
 	 *
-	 * Detect whether we are on the login page. If so, add a class to change body's background color.
+	 * Detect whether we are on the login page or the dashboard page. If so, add a class to change body's background color.
 	 *
 	**/
-	if (window.location.href.indexOf("/login/") > -1) {
-	    $("body").addClass('login-bg');
+	if (window.location.href.indexOf("/login/") > -1 || window.location.href.indexOf("/dashboard/") > -1) {
+	    $("body").addClass('alternate-bg');
 	}
 
 	/**
@@ -84,4 +84,43 @@ $(document).ready(function() {
 	if (login_status.text().trim().length !== 0) {
 		login_status.fadeIn('slow');
 	}
+
+	/**
+	 *
+	 * Dashboard Navigation and Sections Preview Logic
+	 *
+	**/
+	var dashboard_nav_items = [];
+	var dashboard_sections = [];
+
+	$('.dashboard-nav-item').each(function(i) {
+		var item = i + 1;
+		dashboard_nav_items.push($(this));
+		$(this).addClass('d-nav-item-' + item);
+	});
+
+	$('.dashboard-section').each(function(i) {
+		var item = i + 1;
+		dashboard_sections.push($(this));
+		$(this).addClass('dashboard-section-' + item);
+	});
+
+	dashboard_nav_items[0].addClass('current-nav-item');
+	dashboard_sections[0].fadeIn();
+
+	$('.dashboard-nav-item').on('click', function() {
+		$('.dashboard-nav-item').each(function() {
+		    $(this).removeClass('current-nav-item');
+		});
+		$(this).addClass('current-nav-item');
+
+		$.each(dashboard_sections, function(i, obj) {
+			if (dashboard_nav_items[i].hasClass('current-nav-item')) {
+				obj.fadeIn('slow');
+			} else {
+				obj.css({'display': 'none'});
+			}
+		});
+	})
+
 });

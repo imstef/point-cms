@@ -340,7 +340,7 @@ $(document).ready(function() {
     });
 
     $('.portfolio-nav-item').on('click', function() {
-        $('.portfolio-nav-item').each(function(i, obj) {
+        $('.portfolio-nav-item').each(function() {
             $(this).removeClass('current-nav-item');
         });
         $(this).addClass('current-nav-item');

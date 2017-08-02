@@ -1,9 +1,43 @@
 {% extends "header.html.j2" %}
 {% block body %}
-	{# <p>Hi {{ session["username"] }}</p> #}
+	{% set home_url = 'http://localhost:5000/' %}
+	{% set logout_url = 'http://localhost:5000/logout/' %}
 	<div class="row">
 		<div class="column-12">
-			Dashboard
+			<div class="dashboard-wrapper">
+				<div class="dashboard-header">
+					<h1 class="dashboard-title">Moonbow CMS Dashboard</h1>
+					<p class="welcome-user">Hi there, <span class="username">{{ session["username"].title() }}!</span></p>
+					<p><a href="{{ home_url }}" class="user-meta">Visit Homepage</a><a href="{{ logout_url }}" class="user-meta">Logout</a></p>
+				</div>
+				<div class="dashboard-content">
+					<div class="column-3">
+						<div class="dashboard-nav">
+							{% set section_names = ['Overview', 'General Settings', 'Sections'] %}
+							{% set section_description = ['Stats, updates and news', 'General information about the user', 'Sections management and overview'] %}
+							<ul>
+								{% for i in range(3) %}
+								<li class="dashboard-nav-item">{{ section_names[i] }}</li>
+								{% endfor %}
+							</ul>
+						</div>
+					</div>
+					<div class="column-9">
+						<div class="section-wrapper">
+							{% for i in range(3) %}
+								<section id="section-settings" class="dashboard-section dashboard-section-settings">
+									<div class="db-section-meta">
+										<p class="db-section-title">{{ section_names[i] }}</p>
+										<p class="db-section-description">{{ section_description[i] }}</p>
+									</div>
+									<div class="db-section-content"></div>
+								</section>
+							{% endfor %}
+						</div>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
 		</div>	
 	</div>
-{% endblock %}
+{% endblock %}	

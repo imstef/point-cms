@@ -206,6 +206,9 @@ textarea:focus, input:focus {
 *:focus {
   outline: none; }
 
+a:link, a:visited {
+  text-decoration: none; }
+
 .preload * {
   -webkit-transition: none !important;
   -moz-transition: none !important;
@@ -447,7 +450,7 @@ textarea:focus, input:focus {
       color: #db1111;
       opacity: 1; }
 
-.login-bg {
+.alternate-bg {
   background-color: #EEE; }
 
 .login-wrapper {
@@ -518,5 +521,70 @@ textarea:focus, input:focus {
     top: -65px;
     left: -65px;
     text-align: left; }
+
+.dashboard-wrapper {
+  margin-top: 80px;
+  background-color: #FFF;
+  padding: 80px; }
+  .dashboard-wrapper .dashboard-header {
+    margin-bottom: 60px; }
+  .dashboard-wrapper .dashboard-title {
+    font-size: 1.8em;
+    font-weight: 300;
+    margin-bottom: 30px; }
+  .dashboard-wrapper .welcome-user {
+    margin-bottom: 5px;
+    font-size: 0.9em; }
+    .dashboard-wrapper .welcome-user .username {
+      font-weight: 400; }
+  .dashboard-wrapper .user-meta {
+    font-size: 0.8em;
+    color: #707070;
+    letter-spacing: 0.03em;
+    cursor: pointer;
+    -webkit-transition: color 400ms ease;
+    -moz-transition: color 400ms ease;
+    -ms-transition: color 400ms ease;
+    -o-transition: color 400ms ease;
+    transition: color 400ms ease;
+    margin-right: 10px; }
+    .dashboard-wrapper .user-meta:hover {
+      color: #3a85c2; }
+  .dashboard-wrapper .dashboard-content {
+    padding: 30px; }
+    .dashboard-wrapper .dashboard-content [class*='dashboard-section'] {
+      margin-top: -6px;
+      display: none; }
+    .dashboard-wrapper .dashboard-content .dashboard-nav ul {
+      margin: 0;
+      padding: 0; }
+      .dashboard-wrapper .dashboard-content .dashboard-nav ul .dashboard-nav-item {
+        list-style-type: none;
+        width: 150px;
+        text-align: left;
+        padding: 8px 12px;
+        font-size: 0.9em;
+        border: 1px solid #F4F4F4;
+        display: block;
+        margin-bottom: 5px;
+        cursor: pointer;
+        -webkit-transition: background-color 400ms ease;
+        -moz-transition: background-color 400ms ease;
+        -ms-transition: background-color 400ms ease;
+        -o-transition: background-color 400ms ease;
+        transition: background-color 400ms ease; }
+        .dashboard-wrapper .dashboard-content .dashboard-nav ul .dashboard-nav-item.current-nav-item, .dashboard-wrapper .dashboard-content .dashboard-nav ul .dashboard-nav-item:hover {
+          background-color: #505050;
+          color: #FFF; }
+    .dashboard-wrapper .dashboard-content .section-wrapper {
+      text-align: left; }
+    .dashboard-wrapper .dashboard-content .db-section-title {
+      font-size: 1.4em; }
+    .dashboard-wrapper .dashboard-content .db-section-description {
+      font-size: 0.8em;
+      font-style: italic; }
+    .dashboard-wrapper .dashboard-content .db-section-content {
+      line-height: 1.5em;
+      letter-spacing: 0.02em; }
 
 /*# sourceMappingURL=style.css.map */
