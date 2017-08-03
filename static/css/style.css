@@ -25,12 +25,12 @@ img {
   height: auto !important; }
 
 /* Content wrapper */
-.content-wrapper {
+.container {
   width: 100%;
   margin: 0 auto; }
 
 /* Rows, Clearfix */
-.content-wrapper:after, .row:after, .clearfix {
+.container:after, .row:after, .clearfix {
   content: "";
   display: table;
   clear: both; }
@@ -47,7 +47,7 @@ img {
 /* Responsive 12-column grid grid */
 @media only screen and (min-width: 45em) {
   /* Make the wrapper 95% of the width of the page so that there's a little space between the edges on larger screens */
-  .content-wrapper {
+  .container {
     width: 95%;
     max-width: 85em; }
 
@@ -522,69 +522,99 @@ a:link, a:visited {
     left: -65px;
     text-align: left; }
 
-.dashboard-wrapper {
-  margin-top: 80px;
-  background-color: #FFF;
-  padding: 80px; }
-  .dashboard-wrapper .dashboard-header {
-    margin-bottom: 60px; }
-  .dashboard-wrapper .dashboard-title {
-    font-size: 1.8em;
-    font-weight: 300;
-    margin-bottom: 30px; }
-  .dashboard-wrapper .welcome-user {
-    margin-bottom: 5px;
-    font-size: 0.9em; }
-    .dashboard-wrapper .welcome-user .username {
-      font-weight: 400; }
-  .dashboard-wrapper .user-meta {
+.dashboard-header {
+  background-color: #404040;
+  padding: 0 20px;
+  color: #FFF;
+  height: 60px;
+  text-align: left;
+  width: 100%; }
+  .dashboard-header .dashboard-nav-wrapper .dashboard-nav ul .dashboard-nav-item {
+    list-style-type: none;
+    display: inline-block;
+    border: 1px solid #404040;
+    margin-right: 5px;
+    padding: 5px 10px;
     font-size: 0.8em;
-    color: #707070;
-    letter-spacing: 0.03em;
+    border-radius: 1px;
     cursor: pointer;
-    -webkit-transition: color 400ms ease;
-    -moz-transition: color 400ms ease;
-    -ms-transition: color 400ms ease;
-    -o-transition: color 400ms ease;
-    transition: color 400ms ease;
-    margin-right: 10px; }
-    .dashboard-wrapper .user-meta:hover {
-      color: #3a85c2; }
-  .dashboard-wrapper .dashboard-content {
-    padding: 30px; }
-    .dashboard-wrapper .dashboard-content [class*='dashboard-section'] {
-      margin-top: -6px;
-      display: none; }
-    .dashboard-wrapper .dashboard-content .dashboard-nav ul {
-      margin: 0;
-      padding: 0; }
-      .dashboard-wrapper .dashboard-content .dashboard-nav ul .dashboard-nav-item {
-        list-style-type: none;
+    -webkit-transition: border-color 450ms ease;
+    -moz-transition: border-color 450ms ease;
+    -ms-transition: border-color 450ms ease;
+    -o-transition: border-color 450ms ease;
+    transition: border-color 450ms ease; }
+    .dashboard-header .dashboard-nav-wrapper .dashboard-nav ul .dashboard-nav-item.current-nav-item, .dashboard-header .dashboard-nav-wrapper .dashboard-nav ul .dashboard-nav-item:hover {
+      border-color: #FFF; }
+  .dashboard-header .user-meta {
+    text-align: right;
+    position: relative; }
+    .dashboard-header .user-meta .welcome-user {
+      padding-top: 6px;
+      font-size: 0.9em; }
+      .dashboard-header .user-meta .welcome-user .username {
+        text-decoration: underline;
+        cursor: pointer; }
+      .dashboard-header .user-meta .welcome-user .user-nav-wrapper {
+        display: none;
+        position: absolute;
+        top: 30px;
+        right: 0;
         width: 150px;
-        text-align: left;
-        padding: 8px 12px;
-        font-size: 0.9em;
-        border: 1px solid #F4F4F4;
-        display: block;
-        margin-bottom: 5px;
-        cursor: pointer;
-        -webkit-transition: background-color 400ms ease;
-        -moz-transition: background-color 400ms ease;
-        -ms-transition: background-color 400ms ease;
-        -o-transition: background-color 400ms ease;
-        transition: background-color 400ms ease; }
-        .dashboard-wrapper .dashboard-content .dashboard-nav ul .dashboard-nav-item.current-nav-item, .dashboard-wrapper .dashboard-content .dashboard-nav ul .dashboard-nav-item:hover {
-          background-color: #505050;
-          color: #FFF; }
-    .dashboard-wrapper .dashboard-content .section-wrapper {
-      text-align: left; }
-    .dashboard-wrapper .dashboard-content .db-section-title {
-      font-size: 1.4em; }
-    .dashboard-wrapper .dashboard-content .db-section-description {
+        background-color: #333333;
+        z-index: 999; }
+        .dashboard-header .user-meta .welcome-user .user-nav-wrapper .user-nav {
+          text-align: left;
+          -webkit-box-shadow: 0.5px 0.5px 5px 0px #404040;
+          -moz-box-shadow: 0.5px 0.5px 5px 0px #404040;
+          box-shadow: 0.5px 0.5px 5px 0px #404040; }
+          .dashboard-header .user-meta .welcome-user .user-nav-wrapper .user-nav ul {
+            margin: 0;
+            padding: 0; }
+            .dashboard-header .user-meta .welcome-user .user-nav-wrapper .user-nav ul li {
+              list-style-type: none; }
+              .dashboard-header .user-meta .welcome-user .user-nav-wrapper .user-nav ul li a {
+                display: block;
+                color: #FFF;
+                padding: 10px;
+                font-size: 0.9em;
+                -webkit-transition: background-color 450ms ease;
+                -moz-transition: background-color 450ms ease;
+                -ms-transition: background-color 450ms ease;
+                -o-transition: background-color 450ms ease;
+                transition: background-color 450ms ease; }
+                .dashboard-header .user-meta .welcome-user .user-nav-wrapper .user-nav ul li a:hover {
+                  background: #222222; }
+        .dashboard-header .user-meta .welcome-user .user-nav-wrapper.nav-open {
+          display: block; }
+
+.website-meta .website-name {
+  font-weight: 400;
+  padding-top: 5px; }
+
+.dashboard-content {
+  padding: 20px;
+  background-color: #FFF;
+  text-align: left;
+  position: relative; }
+  .dashboard-content .cms-meta {
+    position: absolute;
+    bottom: 5px;
+    right: 10px; }
+    .dashboard-content .cms-meta .cms-version {
+      font-size: 0.8em;
+      font-style: italic;
+      color: #999; }
+  .dashboard-content .db-section-meta {
+    margin-bottom: 20px; }
+    .dashboard-content .db-section-meta .db-section-title {
+      font-size: 1.4em;
+      font-weight: 400; }
+    .dashboard-content .db-section-meta .db-section-description {
       font-size: 0.8em;
       font-style: italic; }
-    .dashboard-wrapper .dashboard-content .db-section-content {
-      line-height: 1.5em;
-      letter-spacing: 0.02em; }
+
+[class*='dashboard-section'] {
+  margin-top: -6px;
+  display: none; }
 
 /*# sourceMappingURL=style.css.map */

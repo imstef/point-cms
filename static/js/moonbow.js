@@ -121,6 +121,20 @@ $(document).ready(function() {
 				obj.css({'display': 'none'});
 			}
 		});
-	})
+	});
 
+	/**
+	 *
+	 * User Navigation
+	 *
+	**/
+	$('.username').on('click', function() {
+		$('.user-nav-wrapper').toggleClass('nav-open');
+	});
+
+	$(window).on('click', function(e) {
+		if (e.target !== $('.username')[0] && e.target !== $('user-nav-wrapper')[0]) {
+			$('.user-nav-wrapper').removeClass('nav-open');
+		}
+	});
 });

@@ -73,6 +73,7 @@ a:link, a:visited { text-decoration: none; }
 .align-left { text-align: left; }
 .align-center { text-align: center; }
 .no-scroll { overflow-y: hidden; }
+
 // Header
 .sidebar-toggle { font-size: 1.5em; color: $primary_color; padding-left: 8px; padding-top: 6px; float: left; cursor: pointer; }
 .header-wrapper { position: fixed; top: 0; left: 0; width: 100%; z-index: 3; display: none; overflow: hidden;  -webkit-transition: height 0.3s; -moz-transition: height 0.3s; transition: height 0.3s; border-bottom: 1px solid $border_color; padding: 15px 10px; background: rgba(255, 255, 255, 0.99); }
@@ -196,49 +197,83 @@ a:link, a:visited { text-decoration: none; }
 }
 
 // Dashboard
-.dashboard-wrapper {
-  margin-top: 80px;
-  background-color: #FFF;
-  padding: 80px;
+.dashboard-header {
+  background-color: #404040;
+  padding: 0 20px;
+  color: #FFF;
+  height: 60px;
+  text-align: left;
+  width: 100%;
 
-  .dashboard-header { margin-bottom: 60px; }
-  .dashboard-title { font-size: 1.8em; font-weight: 300; margin-bottom: 30px; }
-  .welcome-user { margin-bottom: 5px; font-size: 0.9em;
-    .username { font-weight: 400; }
-  }
-  .user-meta { font-size: 0.8em; color: #707070; letter-spacing: 0.03em; cursor: pointer; @include transition(color, 400ms); margin-right: 10px;
-    &:hover { color: #3a85c2; }
-  }
-
-  .dashboard-content {  
-    padding: 30px;
-
-    [class*='dashboard-section'] { margin-top: -6px; display: none; }
-
+  .dashboard-nav-wrapper {
     .dashboard-nav {
-      ul { 
-        margin: 0;
-        padding: 0;
-
-        .dashboard-nav-item {
-          list-style-type: none; width: 150px; text-align: left; padding: 8px 12px; font-size: 0.9em; border: 1px solid $border_color; display: block; margin-bottom: 5px; cursor: pointer;
-          @include transition(background-color, 400ms);
-
+      ul {
+        .dashboard-nav-item { 
+          list-style-type: none; display: inline-block; border: 1px solid #404040; margin-right: 5px; padding: 5px 10px; font-size: 0.8em; border-radius: 1px; cursor: pointer; @include transition(border-color, 450ms);
           &.current-nav-item, &:hover {
-            background-color: #505050;
-            color: #FFF;
+            border-color: #FFF;
           } 
         }
       }
     }
+  }
 
-    .section-wrapper { text-align: left; }
-    .db-section-title { font-size: 1.4em; }
-    .db-section-description { font-size: 0.8em; font-style: italic; }
-    .db-section-content { line-height: 1.5em; letter-spacing: 0.02em; }
+  .user-meta {
+    text-align: right;
+    position: relative;
 
+    .welcome-user { padding-top: 6px; font-size: 0.9em;
+      .username { text-decoration: underline; cursor: pointer; }
+      .user-nav-wrapper { display: none; position: absolute; top: 30px; right: 0; width: 150px; background-color: #333333; z-index: 999;
+        .user-nav { 
+          text-align: left; 
+          -webkit-box-shadow: 0.5px 0.5px 5px 0px #404040;
+          -moz-box-shadow: 0.5px 0.5px 5px 0px #404040;
+          box-shadow: 0.5px 0.5px 5px 0px #404040;
+          ul { margin: 0; padding: 0; 
+            li { list-style-type: none;
+              a { display: block; color: #FFF; padding: 10px; font-size: 0.9em; @include transition(background-color, 450ms);
+                &:hover {
+                  background: #222222;
+                }
+              }
+            }
+          }
+        } 
+        
+        &.nav-open {
+          display: block;
+        }
+      }
+    }
   }
 }
+
+  .website-meta { 
+    .website-name { font-weight: 400; padding-top: 5px; }
+  }
+
+.dashboard-content {  
+  padding: 20px;
+  background-color: #FFF;
+  text-align: left;
+  position: relative;
+
+  .cms-meta {
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    .cms-version { font-size: 0.8em; font-style: italic; color: #999; }
+  }
+
+  .db-section-meta {
+    margin-bottom: 20px;
+    .db-section-title { font-size: 1.4em; font-weight: 400; }
+    .db-section-description { font-size: 0.8em; font-style: italic; }
+  }
+}
+
+[class*='dashboard-section'] { margin-top: -6px; display: none; }
 
 // Media queries
 @media only screen and (min-width: 85em) {}

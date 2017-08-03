@@ -13,13 +13,13 @@ img {
 }
 
 /* Content wrapper */
-.content-wrapper {
+.container {
 	width: 100%;
 	margin: 0 auto;
 }
 
 /* Rows, Clearfix */
-.content-wrapper:after, .row:after, .clearfix {
+.container:after, .row:after, .clearfix {
 	content: "";
 	display: table;
 	clear: both;
@@ -38,7 +38,7 @@ img {
 /* Responsive 12-column grid grid */
 @media only screen and (min-width: 45em) {
 	/* Make the wrapper 95% of the width of the page so that there's a little space between the edges on larger screens */
-	.content-wrapper {
+	.container {
 		width: 95%;
 		max-width: 85em;
 	}
