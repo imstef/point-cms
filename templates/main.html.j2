@@ -1,3 +1,4 @@
+{% set active_webpage = "Home" %}
 {% extends "header.html.j2" %}
 
 {% block body %}
@@ -26,6 +27,9 @@
 						{% set path = 'sections/' + attributes["type"] + ".html.j2" %}
 
 						{% set class_id = attributes["class_id"] %}
+
+						<h1 class="section-title">{{ attributes["title"] }}</h1>
+	 					<h4 class="section-description">{{ attributes["description"] }}</h4>
 
 						{# Include template #}
 						{% include path %} 

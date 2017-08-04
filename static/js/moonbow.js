@@ -138,3 +138,33 @@ $(document).ready(function() {
 		}
 	});
 });
+
+
+// ajax
+$(".save-btn").click(function(e){
+	e.preventDefault();
+	form_id = this.id.replace('-submit', '');
+	console.log(form_id)
+	var inputs = [];
+	$('.' + form_id + '-form .' + form_id  + '-input').each(function() {
+		inputs.push($(this).val());
+  	});
+  	console.log(inputs);
+  	var inputValues = {
+    	data: inputs,
+    	form_id: form_id,
+  	};
+
+  	$.ajax({
+   		type: "POST",
+    	url: "/api/",
+    	data: inputValues,
+    	success: function(response){
+     		console.log("success " + response);
+    	},
+    	error: function(response){
+     		alert("error" + response);
+   		}
+	});
+
+});

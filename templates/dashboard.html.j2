@@ -1,12 +1,14 @@
+{% set active_webpage = "Dashboard" %}
 {% extends "header.html.j2" %}
+
 {% block body %}
-	{% set home_url = 'http://localhost:5000/' %}
-	{% set logout_url = 'http://localhost:5000/logout/' %}
+	{% set home_url = url_for("homepage") %}
+	{% set logout_url = url_for("logout") %}
 	{% set section_names = ['Overview', 'Settings', 'Sections'] %}
 	{% set section_description = ['Stats, updates and news', 'General information about the user', 'Sections management and overview'] %}
 	{% set cms_meta = 'Point CMS v0.0.1' %}
-	{% set website_name = 'Kostadinovski' %}
-	{% set greeting = ['Hello', 'Howdy', 'Hi there', 'Hola', 'Zdravo', 'Zivijo', 'Bonjour', 'Namaste', 'Guten tag', 'Ola', 'Ciao'] %}
+	{% set website_name = website_info["website_name"] %}
+	{% set greeting = ['Hello', 'Howdy', 'Hi there', 'Hola', 'Zdravo', 'Živjo', 'Bonjour', 'Namaste', 'Guten tag', 'Ola', 'Ciao'] %}
 	<div class="row">
 		<div class="column-12">
 			<div class="dashboard-header display-table">
@@ -78,4 +80,5 @@
 			</div>
 		</div>
 	</div>	
+	{{ close() }}
 {% endblock %}	
