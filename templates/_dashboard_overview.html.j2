@@ -1,1 +1,38 @@
-<p>Dasboarad overview</p>
+<p class="db-quick-text">Hi there! Here are some quick links.</p>
+<div class="row">
+	<div class="column-12">
+		<div class="column-3">
+			<div class="db-quick-item db-quick-settings">
+				<p class="db-quick-title">General</p>
+				<p class="db-quick-subtitle">Theme Accent Color</p>
+				{% set theme_accent = ['Dashboard', 'Website'] %}
+				{% for i in range(2) %}
+					<div class="db-quick-row">
+						<span class="db-quick-inner-text">{{ theme_accent[i] }}:</span>
+						<select class="db-quick-select">
+							<option value="">-</option>
+							<option value="white">White</option>
+							<option value="black">Black</option>
+							<option value="red">Red</option>
+						</select>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+		<div class="column-3">
+			<div class="db-quick-item db-quick-settings">
+				<p class="db-quick-title">Quick Actions</p>
+				<p class="db-quick-subtitle">Create your first section</p>
+				<p class="db-quick-subtitle">Change footer info</p>
+			</div>
+		</div>
+		<div class="column-3">
+			<div class="db-quick-item db-quick-settings">
+				<p class="db-quick-title">Getting Started</p>
+				<p class="db-quick-subtitle">News, Tips and Tricks</p>
+				<p class="db-quick-subtitle">Documentation</p>
+				<p class="db-quick-subtitle">API</p>
+			</div>
+		</div>
+	</div>
+</div>

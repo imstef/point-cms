@@ -178,6 +178,12 @@ input {
   line-height: 1.2em;
   padding-bottom: 7px; }
 
+textarea {
+  -webkit-appearance: none;
+  line-height: 1.2em;
+  border: 1px solid #F2F2F2;
+  overflow-y: auto; }
+
 ::-webkit-input-placeholder {
   /* WebKit, Blink, Edge */
   color: #E5E5E5; }
@@ -221,8 +227,44 @@ a:link, a:visited {
 .align-center {
   text-align: center; }
 
+.align-right {
+  text-align: right; }
+
 .no-scroll {
   overflow-y: hidden; }
+
+.form-group {
+  margin-bottom: 18px; }
+  .form-group input {
+    border: 0;
+    width: 225px;
+    border-bottom: 1px solid #F4F4F4;
+    text-align: left;
+    -webkit-transition: border-color 750ms ease;
+    -moz-transition: border-color 750ms ease;
+    -ms-transition: border-color 750ms ease;
+    -o-transition: border-color 750ms ease;
+    transition: border-color 750ms ease; }
+  .form-group input:focus {
+    border-color: #3a85c2; }
+
+.login-btn, .save-btn {
+  border: 1px solid #F4F4F4;
+  font-size: 0.8em;
+  line-height: 1.5em;
+  letter-spacing: 0.02em;
+  background-color: #FFF;
+  padding: 5px 15px;
+  margin-top: 15px;
+  font-weight: 300;
+  cursor: pointer;
+  -webkit-transition: border-color 750ms ease;
+  -moz-transition: border-color 750ms ease;
+  -ms-transition: border-color 750ms ease;
+  -o-transition: border-color 750ms ease;
+  transition: border-color 750ms ease; }
+  .login-btn:hover, .save-btn:hover {
+    border-color: #3a85c2; }
 
 .sidebar-toggle {
   font-size: 1.5em;
@@ -462,20 +504,6 @@ a:link, a:visited {
   color: #707070; }
   .login-wrapper .login-form {
     padding: 80px 80px 40px 80px; }
-    .login-wrapper .login-form .form-group {
-      margin-bottom: 18px; }
-      .login-wrapper .login-form .form-group input {
-        border: 0;
-        width: 225px;
-        border-bottom: 1px solid #F4F4F4;
-        text-align: left;
-        -webkit-transition: border-color 750ms ease;
-        -moz-transition: border-color 750ms ease;
-        -ms-transition: border-color 750ms ease;
-        -o-transition: border-color 750ms ease;
-        transition: border-color 750ms ease; }
-      .login-wrapper .login-form .form-group input:focus {
-        border-color: #3a85c2; }
     .login-wrapper .login-form .login-text {
       font-size: 2em;
       font-weight: 300;
@@ -484,23 +512,6 @@ a:link, a:visited {
       font-size: 0.9em;
       font-weight: 300;
       margin-bottom: 55px; }
-    .login-wrapper .login-form .login-btn {
-      border: 1px solid #F4F4F4;
-      font-size: 0.8em;
-      line-height: 1.5em;
-      letter-spacing: 0.02em;
-      background-color: #FFF;
-      padding: 5px 15px;
-      margin-top: 15px;
-      font-weight: 300;
-      cursor: pointer;
-      -webkit-transition: border-color 750ms ease;
-      -moz-transition: border-color 750ms ease;
-      -ms-transition: border-color 750ms ease;
-      -o-transition: border-color 750ms ease;
-      transition: border-color 750ms ease; }
-      .login-wrapper .login-form .login-btn:hover {
-        border-color: #3a85c2; }
     .login-wrapper .login-form .lost-pw {
       padding-top: 40px;
       font-size: 0.7em;
@@ -524,27 +535,30 @@ a:link, a:visited {
 
 .dashboard-header {
   background-color: #404040;
-  padding: 0 20px;
+  padding: 0 30px;
   color: #FFF;
   height: 60px;
   text-align: left;
   width: 100%; }
-  .dashboard-header .dashboard-nav-wrapper .dashboard-nav ul .dashboard-nav-item {
-    list-style-type: none;
-    display: inline-block;
-    border: 1px solid #404040;
-    margin-right: 5px;
-    padding: 5px 10px;
-    font-size: 0.8em;
-    border-radius: 1px;
-    cursor: pointer;
-    -webkit-transition: border-color 450ms ease;
-    -moz-transition: border-color 450ms ease;
-    -ms-transition: border-color 450ms ease;
-    -o-transition: border-color 450ms ease;
-    transition: border-color 450ms ease; }
-    .dashboard-header .dashboard-nav-wrapper .dashboard-nav ul .dashboard-nav-item.current-nav-item, .dashboard-header .dashboard-nav-wrapper .dashboard-nav ul .dashboard-nav-item:hover {
-      border-color: #FFF; }
+  .dashboard-header .dashboard-nav-wrapper .dashboard-nav ul {
+    cursor: pointer; }
+    .dashboard-header .dashboard-nav-wrapper .dashboard-nav ul .dashboard-nav-item {
+      list-style-type: none;
+      display: inline-block;
+      border: 1px solid #404040;
+      margin-right: 5px;
+      padding: 5px 10px;
+      font-size: 0.8em; }
+      .dashboard-header .dashboard-nav-wrapper .dashboard-nav ul .dashboard-nav-item.current-nav-item::after, .dashboard-header .dashboard-nav-wrapper .dashboard-nav ul .dashboard-nav-item:hover::after {
+        content: "";
+        position: relative;
+        top: 5px;
+        left: 0;
+        display: block;
+        height: 1px;
+        width: 70%;
+        margin-left: 15%;
+        background-color: #CCCCCC; }
   .dashboard-header .user-meta {
     text-align: right;
     position: relative; }
@@ -590,9 +604,11 @@ a:link, a:visited {
 .website-meta .website-name {
   font-weight: 400;
   padding-top: 5px; }
+.website-meta a {
+  color: #FFF; }
 
 .dashboard-content {
-  padding: 20px;
+  padding: 30px;
   background-color: #FFF;
   text-align: left;
   position: relative; }
@@ -612,6 +628,37 @@ a:link, a:visited {
     .dashboard-content .db-section-meta .db-section-description {
       font-size: 0.8em;
       font-style: italic; }
+  .dashboard-content .db-quick-title {
+    font-size: 1.2em;
+    font-weight: 400;
+    margin-bottom: 30px; }
+  .dashboard-content .db-quick-subtitle {
+    font-size: 1.1em;
+    margin: 20px 0; }
+  .dashboard-content .db-quick-row {
+    margin: 10px 0; }
+  .dashboard-content .db-quick-item {
+    margin-top: 20px; }
+  .dashboard-content .db-quick-text {
+    margin: 10px 0; }
+  .dashboard-content .db-quick-inner-text {
+    font-size: 0.9em; }
+  .dashboard-content .db-quick-select {
+    width: 90px; }
+  .dashboard-content input {
+    font-size: 0.9em; }
+  .dashboard-content textarea {
+    -webkit-transition: border-color 750ms ease;
+    -moz-transition: border-color 750ms ease;
+    -ms-transition: border-color 750ms ease;
+    -o-transition: border-color 750ms ease;
+    transition: border-color 750ms ease;
+    width: 95%;
+    height: 125px; }
+  .dashboard-content textarea:focus {
+    border-color: #3a85c2; }
+  .dashboard-content .align-right {
+    margin-right: 5%; }
 
 [class*='dashboard-section'] {
   margin-top: -6px;

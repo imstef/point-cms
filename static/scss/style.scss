@@ -36,6 +36,13 @@ input {
   padding-bottom: 7px;
 }
 
+textarea {
+  -webkit-appearance: none;
+  line-height: 1.2em;
+  border: 1px solid #F2F2F2;
+  overflow-y: auto;
+}
+
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
     color: #E5E5E5;
 }
@@ -72,7 +79,26 @@ a:link, a:visited { text-decoration: none; }
 }
 .align-left { text-align: left; }
 .align-center { text-align: center; }
+.align-right { text-align: right; }
 .no-scroll { overflow-y: hidden; }
+
+.form-group {
+  margin-bottom: 18px;
+
+  input {
+    border: 0;
+    width: 225px;
+    border-bottom: 1px solid $border_color;
+    text-align: left;
+    @include transition(border-color, 750ms);
+  }
+  input:focus { border-color: #3a85c2; }
+} 
+
+.login-btn, .save-btn { border: 1px solid $border_color; font-size: 0.8em; line-height: 1.5em; letter-spacing: 0.02em; background-color: #FFF; padding: 5px 15px; margin-top: 15px; font-weight: 300; cursor: pointer; 
+    @include transition(border-color, 750ms);
+    &:hover { border-color: #3a85c2; }
+}
 
 // Header
 .sidebar-toggle { font-size: 1.5em; color: $primary_color; padding-left: 8px; padding-top: 6px; float: left; cursor: pointer; }
@@ -170,25 +196,9 @@ a:link, a:visited { text-decoration: none; }
 
   .login-form { 
     padding: 80px 80px 40px 80px;
-    .form-group {
-      margin-bottom: 18px;
-
-      input {
-        border: 0;
-        width: 225px;
-        border-bottom: 1px solid $border_color;
-        text-align: left;
-        @include transition(border-color, 750ms);
-      }
-      input:focus { border-color: #3a85c2; }
-    } 
 
     .login-text { font-size: 2em; font-weight: 300; margin-bottom: 5px; }
     .login-description { font-size: 0.9em; font-weight: 300; margin-bottom: 55px; }
-    .login-btn { border: 1px solid $border_color; font-size: 0.8em; line-height: 1.5em; letter-spacing: 0.02em; background-color: #FFF; padding: 5px 15px; margin-top: 15px; font-weight: 300; cursor: pointer; 
-      @include transition(border-color, 750ms);
-      &:hover { border-color: #3a85c2; }
-    }
     .lost-pw { padding-top: 40px; font-size: 0.7em; color: #909090; }
     .login-status-wrapper { margin: 20px 0; height: 50px; }
     .login-status { font-size: 0.8em; padding: 5px; color: #db3939; border: 1px solid; display: none; }
@@ -199,7 +209,7 @@ a:link, a:visited { text-decoration: none; }
 // Dashboard
 .dashboard-header {
   background-color: #404040;
-  padding: 0 20px;
+  padding: 0 30px;
   color: #FFF;
   height: 60px;
   text-align: left;
@@ -208,10 +218,11 @@ a:link, a:visited { text-decoration: none; }
   .dashboard-nav-wrapper {
     .dashboard-nav {
       ul {
+        cursor: pointer;
         .dashboard-nav-item { 
-          list-style-type: none; display: inline-block; border: 1px solid #404040; margin-right: 5px; padding: 5px 10px; font-size: 0.8em; border-radius: 1px; cursor: pointer; @include transition(border-color, 450ms);
+          list-style-type: none; display: inline-block; border: 1px solid #404040; margin-right: 5px; padding: 5px 10px; font-size: 0.8em;
           &.current-nav-item, &:hover {
-            border-color: #FFF;
+            &::after { content: ""; position: relative; top: 5px; left: 0; display: block; height: 1px; width: 70%; margin-left: 15%; background-color: $nav_current_color; }
           } 
         }
       }
@@ -251,10 +262,11 @@ a:link, a:visited { text-decoration: none; }
 
   .website-meta { 
     .website-name { font-weight: 400; padding-top: 5px; }
+    a { color: #FFF; }
   }
 
 .dashboard-content {  
-  padding: 20px;
+  padding: 30px;
   background-color: #FFF;
   text-align: left;
   position: relative;
@@ -271,6 +283,18 @@ a:link, a:visited { text-decoration: none; }
     .db-section-title { font-size: 1.4em; font-weight: 400; }
     .db-section-description { font-size: 0.8em; font-style: italic; }
   }
+  .db-quick-title { font-size: 1.2em; font-weight: 400; margin-bottom: 30px; }
+  .db-quick-subtitle { font-size: 1.1em; margin: 20px 0; }
+  .db-quick-row { margin: 10px 0; }
+  .db-quick-item { margin-top: 20px; }
+  .db-quick-text { margin: 10px 0; }
+  .db-quick-inner-text { font-size: 0.9em; }
+  .db-quick-select { width: 90px; }
+
+  input { font-size: 0.9em; }
+  textarea { @include transition(border-color, 750ms);  width: 95%; height: 125px; }
+  textarea:focus { border-color: #3a85c2; }
+  .align-right { margin-right: 5%; }
 }
 
 [class*='dashboard-section'] { margin-top: -6px; display: none; }
