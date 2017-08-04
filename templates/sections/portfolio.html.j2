@@ -1,9 +1,11 @@
 {% block body %}
     
+    {#
     {% set info = execute_query("SELECT title, description FROM template_portfolio JOIN section_list USING(sid) WHERE class_id = '%s'" % class_id) %}
 
     <h1 class="section-title">{{ info[0]["title"] }}</h1>
     <h4 class="section-description">{{ info[0]["description"] }}</h4>
+    #}
     <div class="nav-wrapper portfolio-nav ">
         <nav>
             {% set categories = execute_query("SELECT category FROM template_portfolio_categories ORDER BY position") %}

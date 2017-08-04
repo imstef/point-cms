@@ -3,46 +3,46 @@
 		<div class="column-3">
 			<p class="db-quick-title">General Settings</p>
 			<p class="db-quick-subtitle">Webisite Info</p>
-			<form>
+
+			<form class="general-form">
 				<div class="db-quick-row">
 					<div class="form-group">
 						<p class="db-quick-inner-text">Website Name:</p>
-						<input type="text" name="website_name">
+						<input type="text" name="website_name" value="{{ website_name }}" class="general-input">
 					</div>
 					<div class="form-group">
 						<p class="db-quick-inner-text">Website Description:</p>
-						<input type="text" name="website_description">
-					</div>
-					<div class="form-group">
-						<p class="db-quick-inner-text">Website URL:</p>
-						<input type="text" name="website_author">
+						<input type="text" name="website_description" value="{{ website_info['website_description'] }}" class="general-input">
 					</div>
 					<div class="form-group">
 						<p class="db-quick-inner-text">Author:</p>
-						<input type="text" name="website_author">
+						<input type="text" name="website_author" value="{{ website_info['author'] }}" class="general-input">
 					</div>
 					<div class="form-group">
 						<p class="db-quick-inner-text">Email Address:</p>
-						<input type="text" name="website_author">
+						<input type="text" name="email_address" value="{{ website_info['email_address'] }}" class="general-input">
 					</div>
 					<div class="align-right">
-						<button type="submit" class="save-btn">Save</button>
+						<button type="submit" class="save-btn" id="general-submit">Save</button>
 					</div>
 				</div>
 			</form>
+
 		</div>
 		<div class="column-3">
 			<p class="db-quick-title">Sections Settings</p>
 			<p class="db-quick-subtitle">Footer Info</p>
 			<div class="db-quick-row">
-				<form>
+
+				<form class="footer-form">
 					<div class="form-group">
-						<textarea name="footer_info"></textarea>
+						<textarea name="footer_info" class="footer-input">{{ website_info['footer_info'] }}</textarea>
 					</div>
 					<div class="align-right">
-						<button type="submit" class="save-btn">Save</button>
+						<button type="submit" class="save-btn" id="footer-submit">Save</button>
 					</div>		
 				</form>
+
 			</div>
 		</div>
 	</div>
