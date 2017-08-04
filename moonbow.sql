@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Aug 01, 2017 at 12:24 AM
+-- Generation Time: Aug 05, 2017 at 01:38 AM
 -- Server version: 10.1.25-MariaDB-1~xenial
 -- PHP Version: 7.0.18-0ubuntu0.16.04.1
 
@@ -28,6 +28,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `section_list` (
   `sid` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL,
   `position` int(11) DEFAULT NULL,
   `class_id` varchar(255) DEFAULT NULL,
   `tid` int(11) DEFAULT NULL
@@ -37,11 +39,11 @@ CREATE TABLE `section_list` (
 -- Dumping data for table `section_list`
 --
 
-INSERT INTO `section_list` (`sid`, `position`, `class_id`, `tid`) VALUES
-(1, 1, 'welcome', 1),
-(2, 2, 'portfolio', 2),
-(3, 3, 'testimonials', 1),
-(4, 4, 'connect', 1);
+INSERT INTO `section_list` (`sid`, `title`, `description`, `position`, `class_id`, `tid`) VALUES
+(1, 'welcome', 'let\'s get to know each other', 1, 'welcome', 1),
+(2, 'portfolio', 'portfolio description', 2, 'portfolio', 2),
+(3, 'testimonials', 'what the clients say', 3, 'testimonials', 1),
+(4, 'connect', 'want to get in touch, talk business or just say hi? here\'s where you can find me', 4, 'connect', 1);
 
 -- --------------------------------------------------------
 
@@ -60,7 +62,32 @@ CREATE TABLE `section_type` (
 
 INSERT INTO `section_type` (`tid`, `type`) VALUES
 (1, 'blank'),
-(2, 'portfolio');
+(2, 'portfolio'),
+(3, 'test123');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `settings`
+--
+
+CREATE TABLE `settings` (
+  `id` int(11) NOT NULL,
+  `homepage_color` varchar(255) NOT NULL,
+  `dashboard_color` varchar(255) NOT NULL,
+  `website_name` varchar(255) NOT NULL,
+  `website_description` varchar(255) NOT NULL,
+  `author` varchar(255) NOT NULL,
+  `email_address` varchar(255) NOT NULL,
+  `footer_info` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `settings`
+--
+
+INSERT INTO `settings` (`id`, `homepage_color`, `dashboard_color`, `website_name`, `website_description`, `author`, `email_address`, `footer_info`) VALUES
+(1, 'White', 'Black', 'kostadinovski.me', 'this is the website desc', '@imilosk, @imstef', 'milos.kostadinovski97@gmail.com', '<p>The Moonbow CMS is completely free and open-source. You can download it on GitHub.</p>\n        <p>Made with <span class="icon icon-heart inverse-icon icon-heart-footer"></span> by @imstef, @imilosk</p>');
 
 -- --------------------------------------------------------
 
@@ -70,8 +97,6 @@ INSERT INTO `section_type` (`tid`, `type`) VALUES
 
 CREATE TABLE `template_blank` (
   `bid` int(11) NOT NULL,
-  `title` varchar(255) DEFAULT NULL,
-  `description` varchar(255) DEFAULT NULL,
   `content` text,
   `sid` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -80,10 +105,10 @@ CREATE TABLE `template_blank` (
 -- Dumping data for table `template_blank`
 --
 
-INSERT INTO `template_blank` (`bid`, `title`, `description`, `content`, `sid`) VALUES
-(1, 'welcome', 'let\'s get to know each other', 'Hi there, I\'m a software developer, tech blogger and hobbyist photographer.', 1),
-(2, 'testimonials', 'what the clients say', 'good', 3),
-(3, 'conenct', 'want to get in touch, talk business or just say hi? here\'s where you can find me', '<ul>\r\n            <li><a href="#">LinkedIn</a></li>\r\n            <li><a href="#">GitHub</a></li>\r\n            <li><a href="#">StackOverflow</a></li>\r\n</ul>', 4);
+INSERT INTO `template_blank` (`bid`, `content`, `sid`) VALUES
+(1, 'Hi there, I\'m a software developer, tech blogger and hobbyist photographer.', 1),
+(2, 'good', 3),
+(3, '<ul>\r\n            <li><a href="#">LinkedIn</a></li>\r\n            <li><a href="#">GitHub</a></li>\r\n            <li><a href="#">StackOverflow</a></li>\r\n</ul>', 4);
 
 -- --------------------------------------------------------
 
@@ -93,8 +118,6 @@ INSERT INTO `template_blank` (`bid`, `title`, `description`, `content`, `sid`) V
 
 CREATE TABLE `template_portfolio` (
   `tpid` int(11) NOT NULL,
-  `title` varchar(255) DEFAULT NULL,
-  `description` varchar(255) DEFAULT NULL,
   `sid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -102,8 +125,8 @@ CREATE TABLE `template_portfolio` (
 -- Dumping data for table `template_portfolio`
 --
 
-INSERT INTO `template_portfolio` (`tpid`, `title`, `description`, `sid`) VALUES
-(1, 'portfolio title', 'portfolio description', 2);
+INSERT INTO `template_portfolio` (`tpid`, `sid`) VALUES
+(1, 2);
 
 -- --------------------------------------------------------
 
@@ -150,7 +173,7 @@ CREATE TABLE `template_portfolio_projects` (
 --
 
 INSERT INTO `template_portfolio_projects` (`pid`, `title`, `description`, `modal_content`, `logo`, `technologies`, `link`, `link_icon`, `tpid`, `cid`) VALUES
-(1, 'Twitter Clone', 'lightweight and minimal Twitter-like updates sharing platform.', '                    <h2>Project Description</h2>\r\n                    <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid animi asperiores consequatur cupiditate distinctio 123123123123123lorem, enim hic ipsa laborum molestias, mollitia nisi nostrum nulla pariatur quasi ratione rem sequi. Dolore laboriosam officia possimus quam quasi reiciendis, saepe vel!</span></p>\r\n                    <h2>Technologies and Frameworks</h2>\r\n                    <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, consequatur cupiditate est exercitationem iste iure magni nesciunt nostrum officiis placeat quaerat quisquam quo ullam, voluptate voluptatibus! Dolorem expedita incidunt repellat.</span><span>Dolores laudantium magnam nam non quas tempore vel? Animi eos eum ipsum obcaecati odit possimus quo. Aliquid, atque corporis dolor illo iste nemo nobis officiis quasi repudiandae sequi, tempora unde!</span>\r\n                    </p>\r\n                    <h2>Screenshots</h2>\r\n                    <div class="gallery">\r\n                        Screenshot 1\r\n                        Screenshot 2\r\n                        Screenshot 3\r\n                    </div>', 'logos/logo.png', 'php;js;python;java;csharp', 'https://github.com/imstef/moonbow-cms', 'github', 1, 1),
+(1, 'Twitter Clone', 'lightweight and minimal Twitter-like updates sharing platform.', '                    <h2>Project Description</h2>\n                    <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid animi asperiores consequatur cupiditate distinctio 123123123123123lorem, enim hic ipsa laborum molestias, mollitia nisi nostrum nulla pariatur quasi ratione rem sequi. Dolore laboriosam officia possimus quam quasi reiciendis, saepe vel!</span></p>\n                    <h2>Technologies and Frameworks</h2>\n                    <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, consequatur cupiditate est exercitationem iste iure magni nesciunt nostrum officiis placeat quaerat quisquam quo ullam, voluptate voluptatibus! Dolorem expedita incidunt repellat.</span><span>Dolores laudantium magnam nam non quas tempore vel? Animi eos eum ipsum obcaecati odit possimus quo. Aliquid, atque corporis dolor illo iste nemo nobis officiis quasi repudiandae sequi, tempora unde!</span>\n                    </p>\n                    <h2>Screenshots</h2>\n                    <div class="gallery">\n                        Screenshot 1\n                        Screenshot 2\n                        Screenshot 3\n                    </div>', 'logos/logo.png', 'php;js;python;java;csharp', 'https://github.com/imstef/moonbow-cms', 'github', 1, 1),
 (2, 'Snake game', 'snake game', '123', 'logos/logo.png', '123', 'https://github.com/imstef/moonbow-cms', 'github', 1, 2),
 (3, 'Moonbow CMS', 'test item', 'this is a test text', 'logos/logo.png', 'html;css;js;python', 'https://github.com/imstef/moonbow-cms', 'github', 1, 3);
 
@@ -165,6 +188,13 @@ CREATE TABLE `users` (
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `password`) VALUES
+(11, 'milos', '$5$rounds=535000$Ue/.4UKWV/e86DkL$sBFlBONRG6IKINqhYEH83PmIWBJEt4f67K2huSJrk92');
 
 --
 -- Indexes for dumped tables
@@ -182,6 +212,12 @@ ALTER TABLE `section_list`
 --
 ALTER TABLE `section_type`
   ADD PRIMARY KEY (`tid`);
+
+--
+-- Indexes for table `settings`
+--
+ALTER TABLE `settings`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `template_blank`
@@ -230,7 +266,12 @@ ALTER TABLE `section_list`
 -- AUTO_INCREMENT for table `section_type`
 --
 ALTER TABLE `section_type`
-  MODIFY `tid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `tid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `settings`
+--
+ALTER TABLE `settings`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `template_blank`
 --
@@ -255,7 +296,7 @@ ALTER TABLE `template_portfolio_projects`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- Constraints for dumped tables
 --
