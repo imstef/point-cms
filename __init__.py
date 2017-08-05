@@ -10,6 +10,7 @@ from mbconf import *
 from posthandler import *
 
 app = Flask(__name__)
+app.secret_key = 'secretkey'
 
 # config Database
 connection = DatabaseConnection()

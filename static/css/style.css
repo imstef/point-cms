@@ -645,6 +645,31 @@ a:link, a:visited {
     font-size: 0.9em; }
   .dashboard-content .db-quick-select {
     width: 90px; }
+  .dashboard-content .db-section-item {
+    border: 1px solid #F2F2F2;
+    width: 90%;
+    border-radius: 3px; }
+  .dashboard-content .db-section-item-wrapper {
+    background-color: #EEE;
+    -webkit-transition: background-color 450ms ease;
+    -moz-transition: background-color 450ms ease;
+    -ms-transition: background-color 450ms ease;
+    -o-transition: background-color 450ms ease;
+    transition: background-color 450ms ease; }
+    .dashboard-content .db-section-item-wrapper:hover {
+      background-color: #F2F2F2; }
+  .dashboard-content .db-section-content-expand, .dashboard-content .db-section-content-hide {
+    padding: 10px;
+    cursor: pointer; }
+  .dashboard-content .db-section-content-hide {
+    display: none; }
+  .dashboard-content .db-section-content-expand {
+    display: inline-block;
+    width: 90%; }
+  .dashboard-content .db-section-item-content {
+    padding: 10px;
+    background-color: #FFF;
+    display: none; }
   .dashboard-content input {
     font-size: 0.9em; }
   .dashboard-content textarea {
@@ -658,6 +683,7 @@ a:link, a:visited {
   .dashboard-content textarea:focus {
     border-color: #3a85c2; }
   .dashboard-content .align-right {
+    text-align: right;
     margin-right: 5%; }
 
 [class*='dashboard-section'] {

@@ -105,8 +105,10 @@ $(document).ready(function() {
 		$(this).addClass('dashboard-section-' + item);
 	});
 
-	dashboard_nav_items[0].addClass('current-nav-item');
-	dashboard_sections[0].fadeIn();
+	if (window.location.href.indexOf("/dashboard/") > -1) {
+		dashboard_nav_items[0].addClass('current-nav-item');
+		dashboard_sections[0].fadeIn();
+	}
 
 	$('.dashboard-nav-item').on('click', function() {
 		$('.dashboard-nav-item').each(function() {
@@ -137,34 +139,55 @@ $(document).ready(function() {
 			$('.user-nav-wrapper').removeClass('nav-open');
 		}
 	});
-});
 
+	/**
+	 *
+	 * Ajax
+	 *
+	**/
+	$(".save-btn").click(function(e){
+		e.preventDefault();
+		form_id = this.id.replace('-submit', '');
+		console.log(form_id)
+		var inputs = [];
+		$('.' + form_id + '-form .' + form_id  + '-input').each(function() {
+			inputs.push($(this).val());
+	  	});
+	  	console.log(inputs);
+	  	var inputValues = {
+	    	data: inputs,
+	    	form_id: form_id,
+	  	};
 
-// ajax
-$(".save-btn").click(function(e){
-	e.preventDefault();
-	form_id = this.id.replace('-submit', '');
-	console.log(form_id)
-	var inputs = [];
-	$('.' + form_id + '-form .' + form_id  + '-input').each(function() {
-		inputs.push($(this).val());
-  	});
-  	console.log(inputs);
-  	var inputValues = {
-    	data: inputs,
-    	form_id: form_id,
-  	};
+	  	$.ajax({
+	   		type: "POST",
+	    	url: "/api/",
+	    	data: inputValues,
+	    	success: function(response){
+	     		console.log("success " + response);
+	    	},
+	    	error: function(response){
+	     		alert("error" + response);
+	   		}
+		});
 
-  	$.ajax({
-   		type: "POST",
-    	url: "/api/",
-    	data: inputValues,
-    	success: function(response){
-     		console.log("success " + response);
-    	},
-    	error: function(response){
-     		alert("error" + response);
-   		}
 	});
 
+	/**
+	 *
+	 * Section Expand and Collapse
+	 *
+	**/
+	if (window.location.href.indexOf("/dashboard/") > -1) {
+	    $('.db-section-content-expand').on('click', function() {
+	    	$(this).parent().find('.db-section-item-content').slideDown();
+	    	$(this).parent().find('.db-section-content-hide').css({'display': 'inline-block'});
+	    });
+
+	    $('.db-section-content-hide').on('click', function() {
+	    	$(this).parent().find('.db-section-item-content').slideUp();
+	    	$(this).css({'display': 'none'});
+	    });
+	}
+	
 });

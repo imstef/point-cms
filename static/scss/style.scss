@@ -290,11 +290,19 @@ a:link, a:visited { text-decoration: none; }
   .db-quick-text { margin: 10px 0; }
   .db-quick-inner-text { font-size: 0.9em; }
   .db-quick-select { width: 90px; }
+  .db-section-item { border: 1px solid #F2F2F2; width: 90%; border-radius: 3px; }
+  .db-section-item-wrapper { background-color: #EEE; @include transition(background-color, 450ms);
+    &:hover { background-color: #F2F2F2; }
+  }
+  .db-section-content-expand, .db-section-content-hide { padding: 10px; cursor: pointer; }
+  .db-section-content-hide { display: none; }
+  .db-section-content-expand { display: inline-block; width: 90%; }
+  .db-section-item-content { padding: 10px; background-color: #FFF; display: none; }
 
   input { font-size: 0.9em; }
   textarea { @include transition(border-color, 750ms);  width: 95%; height: 125px; }
   textarea:focus { border-color: #3a85c2; }
-  .align-right { margin-right: 5%; }
+  .align-right { text-align: right; margin-right: 5%; }
 }
 
 [class*='dashboard-section'] { margin-top: -6px; display: none; }
