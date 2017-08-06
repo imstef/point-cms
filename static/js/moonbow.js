@@ -202,7 +202,7 @@ $(document).ready(function() {
 		$('.db-portfolio-item').each(function() {
 			$(this).css({'display':'none'});
 		});
-		$('.modal-content').addClass('open');
+		$('.modal-wrapper').addClass('open');
 		$('.add-new-item-form').fadeIn();
 	});
 
@@ -213,7 +213,7 @@ $(document).ready(function() {
 	$('.db-portfolio-item-edit').on('click', function() {
 		$('.add-new-item-form').css({'display':'none'});
 		$('.portfolio-item-modal-overlay').fadeIn();
-		$('.modal-content').addClass('open');
+		$('.modal-wrapper').addClass('open');
 		//$('body').toggleClass('no-scroll');
 		var db_portfolio_item = $(this).data("mod");
 
@@ -226,8 +226,8 @@ $(document).ready(function() {
 		});
 	})
 
-	$('.close-portfolio-item-modal').on('click', function() {
+	$('.db-close-portfolio-item-modal').on('click', function() {
 		$('.portfolio-item-modal-overlay').css({'display': 'none'});
-		$('.modal-content').removeClass('open');
+		$('.modal-wrapper').removeClass('open');
 	});
 });

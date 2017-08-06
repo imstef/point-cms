@@ -266,6 +266,18 @@ a:link, a:visited {
   .login-btn:hover, .save-btn:hover {
     border-color: #3a85c2; }
 
+.item-toggle-modal {
+  float: right;
+  font-size: 1.2em;
+  position: relative;
+  top: 7px;
+  right: 7px;
+  color: #FFFFFF;
+  cursor: pointer; }
+
+.inverse-icon {
+  color: #404040; }
+
 .sidebar-toggle {
   font-size: 1.5em;
   color: #404040;
@@ -395,16 +407,6 @@ a:link, a:visited {
     #portfolio .item-preview .link-github a {
       color: #FFFFFF;
       text-decoration: none; }
-#portfolio .item-toggle-modal {
-  float: right;
-  font-size: 1.2em;
-  position: relative;
-  top: 7px;
-  right: 7px;
-  color: #FFFFFF;
-  cursor: pointer; }
-#portfolio .inverse-icon {
-  color: #404040; }
 #portfolio .item-preview-modal {
   position: fixed;
   top: 0;
@@ -691,8 +693,8 @@ a:link, a:visited {
     background: #404040;
     overflow-x: hidden;
     overflow-y: scroll; }
-    .dashboard-content .portfolio-item-modal-overlay .modal-content {
-      width: 95%;
+    .dashboard-content .portfolio-item-modal-overlay .modal-wrapper {
+      max-width: 65%;
       margin: 5% auto;
       background-color: #FFFFFF;
       -webkit-transform: translateY(100%);
@@ -705,13 +707,17 @@ a:link, a:visited {
       -ms-transition: transform 500ms ease;
       -o-transition: transform 500ms ease;
       transition: transform 500ms ease; }
-      .dashboard-content .portfolio-item-modal-overlay .modal-content.open {
+      .dashboard-content .portfolio-item-modal-overlay .modal-wrapper.open {
         -webkit-transform: translateY(0px);
         -moz-transform: translateY(0px);
         -ms-transform: translateY(0px);
         -o-transform: translateY(0px);
         transform: translateY(0px); }
-      .dashboard-content .portfolio-item-modal-overlay .modal-content [class*='db-portfolio-item'] {
+      .dashboard-content .portfolio-item-modal-overlay .modal-wrapper .modal-content {
+        padding: 30px; }
+      .dashboard-content .portfolio-item-modal-overlay .modal-wrapper textarea {
+        max-width: 80%; }
+      .dashboard-content .portfolio-item-modal-overlay .modal-wrapper [class*='db-portfolio-item'] {
         display: none; }
   .dashboard-content .db-new-portfolio-item-wrapper {
     width: 100%; }
@@ -730,6 +736,7 @@ a:link, a:visited {
   .dashboard-content .db-portfolio-item-actions {
     font-size: 0.8em; }
   .dashboard-content .db-portfolio-item-edit, .dashboard-content .db-portfolio-item-delete {
+    font-size: 0.8em;
     padding: 2px 5px;
     border: 1px solid #3a85c2;
     color: #3a85c2;
@@ -745,6 +752,7 @@ a:link, a:visited {
     color: #FFF; }
   .dashboard-content .db-portfolio-item-delete {
     border-color: #dd2020;
+    margin: 0;
     color: #dd2020; }
     .dashboard-content .db-portfolio-item-delete:hover {
       background-color: #dd2020;

@@ -18,11 +18,11 @@
 				<div class="column-12">
 					<div class="column-3"><p class="db-portfolio-item-text">{{ i + 1 }}</p></div>
 					<div class="column-3"><p class="db-portfolio-item-text">{{ projects[i]["title"] }}</p></div>
-					<div class="column-3"><p class="db-portfolio-item-text">{{ projects[i]["category"] }}</p></div>
+					<div class="column-3"><p class="db-portfolio-item-text">{{ projects[i]["category"].title() }}</p></div>
 					<div class="column-3">
 					{% set id = class_id + (i | string) %}
 					<form class="delete-item-{{ id }}-form">
-						<input type="hidden" name="delete-item-{{ id }}_pid" value="{{ projects[i]['pid'] }}" class="delete-item-{{ id   }}-input">
+						<input type="hidden" name="delete-item-{{ id }}_pid" value="{{ projects[i]['pid'] }}" class="delete-item-{{ id }}-input">
 						<span class="db-portfolio-item-edit" data-mod="db-portfolio-item-1">Edit</span>
 						<!--<span class="db-portfolio-item-delete">Delete</span>-->
 						<button type="submit" class="save-btn db-portfolio-item-delete" id="delete-item-{{ id }}-submit">Delete</button>

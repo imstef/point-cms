@@ -3,61 +3,19 @@
 	{% set class_id = sections[i]["class_id"] %}
 	<div class="db-quick-row">
 		<div class="portfolio-item-modal-overlay">
-			<div class="modal-content">
-				<span class="close-portfolio-item-modal">Close modal!</span>
-				<div class="add-new-item-form">
-
-				<form class="add-item-{{ class_id }}-form">
-					<div class="db-quick-row">
-						<div class="form-group">
-							<p class="db-quick-inner-text">Project Title:</p>
-							<input type="text" name="add-item-{{ class_id }}_title" value="" class="add-item-{{ class_id }}-input">
-						</div>
-						<div class="form-group">
-							<p class="db-quick-inner-text">Project Description:</p>
-							<input type="text" name="add-item-{{ class_id }}_description" value="" class="add-item-{{ class_id }}-input">
-						</div>
-						<div class="form-group">
-							<p class="db-quick-inner-text">Project Modal Content:</p>
-							<textarea type="text" name="add-item_modal-{{ class_id }}_content" class="add-item-{{ class_id }}-input">{{ content }}</textarea>
-						</div>
-						<div class="form-group">
-							<p class="db-quick-inner-text">Project Logo Path:</p>
-							<input type="text" name="add-item-{{ class_id }}_logo" value="" class="add-item-{{ class_id }}-input">
-						</div>
-						<div class="form-group">
-							<p class="db-quick-inner-text">Project Technologies:</p>
-							<input type="text" name="add-item-{{ class_id }}_technologies" value="" class="add-item-{{ class_id }}-input">
-						</div>
-						<div class="form-group">
-							<p class="db-quick-inner-text">Project Link:</p>
-							<input type="text" name="add-item-{{ class_id }}_link" value="" class="add-item-{{ class_id }}-input">
-						</div>
-						<div class="form-group">
-							<p class="db-quick-inner-text">Project Link Logo:</p>
-							<input type="text" name="add-item-{{ class_id }}_link_logo" value="" class="add-item-{{ class_id }}-input">
-						</div>
-						<div class="form-group">
-							<span class="db-quick-inner-text">Category</span>
-							<select class="db-quick-select add-item-{{ class_id }}-input">
-								{% for i in range (0, categories | length) %}
-									<option value="{{ categories[i]['cid'] }}">{{ categories[i]["category"] }}</option>
-								{% endfor %}
-							</select>
-						</div>
-						<div class="align-right">
-							<button type="submit" class="save-btn" id="add-item-{{ class_id }}-submit">Save</button>
-						</div>
+			<div class="modal-wrapper">
+				<span class="icon icon-cancel-circle db-close-portfolio-item-modal item-toggle-modal inverse-icon"></span>
+				<div class="modal-content">
+					<div class="add-new-item-form">
+						{% include '_portfolio_add_edit_form.html.j2' %}
 					</div>
-				</form>
-
-				</div>
-				<div class="db-portfolio-item db-portfolio-item-1">
-					Item 2
-				</div>
-				<div class="db-portfolio-item db-portfolio-item-2">
-					Item 2
-				</div>			
+					<div class="db-portfolio-item db-portfolio-item-1">
+						Item 2
+					</div>
+					<div class="db-portfolio-item db-portfolio-item-2">
+						Item 2
+					</div>	
+				</div>	
 			</div>
 		</div>
 	</div>

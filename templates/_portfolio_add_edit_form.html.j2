@@ -1,0 +1,43 @@
+<form class="add-item-{{ class_id }}-form">
+	<div class="db-quick-row">
+		<div class="form-group">
+			<p class="db-quick-inner-text">Project Title:</p>
+			<input type="text" name="add-item-{{ class_id }}_title" value="" class="add-item-{{ class_id }}-input">
+		</div>
+		<div class="form-group">
+			<p class="db-quick-inner-text">Project Description:</p>
+			<input type="text" name="add-item-{{ class_id }}_description" value="" class="add-item-{{ class_id }}-input">
+		</div>
+		<div class="form-group">
+			<p class="db-quick-inner-text">Project Modal Content:</p>
+			<textarea type="text" name="add-item_modal-{{ class_id }}_content" class="add-item-{{ class_id }}-input">{{ content }}</textarea>
+		</div>
+		<div class="form-group">
+			<p class="db-quick-inner-text">Project Logo Path:</p>
+			<input type="text" name="add-item-{{ class_id }}_logo" value="" class="add-item-{{ class_id }}-input">
+		</div>
+		<div class="form-group">
+			<p class="db-quick-inner-text">Project Technologies:</p>
+			<input type="text" name="add-item-{{ class_id }}_technologies" value="" class="add-item-{{ class_id }}-input">
+		</div>
+		<div class="form-group">
+			<p class="db-quick-inner-text">Project Link:</p>
+			<input type="text" name="add-item-{{ class_id }}_link" value="" class="add-item-{{ class_id }}-input">
+		</div>
+		<div class="form-group">
+			<p class="db-quick-inner-text">Project Link Logo:</p>
+			<input type="text" name="add-item-{{ class_id }}_link_logo" value="" class="add-item-{{ class_id }}-input">
+		</div>
+		<div class="form-group">
+			<span class="db-quick-inner-text">Category</span>
+			<select class="db-quick-select add-item-{{ class_id }}-input">
+				{% for i in range (0, categories | length) %}
+					<option value="{{ categories[i]['cid'] }}">{{ categories[i]["category"].title() }}</option>
+				{% endfor %}
+			</select>
+		</div>
+		<div class="align-right">
+			<button type="submit" class="save-btn" id="add-item-{{ class_id }}-submit">Save</button>
+		</div>
+	</div>
+</form>

@@ -100,6 +100,8 @@ a:link, a:visited { text-decoration: none; }
     &:hover { border-color: #3a85c2; }
 }
 
+.item-toggle-modal { float: right; font-size: 1.2em; position: relative; top: 7px; right: 7px; color: #FFFFFF; cursor: pointer; }
+.inverse-icon { color: #404040; }
 // Header
 .sidebar-toggle { font-size: 1.5em; color: $primary_color; padding-left: 8px; padding-top: 6px; float: left; cursor: pointer; }
 .header-wrapper { position: fixed; top: 0; left: 0; width: 100%; z-index: 3; display: none; overflow: hidden;  -webkit-transition: height 0.3s; -moz-transition: height 0.3s; transition: height 0.3s; border-bottom: 1px solid $border_color; padding: 15px 10px; background: rgba(255, 255, 255, 0.99); }
@@ -147,9 +149,7 @@ a:link, a:visited { text-decoration: none; }
       a { color: #FFFFFF; text-decoration: none; }
     }
   }
-  .item-toggle-modal { float: right; font-size: 1.2em; position: relative; top: 7px; right: 7px; color: #FFFFFF; cursor: pointer; }
 
-  .inverse-icon { color: #404040; }
   .item-preview-modal { position: fixed; top: 0; right: 0; bottom: 0; left: 0; display: none; z-index: 999; background: #404040; overflow-x: hidden; overflow-y: scroll;
     .item-toggle-modal { display: block; }
     .modal-wrapper { width: 95%; margin: 5% auto; background-color: #FFFFFF; @include transform(translateY(100%)); @include transition(transform, 500ms);
@@ -301,8 +301,10 @@ a:link, a:visited { text-decoration: none; }
   .db-section-content-expand { display: inline-block; width: 50%; }
   .db-section-item-content { padding: 10px; background-color: #FFF; display: none; }
   .portfolio-item-modal-overlay { position: fixed; top: 0; right: 0; bottom: 0; left: 0; display: none; z-index: 999; background: #404040; overflow-x: hidden; overflow-y: scroll; 
-    .modal-content { width: 95%; margin: 5% auto; background-color: #FFFFFF; @include transform(translateY(100%)); @include transition(transform, 500ms); 
+    .modal-wrapper { max-width: 65%; margin: 5% auto; background-color: #FFFFFF; @include transform(translateY(100%)); @include transition(transform, 500ms); 
       &.open { @include transform(translateY(0px)); }
+      .modal-content { padding: 30px; }
+      textarea { max-width: 80%; }
       [class*='db-portfolio-item'] { display: none; }
     }
   }
@@ -311,9 +313,9 @@ a:link, a:visited { text-decoration: none; }
   .db-portfolio-item-meta { padding: 12px 5px 10px 5px; border: 1px solid #F2F2F2; border-top: 0; }
   .db-portfolio-item-text { font-size: 0.9em; }
   .db-portfolio-item-actions { font-size: 0.8em; }
-  .db-portfolio-item-edit, .db-portfolio-item-delete { padding: 2px 5px; border: 1px solid #3a85c2; color: #3a85c2; margin-right: 5px; cursor: pointer; @include transition(all, 450ms); }
+  .db-portfolio-item-edit, .db-portfolio-item-delete { font-size: 0.8em; padding: 2px 5px; border: 1px solid #3a85c2; color: #3a85c2; margin-right: 5px; cursor: pointer; @include transition(all, 450ms); }
   .db-portfolio-item-edit { &:hover { background-color: #3a85c2; color: #FFF; } }
-  .db-portfolio-item-delete { border-color: #dd2020; color: #dd2020; &:hover { background-color: #dd2020; color: #FFF; } }
+  .db-portfolio-item-delete { border-color: #dd2020; margin: 0; color: #dd2020; &:hover { background-color: #dd2020; color: #FFF; } }
   .add-portfolio-item { padding: 2px 5px; border: 1px solid #2cc436; font-size: 0.8em; @include transition(all, 450ms); cursor: pointer; &:hover { background-color: #2cc436; color: #FFF; } }
 
   input { font-size: 0.9em; }
