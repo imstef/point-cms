@@ -190,4 +190,44 @@ $(document).ready(function() {
 	    });
 	}
 	
+	/**
+	 *
+	 * Add portfolio item modal
+	 *
+	**/
+	db_portfolio_items = [];
+
+	$('.add-portfolio-item').on('click', function() {
+		$('.portfolio-item-modal-overlay').fadeIn();
+		$('.db-portfolio-item').each(function() {
+			$(this).css({'display':'none'});
+		});
+		$('.modal-content').addClass('open');
+		$('.add-new-item-form').fadeIn();
+	});
+
+	$('.db-portfolio-item-edit').each(function() {
+        db_portfolio_items.push($(this).data("mod"));
+    });
+
+	$('.db-portfolio-item-edit').on('click', function() {
+		$('.add-new-item-form').css({'display':'none'});
+		$('.portfolio-item-modal-overlay').fadeIn();
+		$('.modal-content').addClass('open');
+		//$('body').toggleClass('no-scroll');
+		var db_portfolio_item = $(this).data("mod");
+
+		$.each(db_portfolio_items, function(i, obj) {
+		    if (obj === db_portfolio_item) {
+		        $('.' + obj).fadeIn();
+		    } else {
+		        $('.' + obj).css({'display': 'none'});
+		    }
+		});
+	})
+
+	$('.close-portfolio-item-modal').on('click', function() {
+		$('.portfolio-item-modal-overlay').css({'display': 'none'});
+		$('.modal-content').removeClass('open');
+	});
 });

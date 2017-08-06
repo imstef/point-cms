@@ -1,0 +1,40 @@
+<form class="general-form">
+	<div class="db-quick-row">
+		<div class="portfolio-item-modal-overlay">
+			<div class="modal-content">
+				<span class="close-portfolio-item-modal">Close modal!</span>
+				<div class="add-new-item-form">
+					<form class="general-form">
+						<div class="db-quick-row">
+							<div class="form-group">
+								<p class="db-quick-inner-text">Website Name:</p>
+								<input type="text" name="website_name" value="{{ website_name }}" class="general-input">
+							</div>
+							<div class="form-group">
+								<p class="db-quick-inner-text">Website Description:</p>
+								<input type="text" name="website_description" value="{{ website_info['website_description'] }}" class="general-input">
+							</div>
+							<div class="form-group">
+								<p class="db-quick-inner-text">Author:</p>
+								<input type="text" name="website_author" value="{{ website_info['author'] }}" class="general-input">
+							</div>
+							<div class="form-group">
+								<p class="db-quick-inner-text">Email Address:</p>
+								<input type="text" name="email_address" value="{{ website_info['email_address'] }}" class="general-input">
+							</div>
+							<div class="align-right">
+								<button type="submit" class="save-btn" id="general-submit">Save</button>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="db-portfolio-item db-portfolio-item-1">
+					Item 1
+				</div>
+				<div class="db-portfolio-item db-portfolio-item-2">
+					Item 2
+				</div>			
+			</div>
+		</div>
+	</div>
+</form>

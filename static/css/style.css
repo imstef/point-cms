@@ -609,6 +609,8 @@ a:link, a:visited {
 
 .dashboard-content {
   padding: 30px;
+  margin-bottom: 50px;
+  min-height: 1000px;
   background-color: #FFF;
   text-align: left;
   position: relative; }
@@ -642,13 +644,17 @@ a:link, a:visited {
   .dashboard-content .db-quick-text {
     margin: 10px 0; }
   .dashboard-content .db-quick-inner-text {
-    font-size: 0.9em; }
+    font-size: 0.9em;
+    margin-bottom: 10px; }
   .dashboard-content .db-quick-select {
     width: 90px; }
   .dashboard-content .db-section-item {
     border: 1px solid #F2F2F2;
     width: 90%;
-    border-radius: 3px; }
+    border-radius: 3px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    overflow: hidden; }
   .dashboard-content .db-section-item-wrapper {
     background-color: #EEE;
     -webkit-transition: background-color 450ms ease;
@@ -660,16 +666,102 @@ a:link, a:visited {
       background-color: #F2F2F2; }
   .dashboard-content .db-section-content-expand, .dashboard-content .db-section-content-hide {
     padding: 10px;
-    cursor: pointer; }
+    cursor: pointer;
+    font-size: 0.9em; }
   .dashboard-content .db-section-content-hide {
-    display: none; }
+    display: none;
+    width: 48%;
+    text-align: right;
+    font-size: 0.8em; }
   .dashboard-content .db-section-content-expand {
     display: inline-block;
-    width: 90%; }
+    width: 50%; }
   .dashboard-content .db-section-item-content {
     padding: 10px;
     background-color: #FFF;
     display: none; }
+  .dashboard-content .portfolio-item-modal-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: none;
+    z-index: 999;
+    background: #404040;
+    overflow-x: hidden;
+    overflow-y: scroll; }
+    .dashboard-content .portfolio-item-modal-overlay .modal-content {
+      width: 95%;
+      margin: 5% auto;
+      background-color: #FFFFFF;
+      -webkit-transform: translateY(100%);
+      -moz-transform: translateY(100%);
+      -ms-transform: translateY(100%);
+      -o-transform: translateY(100%);
+      transform: translateY(100%);
+      -webkit-transition: transform 500ms ease;
+      -moz-transition: transform 500ms ease;
+      -ms-transition: transform 500ms ease;
+      -o-transition: transform 500ms ease;
+      transition: transform 500ms ease; }
+      .dashboard-content .portfolio-item-modal-overlay .modal-content.open {
+        -webkit-transform: translateY(0px);
+        -moz-transform: translateY(0px);
+        -ms-transform: translateY(0px);
+        -o-transform: translateY(0px);
+        transform: translateY(0px); }
+      .dashboard-content .portfolio-item-modal-overlay .modal-content [class*='db-portfolio-item'] {
+        display: none; }
+  .dashboard-content .db-new-portfolio-item-wrapper {
+    width: 100%; }
+  .dashboard-content .db-portfolio-item-meta-columns {
+    font-size: 0.9em;
+    border: 1px solid #F2F2F2;
+    padding: 12px 5px 10px 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px; }
+  .dashboard-content .db-portfolio-item-meta {
+    padding: 12px 5px 10px 5px;
+    border: 1px solid #F2F2F2;
+    border-top: 0; }
+  .dashboard-content .db-portfolio-item-text {
+    font-size: 0.9em; }
+  .dashboard-content .db-portfolio-item-actions {
+    font-size: 0.8em; }
+  .dashboard-content .db-portfolio-item-edit, .dashboard-content .db-portfolio-item-delete {
+    padding: 2px 5px;
+    border: 1px solid #3a85c2;
+    color: #3a85c2;
+    margin-right: 5px;
+    cursor: pointer;
+    -webkit-transition: all 450ms ease;
+    -moz-transition: all 450ms ease;
+    -ms-transition: all 450ms ease;
+    -o-transition: all 450ms ease;
+    transition: all 450ms ease; }
+  .dashboard-content .db-portfolio-item-edit:hover {
+    background-color: #3a85c2;
+    color: #FFF; }
+  .dashboard-content .db-portfolio-item-delete {
+    border-color: #dd2020;
+    color: #dd2020; }
+    .dashboard-content .db-portfolio-item-delete:hover {
+      background-color: #dd2020;
+      color: #FFF; }
+  .dashboard-content .add-portfolio-item {
+    padding: 2px 5px;
+    border: 1px solid #2cc436;
+    font-size: 0.8em;
+    -webkit-transition: all 450ms ease;
+    -moz-transition: all 450ms ease;
+    -ms-transition: all 450ms ease;
+    -o-transition: all 450ms ease;
+    transition: all 450ms ease;
+    cursor: pointer; }
+    .dashboard-content .add-portfolio-item:hover {
+      background-color: #2cc436;
+      color: #FFF; }
   .dashboard-content input {
     font-size: 0.9em; }
   .dashboard-content textarea {
@@ -678,7 +770,7 @@ a:link, a:visited {
     -ms-transition: border-color 750ms ease;
     -o-transition: border-color 750ms ease;
     transition: border-color 750ms ease;
-    width: 95%;
+    width: 100%;
     height: 125px; }
   .dashboard-content textarea:focus {
     border-color: #3a85c2; }

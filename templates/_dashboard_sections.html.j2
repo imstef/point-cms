@@ -8,8 +8,8 @@
 						<div class="db-quick-row">
 							<div class="db-section-item">
 								<div class="db-section-item-wrapper">
-									<p class="db-quick-inner-text db-section-content-expand">Section {{ sections[i] }}</p>
-									<p class="db-quick-inner-text db-section-content-hide">Hide</p>
+									<p class="db-section-content-expand">Section {{ sections[i] }}</p>
+									<span class="db-section-content-hide">Hide</span>
 									<div class="db-section-item-content">
 										{% if sections[i] == 'Portfolio' %}
 											{% include "_portfolio_form.html.j2" %}
@@ -21,7 +21,6 @@
 							</div>
 						</div>
 				{% endfor %}
-			
 		</div>
 		<div class="column-6">
 			<p class="db-quick-title">Add New</p>
@@ -29,8 +28,8 @@
 			<div class="db-quick-row">
 				<div class="db-section-item">
 					<div class="db-section-item-wrapper">
-						<p class="db-quick-inner-text db-section-content-expand">+ Add new section</p>
-						<p class="db-quick-inner-text db-section-content-hide">Hide</p>
+						<p class="db-section-content-expand">+ Add new section</p>
+						<p class="db-section-content-hide">Hide</p>
 						<div class="db-section-item-content">
 							{% include "_new_section.html.j2" %}
 						</div>
