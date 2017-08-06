@@ -11,6 +11,7 @@ from posthandler import *
 
 app = Flask(__name__)
 app.secret_key = 'secretkey'
+app.debug = True
 
 # config Database
 connection = DatabaseConnection()
@@ -68,7 +69,8 @@ def login():
 		connection.connect()
 		if username and password_candidate:
 			result = connection.execute_query("SELECT * FROM users WHERE username = '{}'".format(thwart(username)))
-			if len(result) == 1 and sha256_crypt.verify(password_candidate, result[0]["password"]):
+			password_match = sha256_crypt.verify(password_candidate, result[0]["password"])
+			if len(result) == 1 and password_match:
 				connection.close()
 				session["logged_in"] = True
 				session["username"] = username
@@ -105,17 +107,14 @@ def logout():
 
 @app.route("/api/", methods=["GET", "POST"])
 def api():
-	try:
-		data = request.form.getlist('data[]')
-		form_id = request.form.get('form_id')
-		query = update_database(str(form_id), data)
-		connection.connect()
-		connection.execute_query(query)
-		connection.execute_query("commit")
-		connection.close()
-		return jsonify(query)
-	except Exception as e:
-		return jsonify(str(e))
+	data = request.form.getlist('data[]')
+	form_id = request.form.get('form_id')
+	connection.connect()
+	query = update_database(connection, str(form_id), data)
+	connection.execute_query(query)
+	connection.execute_query("commit")
+	connection.close()
+	return jsonify(query)
 
 # global variables that can be accessed from Jinja templates
 app.jinja_env.globals.update(connect=connection.connect)
@@ -124,4 +123,4 @@ app.jinja_env.globals.update(close=connection.close)
 app.jinja_env.add_extension('jinja2.ext.loopcontrols')
 
 if __name__ == "__main__":
-	app.run(*RUN_ARGS)
+	app.run(host="0.0.0.0")

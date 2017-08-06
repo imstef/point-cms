@@ -1,28 +1,36 @@
-<form class="general-form">
-	<div class="db-quick-row">
-		<div class="form-group align-right">
-			<span class="db-quick-inner-text">Order</span>
-			<select class="db-quick-select">
-				<option value="">-</option>
-				<option value="1">1</option>
-				<option value="2">2</option>
-				<option value="3">2</option>
-			</select>
+{% block body %}
+	{% set class_id = sections[i]["class_id"] %}
+	{% set query = "SELECT content FROM template_blank JOIN section_list USING(sid) WHERE class_id = '%s'" | format(class_id) %}
+	{% set content = execute_query(query)[0]["content"] %}
+	<form class="section-blank-{{ class_id }}-form">
+		<div class="db-quick-row">
+			<div class="form-group align-right">
+				<span class="db-quick-inner-text">Position</span>
+				<select class="db-quick-select section-blank-{{ class_id }}-input">
+					{% for position in range (1, numb_of_sections + 1) %}
+						{% if position == (sections[i]["position"] | int) %}
+							<option value="{{ position }}"selected>{{ position }}</option>
+						{% else %}
+							<option value="{{ position }}">{{ position }}</option>
+						{% endif %}
+					{% endfor %}
+				</select>
+			</div>
+			<div class="form-group">
+				<p class="db-quick-inner-text">Section Title:</p>
+				<input type="text" name="section-blank-{{ class_id }}_title" value="{{ sections[i]['title'] }}" class="section-blank-{{ class_id }}-input">
+			</div>
+			<div class="form-group">
+				<p class="db-quick-inner-text">Section Description:</p>
+				<input type="text" name="section-blank-{ class_id }}_description" value="{{ sections[i]['description'] }}" class="section-blank-{{ class_id }}-input">
+			</div>
+			<div class="form-group">
+				<p class="db-quick-inner-text">Section Content:</p>
+				<textarea type="text" name="section-blank-{{ class_id }}_content" class="section-blank-{{ class_id }}-input">{{ content }}</textarea>
+			</div>
+			<div class="align-right">
+				<button type="submit" class="save-btn" id="section-blank-{{ class_id }}-submit">Save</button>
+			</div>
 		</div>
-		<div class="form-group">
-			<p class="db-quick-inner-text">Section title:</p>
-			<input type="text" name="section_title" value="" class="general-input">
-		</div>
-		<div class="form-group">
-			<p class="db-quick-inner-text">Section Description:</p>
-			<input type="text" name="section_description" value="" class="general-input">
-		</div>
-		<div class="form-group">
-			<p class="db-quick-inner-text">Section Content:</p>
-			<textarea type="text" name="section_content" value="" class="general-input"></textarea>
-		</div>
-		<div class="align-right">
-			<button type="submit" class="save-btn" id="general-submit">Save</button>
-		</div>
-	</div>
-</form>
+	</form>
+{% endblock %}

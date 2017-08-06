@@ -1,40 +1,36 @@
-<div class="db-portfolio-item-meta-columns">
-<div class="row">
-	<div class="column-12">
-			<div class="column-3">Num</div>
-			<div class="column-3">Name</div>
-			<div class="column-3">Category</div>
-			<div class="column-3">Actions</div>
-		</div>
-	</div>
-</div>
-<div class="db-portfolio-items">
-	<div class="db-portfolio-item-meta">
-		<div class="row">
-			<div class="column-12">
-				<div class="column-3"><p class="db-portfolio-item-text">1</p></div>
-				<div class="column-3"><p class="db-portfolio-item-text">Item 1</p></div>
-				<div class="column-3"><p class="db-portfolio-item-text">Category 1</p></div>
-				<div class="column-3">
-					<p class="db-portfolio-item-actions">
-						<span class="db-portfolio-item-edit" data-mod="db-portfolio-item-1">Edit</span><span class="db-portfolio-item-delete">Delete</span>
-					</p>
-				</div>
+{% block body %}
+	{% set projects = execute_query("SELECT pid, title, category FROM template_portfolio_projects JOIN template_portfolio_categories USING(cid)") %}
+	{% set class_id = sections[i]["class_id"] %}
+	<div class="db-portfolio-item-meta-columns">
+	<div class="row">
+		<div class="column-12">
+				<div class="column-3">Num</div>
+				<div class="column-3">Name</div>
+				<div class="column-3">Category</div>
+				<div class="column-3">Actions</div>
 			</div>
 		</div>
 	</div>
-	<div class="db-portfolio-item-meta">
-		<div class="row">
-			<div class="column-12">
-				<div class="column-3">2</div>
-				<div class="column-3"><p class="db-portfolio-item-text">Item 2</p></div>
-				<div class="column-3"><p class="db-portfolio-item-text">Category 2</p></div>
-				<div class="column-3">
-					<p class="db-portfolio-item-actions">
-						<span class="db-portfolio-item-edit" data-mod="db-portfolio-item-2">Edit</span><span class="db-portfolio-item-delete">Delete</span>
-					</p>
+	<div class="db-portfolio-items">
+	{% for i in range(0, projects | length) %}
+		<div class="db-portfolio-item-meta">
+			<div class="row">
+				<div class="column-12">
+					<div class="column-3"><p class="db-portfolio-item-text">{{ i + 1 }}</p></div>
+					<div class="column-3"><p class="db-portfolio-item-text">{{ projects[i]["title"] }}</p></div>
+					<div class="column-3"><p class="db-portfolio-item-text">{{ projects[i]["category"] }}</p></div>
+					<div class="column-3">
+					{% set id = class_id + (i | string) %}
+					<form class="delete-item-{{ id }}-form">
+						<input type="hidden" name="delete-item-{{ id }}_pid" value="{{ projects[i]['pid'] }}" class="delete-item-{{ id   }}-input">
+						<span class="db-portfolio-item-edit" data-mod="db-portfolio-item-1">Edit</span>
+						<!--<span class="db-portfolio-item-delete">Delete</span>-->
+						<button type="submit" class="save-btn db-portfolio-item-delete" id="delete-item-{{ id }}-submit">Delete</button>
+					</form>
+					</div>
 				</div>
 			</div>
 		</div>
+	{% endfor %}
 	</div>
-</div>
+{% endblock %}
