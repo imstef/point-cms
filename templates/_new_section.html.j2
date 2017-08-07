@@ -15,7 +15,7 @@
 				<p class="db-quick-inner-text">Section Type:</p>
 				<select name="section_type" value="" class="general-input section-add-input">
 					{% for i in range (0, types | length) %}
-						<option value="{{ types[i]['tid'] }}">{{ types[i]['type'] }}</option>
+						<option value="{{ types[i]['tid'] }}">{{ types[i]['type'].title() }}</option>
 					{% endfor %}
 				</select>
 			</div>
@@ -24,5 +24,4 @@
 			</div>
 		</div>
 	</form>
-
 {% endblock %}

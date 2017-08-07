@@ -25,7 +25,7 @@
 					{% endfor %}
 			</div>
 			<div class="column-6">
-				<p class="db-quick-title">Add New</p>
+				<p class="db-quick-title">Section Actions</p>
 				<p class="db-quick-subtitle">Add a new section</p>
 				<div class="db-quick-row">
 					<div class="db-section-item">
@@ -34,6 +34,18 @@
 							<p class="db-section-content-hide">Hide</p>
 							<div class="db-section-item-content">
 								{% include "_new_section.html.j2" %}
+							</div>
+						</div>
+					</div>
+				</div>
+				<p class="db-quick-subtitle">Add a new portfolio category</p>
+				<div class="db-quick-row">
+					<div class="db-section-item">
+						<div class="db-section-item-wrapper">
+							<p class="db-section-content-expand">+ Portfolio Category</p>
+							<p class="db-section-content-hide">Hide</p>
+							<div class="db-section-item-content">
+								{% include "_new_portfolio_category.html.j2" %}
 							</div>
 						</div>
 					</div>
