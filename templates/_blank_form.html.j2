@@ -17,19 +17,20 @@
 				</select>
 			</div>
 			<div class="form-group">
-				<p class="db-quick-inner-text">Section Title:</p>
+				<p class="db-quick-inner-text">Section Title</p>
 				<input type="text" name="section-blank-{{ class_id }}_title" value="{{ sections[i]['title'] }}" class="section-blank-{{ class_id }}-input">
 			</div>
 			<div class="form-group">
-				<p class="db-quick-inner-text">Section Description:</p>
+				<p class="db-quick-inner-text">Section Description</p>
 				<input type="text" name="section-blank-{ class_id }}_description" value="{{ sections[i]['description'] }}" class="section-blank-{{ class_id }}-input">
 			</div>
 			<div class="form-group">
-				<p class="db-quick-inner-text">Section Content:</p>
+				<p class="db-quick-inner-text">Section Content</p>
 				<textarea type="text" name="section-blank-{{ class_id }}_content" class="section-blank-{{ class_id }}-input">{{ content }}</textarea>
 			</div>
 			<div class="align-right">
 				<button type="submit" class="save-btn" id="section-blank-{{ class_id }}-submit">Save</button>
+				<button type="submit" class="save-btn delete-btn" id="section-portfolio-{{ class_id }}-submit">Delete</button>
 			</div>
 		</div>
 	</form>

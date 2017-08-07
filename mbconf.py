@@ -2,7 +2,7 @@
 # MySQL configuration variables
 MYSQL_HOST = 'localhost'
 MYSQL_USER = 'root'
-MYSQL_PASSWORD = 'jupiter123'
+MYSQL_PASSWORD = 'root'
 MYSQL_DB = 'moonbow'
 
 
