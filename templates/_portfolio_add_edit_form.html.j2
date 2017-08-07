@@ -16,31 +16,31 @@
 		<div class="db-quick-row">
 			
 			<div class="form-group">
-				<p class="db-quick-inner-text">Project Title:</p>
+				<p class="db-quick-inner-text">Project Title</p>
 				<input type="text" name="item-{{ pid }}_title" value="{{ title }}" class="item-{{ pid }}-input">
 			</div>
 			<div class="form-group">
-				<p class="db-quick-inner-text">Project Description:</p>
+				<p class="db-quick-inner-text">Project Description</p>
 				<input type="text" name="item-{{ pid }}_description" value="{{ desc }}" class="item-{{ pid }}-input">
 			</div>
 			<div class="form-group">
-				<p class="db-quick-inner-text">Project Modal Content:</p>
+				<p class="db-quick-inner-text">Project Modal Content</p>
 				<textarea type="text" name="item_modal-{{ pid }}_content" class="item-{{ pid }}-input">{{ modal_content }}</textarea>
 			</div>
 			<div class="form-group">
-				<p class="db-quick-inner-text">Project Logo Path:</p>
+				<p class="db-quick-inner-text">Project Logo Path</p>
 				<input type="text" name="item-{{ pid }}_logo" value="{{ logo }}" class="item-{{ pid }}-input">
 			</div>
 			<div class="form-group">
-				<p class="db-quick-inner-text">Project Technologies:</p>
+				<p class="db-quick-inner-text">Project Technologies</p>
 				<input type="text" name="item-{{ pid }}_technologies" value="{{ tehnologies }}" class="item-{{ pid }}-input">
 			</div>
 			<div class="form-group">
-				<p class="db-quick-inner-text">Project Link:</p>
+				<p class="db-quick-inner-text">Project Link</p>
 				<input type="text" name="item-{{ pid }}_link" value="{{ link }}" class="item-{{ pid }}-input">
 			</div>
 			<div class="form-group">
-				<p class="db-quick-inner-text">Project Link Icon:</p>
+				<p class="db-quick-inner-text">Project Link Icon</p>
 				<input type="text" name="item-{{ pid }}_link_logo" value="{{ link_icon }}" class="item-{{ pid }}-input">
 			</div>
 			<div class="form-group">
@@ -48,15 +48,14 @@
 				<select class="db-quick-select item-{{ pid }}-input">
 					{% for j in range (0, categories | length) %}
 						{% if category == categories[j]["category"] %}
-							<option value="{{ categories[j]['cid'] }}" selected>{{ categories[j]["category"] }}</option>
+							<option value="{{ categories[j]['cid'] }}" selected>{{ categories[j]["category"].title() }}</option>
 						{% else %}
-							<option value="{{ categories[j]['cid'] }}">{{ categories[j]["category"] }}</option>
+							<option value="{{ categories[j]['cid'] }}">{{ categories[j]["category"].title() }}</option>
 						{% endif %}
 					{% endfor %}
 				</select>
 			</div>
 			<div class="form-group">
-				<p class="db-quick-inner-text">Project Link Icon:</p>
 				<input type="hidden" name="item-{{ pid }}_tpid" value="{{ tpid }}" class="item-{{ pid }}-input">
 			</div>
 			<div class="align-right">

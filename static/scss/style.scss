@@ -43,6 +43,7 @@ textarea {
   overflow-y: auto;
   font-size: 0.9em;
   font-weight: 300;
+  padding: 5px;
 }
 
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
@@ -97,10 +98,12 @@ a:link, a:visited { text-decoration: none; }
   input:focus { border-color: #3a85c2; }
 } 
 
-.login-btn, .save-btn { border: 1px solid $border_color; font-size: 0.8em; line-height: 1.5em; letter-spacing: 0.02em; background-color: #FFF; padding: 5px 15px; margin-top: 15px; font-weight: 300; cursor: pointer; 
+.login-btn, .save-btn, .delete-btn { border: 1px solid $border_color; font-size: 0.8em; line-height: 1.5em; letter-spacing: 0.02em; background-color: #FFF; padding: 5px 15px; margin-top: 15px; font-weight: 300; cursor: pointer; 
     @include transition(border-color, 750ms);
     &:hover { border-color: #3a85c2; }
 }
+
+.delete-btn { &:hover { border-color: #dd2020; } }
 
 .item-toggle-modal { float: right; font-size: 1.2em; position: relative; top: 7px; right: 7px; color: #FFFFFF; cursor: pointer; }
 .inverse-icon { color: #404040; }
@@ -222,10 +225,8 @@ a:link, a:visited { text-decoration: none; }
       ul {
         cursor: pointer;
         .dashboard-nav-item { 
-          list-style-type: none; display: inline-block; border: 1px solid #404040; margin-right: 5px; padding: 5px 10px; font-size: 0.8em;
-          &.current-nav-item, &:hover {
-            &::after { content: ""; position: relative; top: 5px; left: 0; display: block; height: 1px; width: 70%; margin-left: 15%; background-color: $nav_current_color; }
-          } 
+          list-style-type: none; display: inline-block; border: 1px solid #404040; margin-right: 10px; padding: 5px 10px; font-size: 0.8em; font-weight: 400; letter-spacing: 0.03em; color: rgba(255, 255, 255, 0.7); @include transition(color, 450ms);
+          &.current-nav-item, &:hover { color: rgba(255, 255, 255, 1); } 
         }
       }
     }
@@ -287,7 +288,7 @@ a:link, a:visited { text-decoration: none; }
     .db-section-title { font-size: 1.4em; font-weight: 400; }
     .db-section-description { font-size: 0.8em; font-style: italic; }
   }
-  .db-quick-title { font-size: 1.2em; font-weight: 400; margin-bottom: 30px; }
+  .db-quick-title { font-size: 1.2em; font-weight: 400; margin: 30px 0; }
   .db-quick-subtitle { font-size: 1.1em; margin: 20px 0; }
   .db-quick-row { margin: 10px 0; }
   .db-quick-item { margin-top: 20px; }
@@ -298,9 +299,9 @@ a:link, a:visited { text-decoration: none; }
   .db-section-item-wrapper { background-color: #EEE; @include transition(background-color, 450ms);
     &:hover { background-color: #F2F2F2; }
   }
-  .db-section-content-expand, .db-section-content-hide { padding: 10px; cursor: pointer; font-size: 0.9em; }
-  .db-section-content-hide { display: none; width: 48%; text-align: right; font-size: 0.8em; }
-  .db-section-content-expand { display: inline-block; width: 50%; }
+  .db-section-content-expand, .db-section-content-hide { padding: 10px; cursor: pointer; width: 100%; font-size: 0.9em; }
+  .db-section-content-hide { display: none; text-align: center; padding: 15px; }
+  .db-section-item-description { font-size: 0.8em; letter-spacing: 0.04em; line-height: 1.5em; }
   .db-section-item-content { padding: 10px; background-color: #FFF; display: none; }
   .portfolio-item-modal-overlay { position: fixed; top: 0; right: 0; bottom: 0; left: 0; display: none; z-index: 999; background: #404040; overflow-x: hidden; overflow-y: scroll; 
     .modal-wrapper { max-width: 65%; margin: 5% auto; background-color: #FFFFFF; @include transform(translateY(100%)); @include transition(transform, 500ms); 
@@ -318,7 +319,8 @@ a:link, a:visited { text-decoration: none; }
   .db-portfolio-item-edit, .db-portfolio-item-delete { font-size: 0.8em; padding: 2px 5px; border: 1px solid #3a85c2; color: #3a85c2; margin-right: 5px; cursor: pointer; @include transition(all, 450ms); }
   .db-portfolio-item-edit { &:hover { background-color: #3a85c2; color: #FFF; } }
   .db-portfolio-item-delete { border-color: #dd2020; margin: 0; color: #dd2020; &:hover { background-color: #dd2020; color: #FFF; } }
-  .add-portfolio-item { padding: 2px 5px; border: 1px solid #2cc436; font-size: 0.8em; @include transition(all, 450ms); cursor: pointer; &:hover { background-color: #2cc436; color: #FFF; } }
+  .db-add-portfolio-item { padding: 8px 5px; border: 1px solid #3a85c2; font-size: 0.8em; @include transition(all, 450ms); cursor: pointer; max-width: 80px; margin: 0 auto; text-align: center; &:hover { background-color: #3a85c2; color: #FFF; } }
+  .db-empty-section { font-size: 0.8em; color: #808080; text-align: center; }
 
   input { font-size: 0.9em; }
   textarea { @include transition(border-color, 750ms);  width: 100%; height: 125px; }

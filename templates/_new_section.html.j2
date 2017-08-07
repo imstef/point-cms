@@ -4,15 +4,15 @@
 	<form class="section-add-form">
 		<div class="db-quick-row">
 			<div class="form-group">
-				<p class="db-quick-inner-text">Section Title:</p>
+				<p class="db-quick-inner-text">Section Title</p>
 				<input type="text" name="section-add-title" value="" class="section-add-input">
 			</div>
 			<div class="form-group">
-				<p class="db-quick-inner-text">Section Description:</p>
+				<p class="db-quick-inner-text">Section Description</p>
 				<input type="text" name="section-add-description" value="" class="section-add-input">
 			</div>
 			<div class="form-group">
-				<p class="db-quick-inner-text">Section Type:</p>
+				<p class="db-quick-inner-text">Section Type</p>
 				<select name="section_type" value="" class="general-input section-add-input">
 					{% for i in range (0, types | length) %}
 						<option value="{{ types[i]['tid'] }}">{{ types[i]['type'].title() }}</option>

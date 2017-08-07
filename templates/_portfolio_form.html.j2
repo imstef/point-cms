@@ -15,24 +15,25 @@
 				</select>
 			</div>
 			<div class="form-group">
-				<p class="db-quick-inner-text">Section Title:</p>
+				<p class="db-quick-inner-text">Section Title</p>
 				<input type="text" name="section-portfolio-{{ class_id }}_title" value="{{ sections[i]['title'] }}" class="section-portfolio-{{ class_id }}-input">
 			</div>
 			<div class="form-group">
-				<p class="db-quick-inner-text">Section Description:</p>
+				<p class="db-quick-inner-text">Section Description</p>
 				<input type="text" name="section-portfolio-{{ class_id }}_description" value="{{ sections[i]['description'] }}" class="section-portfolio-{{ class_id }}-input">
 			</div>
 			<div class="align-right">
 				<button type="submit" class="save-btn" id="section-portfolio-{{ class_id }}-submit">Save</button>
+				<button type="submit" class="save-btn delete-btn" id="section-portfolio-{{ class_id }}-submit">Delete</button>
 			</div>
 		</div>
 	</form>
 	<div class="form-group">
-		<p class="db-quick-inner-text">Portfolio Items:</p>
+		<p class="db-quick-inner-text">Portfolio Items</p>
 		<div class="db-new-portfolio-item-wrapper">
 			{% include '_portfolio_item_view.html.j2' %}
 			{% include '_portfolio_item_add_edit.html.j2' %}
 		</div>
-		<span class="add-portfolio-item">New item</span>
+		<p class="db-add-portfolio-item">+ New item</p>
 	</div>
 {% endblock %}

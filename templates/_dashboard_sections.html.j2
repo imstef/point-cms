@@ -1,8 +1,9 @@
 {% block body %}
+	<p class="db-quick-text">Click on any section to expand it, and manage its contents. To collapse a section, click on the title bar again.</p>
 	<div class="row">
 		<div class="column-12">
 			<div class="column-6">
-				<p class="db-quick-title">Section Management</p>
+				<p class="db-quick-title">Overview</p>
 				{% set sections = execute_query("SELECT title, description, position, type, class_id FROM section_list JOIN section_type USING (tid) ORDER BY position") %}
 				{% set numb_of_sections = sections | length %}
 				<p class="db-quick-subtitle">Your sections</p>
@@ -10,8 +11,13 @@
 							<div class="db-quick-row">
 								<div class="db-section-item">
 									<div class="db-section-item-wrapper">
-										<p class="db-section-content-expand">Section {{ sections[i]["title"] }}</p>
-										<span class="db-section-content-hide">Hide</span>
+										<div class="db-section-content-expand">
+											<p class="db-section-item-title">Section {{ sections[i]["title"] }}</p>
+											<p class="db-section-item-description">{{ sections[i]["description"] }}</p>
+										</div>
+										<div class="db-section-content-hide">
+											<p class="db-section-item-title">Section {{ sections[i]["title"] }}</p>
+										</div>
 										<div class="db-section-item-content">
 											{% if sections[i]["type"] == 'portfolio' %}
 												{% include "_portfolio_form.html.j2" %}
@@ -25,25 +31,24 @@
 					{% endfor %}
 			</div>
 			<div class="column-6">
-				<p class="db-quick-title">Section Actions</p>
-				<p class="db-quick-subtitle">Add a new section</p>
+				<p class="db-quick-title">User Actions</p>
+				<p class="db-quick-subtitle">Add New</p>
 				<div class="db-quick-row">
 					<div class="db-section-item">
 						<div class="db-section-item-wrapper">
-							<p class="db-section-content-expand">+ Add new section</p>
-							<p class="db-section-content-hide">Hide</p>
+							<p class="db-section-item-title db-section-content-expand">+ New Section</p>
+							<p class="db-section-content-hide">Add New Section</p>
 							<div class="db-section-item-content">
 								{% include "_new_section.html.j2" %}
 							</div>
 						</div>
 					</div>
 				</div>
-				<p class="db-quick-subtitle">Add a new portfolio category</p>
 				<div class="db-quick-row">
 					<div class="db-section-item">
 						<div class="db-section-item-wrapper">
-							<p class="db-section-content-expand">+ Portfolio Category</p>
-							<p class="db-section-content-hide">Hide</p>
+							<p class="db-section-item-title db-section-content-expand">+ Portfolio Category</p>
+							<p class="db-section-content-hide">New Portfolio Caregory</p>
 							<div class="db-section-item-content">
 								{% include "_new_portfolio_category.html.j2" %}
 							</div>

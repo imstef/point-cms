@@ -145,31 +145,48 @@ $(document).ready(function() {
 	 * Ajax
 	 *
 	**/
-	$(".save-btn").click(function(e){
+	$('.save-btn').click(function(e){
 		e.preventDefault();
-		form_id = this.id.replace('-submit', '');
-		console.log(form_id)
+		form_id = $(this)[0].id.replace('-submit', '');
 		var inputs = [];
+		var input_values = {};
+
 		$('.' + form_id + '-form .' + form_id  + '-input').each(function() {
 			inputs.push($(this).val());
 	  	});
-	  	console.log(inputs);
-	  	var inputValues = {
-	    	data: inputs,
-	    	form_id: form_id,
-	  	};
+
+		if ($(this).hasClass('delete-btn')) {
+			var confirm = window.confirm("You are about to remove a section from the database. This action is permanent and you can't undo it. Proceed?");
+
+			if (confirm === true) {
+				input_values = {
+				  	data: inputs,
+				  	form_id: form_id,
+				};
+			} else {
+				console.log('Mission aborted!');
+				return;
+			}
+		} else {
+			input_values = {
+		  		data: inputs,
+		  		form_id: form_id,
+			};
+		}
 
 	  	$.ajax({
 	   		type: "POST",
 	    	url: "/api/",
-	    	data: inputValues,
-	    	success: function(response){
-	     		console.log("success " + response);
-	    	},
-	    	error: function(response){
+	    	data: input_values,
+	    	error: function(response) {
 	     		alert("error" + response);
-	   		}
+	   		},
+	    	success: function(response) {
+	     		console.log("success " + response);
+	    	}
 		});
+
+		location.reload();
 
 	});
 
@@ -180,11 +197,16 @@ $(document).ready(function() {
 	**/
 	if (window.location.href.indexOf("/dashboard/") > -1) {
 	    $('.db-section-content-expand').on('click', function() {
+			$(this).css({'display': 'none'});
+			$(this).parent().find('.db-section-content-hide').css({'width': '100%'});
+			$(this).parent().css({ 'background-color': 'rgba(58, 133, 194, 0.85)'});
 	    	$(this).parent().find('.db-section-item-content').slideDown();
-	    	$(this).parent().find('.db-section-content-hide').css({'display': 'inline-block'});
-	    });
+			$(this).parent().find('.db-section-content-hide').css({ 'display': 'block', 'color': '#FFF'});
+		});
 
 	    $('.db-section-content-hide').on('click', function() {
+			$(this).parent().find('.db-section-content-expand').css({ 'display': 'block' });
+			$(this).parent().css({ 'background-color': '#EEE', 'color': '#404040' });
 	    	$(this).parent().find('.db-section-item-content').slideUp();
 	    	$(this).css({'display': 'none'});
 	    });
@@ -197,7 +219,7 @@ $(document).ready(function() {
 	**/
 	db_portfolio_items = [];
 
-	$('.add-portfolio-item').on('click', function() {
+	$('.db-add-portfolio-item').on('click', function() {
 		$('.portfolio-item-modal-overlay').fadeIn();
 		$('.db-portfolio-item').each(function() {
 			$(this).css({'display':'none'});
@@ -214,7 +236,7 @@ $(document).ready(function() {
 		$('.add-new-item-form').css({'display':'none'});
 		$('.portfolio-item-modal-overlay').fadeIn();
 		$('.modal-wrapper').addClass('open');
-		//$('body').toggleClass('no-scroll');
+		$('body').addClass('no-scroll');
 		var db_portfolio_item = $(this).data("mod");
 
 		$.each(db_portfolio_items, function(i, obj) {
@@ -229,5 +251,6 @@ $(document).ready(function() {
 	$('.db-close-portfolio-item-modal').on('click', function() {
 		$('.portfolio-item-modal-overlay').css({'display': 'none'});
 		$('.modal-wrapper').removeClass('open');
+		$('body').removeClass('no-scroll');
 	});
 });
