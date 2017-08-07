@@ -1,43 +1,69 @@
-<form class="add-item-{{ class_id }}-form">
-	<div class="db-quick-row">
-		<div class="form-group">
-			<p class="db-quick-inner-text">Project Title:</p>
-			<input type="text" name="add-item-{{ class_id }}_title" value="" class="add-item-{{ class_id }}-input">
+{% block body %}
+	
+	{% if ind != -1 %}
+		{% set title = projects[ind]['title'] %}
+		{% set desc = projects[ind]['description'] %}
+		{% set modal_content = projects[ind]['modal_content'] %}
+		{% set logo = projects[ind]['logo'] %}
+		{% set tehnologies = projects[ind]['technologies'] %}
+		{% set link = projects[ind]['link'] %}
+		{% set link_icon = projects[ind]['link_icon'] %}
+		{% set tpid = projects[ind]['tpid'] %}
+		{% set category = projects[ind]['category'] %}
+	{% endif %}
+
+	<form class="item-{{ pid }}-form">
+		<div class="db-quick-row">
+			
+			<div class="form-group">
+				<p class="db-quick-inner-text">Project Title:</p>
+				<input type="text" name="item-{{ pid }}_title" value="{{ title }}" class="item-{{ pid }}-input">
+			</div>
+			<div class="form-group">
+				<p class="db-quick-inner-text">Project Description:</p>
+				<input type="text" name="item-{{ pid }}_description" value="{{ desc }}" class="item-{{ pid }}-input">
+			</div>
+			<div class="form-group">
+				<p class="db-quick-inner-text">Project Modal Content:</p>
+				<textarea type="text" name="item_modal-{{ pid }}_content" class="item-{{ pid }}-input">{{ modal_content }}</textarea>
+			</div>
+			<div class="form-group">
+				<p class="db-quick-inner-text">Project Logo Path:</p>
+				<input type="text" name="item-{{ pid }}_logo" value="{{ logo }}" class="item-{{ pid }}-input">
+			</div>
+			<div class="form-group">
+				<p class="db-quick-inner-text">Project Technologies:</p>
+				<input type="text" name="item-{{ pid }}_technologies" value="{{ tehnologies }}" class="item-{{ pid }}-input">
+			</div>
+			<div class="form-group">
+				<p class="db-quick-inner-text">Project Link:</p>
+				<input type="text" name="item-{{ pid }}_link" value="{{ link }}" class="item-{{ pid }}-input">
+			</div>
+			<div class="form-group">
+				<p class="db-quick-inner-text">Project Link Icon:</p>
+				<input type="text" name="item-{{ pid }}_link_logo" value="{{ link_icon }}" class="item-{{ pid }}-input">
+			</div>
+			<div class="form-group">
+				<span class="db-quick-inner-text">Category</span>
+				<select class="db-quick-select item-{{ pid }}-input">
+					{% for j in range (0, categories | length) %}
+						{% if category == categories[j]["category"] %}
+							<option value="{{ categories[j]['cid'] }}" selected>{{ categories[j]["category"] }}</option>
+						{% else %}
+							<option value="{{ categories[j]['cid'] }}">{{ categories[j]["category"] }}</option>
+						{% endif %}
+					{% endfor %}
+				</select>
+			</div>
+			<div class="form-group">
+				<p class="db-quick-inner-text">Project Link Icon:</p>
+				<input type="hidden" name="item-{{ pid }}_tpid" value="{{ tpid }}" class="item-{{ pid }}-input">
+			</div>
+			<div class="align-right">
+				<button type="submit" class="save-btn" id="item-{{ pid }}-submit">Save</button>
+			</div>
+
 		</div>
-		<div class="form-group">
-			<p class="db-quick-inner-text">Project Description:</p>
-			<input type="text" name="add-item-{{ class_id }}_description" value="" class="add-item-{{ class_id }}-input">
-		</div>
-		<div class="form-group">
-			<p class="db-quick-inner-text">Project Modal Content:</p>
-			<textarea type="text" name="add-item_modal-{{ class_id }}_content" class="add-item-{{ class_id }}-input">{{ content }}</textarea>
-		</div>
-		<div class="form-group">
-			<p class="db-quick-inner-text">Project Logo Path:</p>
-			<input type="text" name="add-item-{{ class_id }}_logo" value="" class="add-item-{{ class_id }}-input">
-		</div>
-		<div class="form-group">
-			<p class="db-quick-inner-text">Project Technologies:</p>
-			<input type="text" name="add-item-{{ class_id }}_technologies" value="" class="add-item-{{ class_id }}-input">
-		</div>
-		<div class="form-group">
-			<p class="db-quick-inner-text">Project Link:</p>
-			<input type="text" name="add-item-{{ class_id }}_link" value="" class="add-item-{{ class_id }}-input">
-		</div>
-		<div class="form-group">
-			<p class="db-quick-inner-text">Project Link Logo:</p>
-			<input type="text" name="add-item-{{ class_id }}_link_logo" value="" class="add-item-{{ class_id }}-input">
-		</div>
-		<div class="form-group">
-			<span class="db-quick-inner-text">Category</span>
-			<select class="db-quick-select add-item-{{ class_id }}-input">
-				{% for i in range (0, categories | length) %}
-					<option value="{{ categories[i]['cid'] }}">{{ categories[i]["category"].title() }}</option>
-				{% endfor %}
-			</select>
-		</div>
-		<div class="align-right">
-			<button type="submit" class="save-btn" id="add-item-{{ class_id }}-submit">Save</button>
-		</div>
-	</div>
-</form>
+	</form>
+	
+{% endblock %}

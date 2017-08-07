@@ -44,14 +44,18 @@ def update_database(connection, form_id, data):
 		connection.execute_query("""UPDATE section_list SET position = {} WHERE position = {}""".format(int(old_position[0]["position"]), new_position))
 		query = """UPDATE section_list SET position = {}, title = '{}', description = '{}' WHERE class_id = '{}'""".format(new_position, data[1], data[2], form_id)
 
-	elif form_id.startswith("add-item"):
-		form_id = form_id.replace("add-item-", "")
+	elif form_id.startswith("item-add"):
+		form_id = form_id.replace("item-add-", "")
 		query = """SELECT tpid FROM template_portfolio JOIN section_list USING (sid) WHERE class_id = '{}'""".format(form_id)
 		tpid = connection.execute_query(query)[0]["tpid"]
 		query = """INSERT INTO template_portfolio_projects (title, description, modal_content, logo, technologies, link, link_icon, tpid, cid) VALUES('{}', '{}', '{}', '{}', '{}', '{}', '{}', {}, {})""".format(data[0], data[1], data[2], data[3], data[4], data[5], data[6], tpid, int(data[7]))
 
 	elif form_id.startswith("delete-item"):
 		query = "DELETE FROM template_portfolio_projects WHERE pid = {}".format(str(data[0]))
+	
+	elif form_id.startswith("item-project"):
+		form_id = form_id.replace("item-project-", "")
+		query = """UPDATE template_portfolio_projects SET title = '{}', description = '{}', modal_content = '{}', logo = '{}', technologies = '{}', link = '{}', link_icon = '{}', cid = {}, tpid = {} WHERE pid = {}""".format(data[0], data[1], data[2], data[3], data[4], data[5], data[6], int(data[7]), int(data[8]), int(form_id))
 
 	return query
 # end def
