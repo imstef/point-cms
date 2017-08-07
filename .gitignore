@@ -19,6 +19,7 @@ _mailinglist
 =======
 flask/
 .sass-cache/
+static/scss
 mbconf.py
 >>>>>>> a103d6de3da979ccf493f4cb46ed7851a6395014
 # Coverage reports
