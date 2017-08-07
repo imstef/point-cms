@@ -56,6 +56,15 @@ def update_database(connection, form_id, data):
 	elif form_id.startswith("item-project"):
 		form_id = form_id.replace("item-project-", "")
 		query = """UPDATE template_portfolio_projects SET title = '{}', description = '{}', modal_content = '{}', logo = '{}', technologies = '{}', link = '{}', link_icon = '{}', cid = {}, tpid = {} WHERE pid = {}""".format(data[0], data[1], data[2], data[3], data[4], data[5], data[6], int(data[7]), int(data[8]), int(form_id))
+    
+	elif form_id.startswith("section-delete"):
+		form_id = form_id.replace("section-delete-", "")
+		query = """DELETE FROM section_list WHERE class_id = '{}' """.format(form_id)
+	
+	elif form_id.startswith("portfolio-category-add"):
+		query = """SELECT (MAX(position) + 1) as position FROM template_portfolio_categories """
+		position = connection.execute_query(query)[0]["position"]
+		query = """INSERT INTO template_portfolio_categories(category, position) VALUES('{}', {})""".format(data[0], int(position)) 
 
 	return query
 # end def

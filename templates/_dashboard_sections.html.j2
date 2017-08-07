@@ -43,18 +43,21 @@
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class="db-quick-row">
-					<div class="db-section-item">
-						<div class="db-section-item-wrapper">
-							<p class="db-section-item-title db-section-content-expand">+ Portfolio Category</p>
-							<p class="db-section-content-hide">New Portfolio Caregory</p>
-							<div class="db-section-item-content">
-								{% include "_new_portfolio_category.html.j2" %}
-							</div>
-						</div>
-					</div>
-				</div>
+                </div>
+                {% set portfolio_sections = execute_query("SELECT COUNT(*) as number FROM section_type JOIN section_list USING (tid) WHERE type = 'portfolio' ")[0]["number"] %}
+                {% if (portfolio_sections | int) > 0 %}
+                    <div class="db-quick-row">
+                        <div class="db-section-item">
+                            <div class="db-section-item-wrapper">
+                                <p class="db-section-item-title db-section-content-expand">+ Portfolio Category</p>
+                                <p class="db-section-content-hide">New Portfolio Caregory</p>
+                                <div class="db-section-item-content">
+                                    {% include "_new_portfolio_category.html.j2" %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
 			</div>
 		</div>				
 	</div>
