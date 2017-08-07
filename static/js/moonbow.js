@@ -154,26 +154,32 @@ $(document).ready(function() {
 		$('.' + form_id + '-form .' + form_id  + '-input').each(function() {
 			inputs.push($(this).val());
 	  	});
+		
+		console.log(form_id);
+		
+		// if ($(this).hasClass('delete-btn')) {
+		// 	var confirm = window.confirm("You are about to remove a section from the database. This action is permanent and you can't undo it. Proceed?");
 
-		if ($(this).hasClass('delete-btn')) {
-			var confirm = window.confirm("You are about to remove a section from the database. This action is permanent and you can't undo it. Proceed?");
-
-			if (confirm === true) {
-				input_values = {
-				  	data: inputs,
-				  	form_id: form_id,
-				};
-			} else {
-				console.log('Mission aborted!');
-				return;
-			}
-		} else {
-			input_values = {
-		  		data: inputs,
-		  		form_id: form_id,
-			};
+		// 	if (confirm === true) {
+		// 		input_values = {
+		// 		  	data: inputs,
+		// 		  	form_id: form_id,
+		// 		};
+		// 	} else {
+		// 		console.log('Mission aborted!');
+		// 		return;
+		// 	}
+		// } else {
+		// 	input_values = {
+		//   		data: inputs,
+		//   		form_id: form_id,
+		// 	};
+		// }
+		input_values = {
+			data: inputs,
+			form_id: form_id
 		}
-
+		
 	  	$.ajax({
 	   		type: "POST",
 	    	url: "/api/",
@@ -186,7 +192,7 @@ $(document).ready(function() {
 	    	}
 		});
 
-		location.reload();
+		//location.reload();
 
 	});
 
