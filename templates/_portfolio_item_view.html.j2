@@ -1,5 +1,5 @@
 {% block body %}
-	{% set projects = execute_query("SELECT pid, title, category FROM template_portfolio_projects JOIN template_portfolio_categories USING(cid)") %}
+	{% set projects = execute_query("SELECT pid, tpid, title, description, modal_content, logo, technologies, link, link_icon, category FROM template_portfolio_projects JOIN template_portfolio_categories USING(cid)") %}
 	{% set class_id = sections[i]["class_id"] %}
 	<div class="db-portfolio-item-meta-columns">
 	<div class="row">
@@ -11,8 +11,10 @@
 			</div>
 		</div>
 	</div>
+	{% set count = [1] %}
 	<div class="db-portfolio-items">
 	{% for i in range(0, projects | length) %}
+		
 		<div class="db-portfolio-item-meta">
 			<div class="row">
 				<div class="column-12">
@@ -23,7 +25,7 @@
 					{% set id = class_id + (i | string) %}
 					<form class="delete-item-{{ id }}-form">
 						<input type="hidden" name="delete-item-{{ id }}_pid" value="{{ projects[i]['pid'] }}" class="delete-item-{{ id }}-input">
-						<span class="db-portfolio-item-edit" data-mod="db-portfolio-item-1">Edit</span>
+						<span class="db-portfolio-item-edit" data-mod="db-portfolio-item-{{ count[0] }}">Edit</span>
 						<!--<span class="db-portfolio-item-delete">Delete</span>-->
 						<button type="submit" class="save-btn db-portfolio-item-delete" id="delete-item-{{ id }}-submit">Delete</button>
 					</form>
@@ -31,6 +33,7 @@
 				</div>
 			</div>
 		</div>
+		{% if count.append(count.pop() + 1) %}{% endif %}
 	{% endfor %}
 	</div>
 {% endblock %}
