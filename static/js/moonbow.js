@@ -156,7 +156,7 @@ $(document).ready(function() {
 	  	});
 		
 		console.log(form_id);
-		
+		console.log(inputs);
 		// if ($(this).hasClass('delete-btn')) {
 		// 	var confirm = window.confirm("You are about to remove a section from the database. This action is permanent and you can't undo it. Proceed?");
 
