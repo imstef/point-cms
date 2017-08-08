@@ -236,7 +236,7 @@ a:link, a:visited { text-decoration: none; }
     text-align: right;
     position: relative;
 
-    .welcome-user { padding-top: 6px; font-size: 0.9em;
+    .welcome-user { padding-top: 6px; font-size: 0.8em;
       .username { text-decoration: underline; cursor: pointer; }
       .user-nav-wrapper { display: none; position: absolute; top: 30px; right: 0; width: 150px; background-color: #333333; z-index: 999;
         .user-nav { 
@@ -300,7 +300,7 @@ a:link, a:visited { text-decoration: none; }
     &:hover { background-color: #F2F2F2; }
   }
   .db-section-content-expand, .db-section-content-hide { padding: 10px; cursor: pointer; width: 100%; font-size: 0.9em; }
-  .db-section-content-hide { display: none; text-align: center; padding: 15px; }
+  .db-section-content-hide { display: none; text-align: center; }
   .db-section-item-description { font-size: 0.8em; letter-spacing: 0.04em; line-height: 1.5em; }
   .db-section-item-content { padding: 10px; background-color: #FFF; display: none; }
   .portfolio-item-modal-overlay { position: fixed; top: 0; right: 0; bottom: 0; left: 0; display: none; z-index: 999; background: #404040; overflow-x: hidden; overflow-y: scroll; 
