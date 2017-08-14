@@ -1,0 +1,9 @@
+<div class="nav-wrapper">
+    <nav class="main-navigation">
+        <ul>
+            {% for i in range(0, sections | length) %}
+                <li class="nav-item main-nav-item"><a href="#{{ sections[i][" class_id "] }}">{{ sections[i]["class_id"] }}</a></li>
+            {% endfor %}
+        </ul>
+    </nav>
+</div>

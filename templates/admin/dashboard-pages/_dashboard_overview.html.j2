@@ -1,0 +1,49 @@
+<p class="db-quick-text">Hi there! Here are some quick links.</p>
+<div class="row">
+	<div class="column-12">
+		<div class="column-4">
+			<div class="db-quick-item db-quick-settings">
+				<p class="db-quick-title">General</p>
+				<p class="db-quick-subtitle">Theme Settings</p>
+				<form class="general-form">
+					<div class="db-quick-row">
+						<div class="form-group">
+							<p class="db-quick-inner-text">Active Name:</p>
+							<input type="text" name="website_name" value="{{ active_theme }}" class="general-input">
+						</div>
+						<div class="align-right">
+							<button type="submit" class="save-btn" id="general-submit">Save</button>
+						</div>
+					</div>
+				</form>
+				<p class="db-quick-subtitle">Accent Colors</p>
+				{% set theme_accent = ['Dashboard', 'Website'] %}
+				{% for i in range(2) %}
+					<div class="db-quick-row">
+						<span class="db-quick-inner-text">{{ theme_accent[i] }}:</span>
+						<select class="db-quick-select">
+							<option value="">-</option>
+							<option value="white">White</option>
+							<option value="black">Black</option>
+							<option value="red">Red</option>
+						</select>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+		<div class="column-4">
+			<div class="db-quick-item db-quick-settings">
+				<p class="db-quick-title">Quick Actions</p>
+				<p class="db-quick-subtitle">Create your first section</p>
+			</div>
+		</div>
+		<div class="column-4">
+			<div class="db-quick-item db-quick-settings">
+				<p class="db-quick-title">Getting Started</p>
+				<p class="db-quick-subtitle">News, Tips and Tricks</p>
+				<p class="db-quick-subtitle">Documentation</p>
+				<p class="db-quick-subtitle">API</p>
+			</div>
+		</div>
+	</div>
+</div>

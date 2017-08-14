@@ -32,7 +32,7 @@ def homepage():
 	# execute query and get result
 	sections = connection.execute_query(query)
 
-	return render_template('main.html.j2', sections=sections)
+	return render_template('bootstrap.html.j2', sections=sections)
 
 # end def
 
@@ -95,7 +95,7 @@ def dashboard():
 	query = "SELECT * FROM section_list JOIN section_type USING (tid) ORDER BY position"
 	# execute query and get result
 	sections = connection.execute_query(query)
-	return render_template("dashboard.html.j2", sections=sections)
+	return render_template("admin/dashboard.html.j2", sections=sections)
 # end def
 
 @app.route("/logout/")

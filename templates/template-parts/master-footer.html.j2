@@ -1,0 +1,7 @@
+
+{% block body %}
+    <footer>
+        {% set footer_theme_file = "themes/" + active_theme + "/footer.html.j2" %}
+        {% include footer_theme_file %}
+    </footer>
+{% endblock %}

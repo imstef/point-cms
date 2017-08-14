@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		{% set website_info = execute_query("SELECT * FROM settings")[0] %}		
+		<title>{{ active_webpage.title() + " | " + website_info["website_name"].title() }}</title>
+		<meta charset="utf-8">
+	    <meta name="desciption" content="{{ website_info['website_description'] }}">
+	    <meta name="author" content="{{ website_info['author'] }}">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <!-- CSS, Fonts, Links -->
+	    <link rel="profile" href="https://gmpg.org/xfn/11">
+		<!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400"> -->
+		{% if active_webpage == "dashboard": %}
+			<link rel="stylesheet" href="{{ url_for('static', filename='themes/point-theme/css/style.css') }}">
+		{% else: %}
+			<link rel="stylesheet" href="{{ url_for('static', filename='themes/point-theme/css/style.css') }}">
+		{% endif %}
+	</head>
+	<body class="preload">
+		{# Include navigation file #}
+		<header class="header-wrapper">
+			{% set header_theme_file = "themes/" + active_theme + "/header.html.j2" %}
+			{% include header_theme_file %}
+		</header>
+		<div class="container">
+			{% block body %}{% endblock %}
+		</div>
+		<!-- JS Scripts -->
+		<script type="text/javascript" src="{{ url_for('static', filename='dependencies/jquery-3.2.1.min.js') }}"></script>
+		{% if active_webpage == "dashboard": %}
+			<script type="text/javascript" src=" {{ url_for('static', filename='admin/js/min/dashboard.min.js') }} "></script>
+		{% elif active_webpage == "login" %}
+			<script type="text/javascript" src=" {{ url_for('static', filename='admin/js/min/login.min.js') }} "></script>
+		{% elif active_webpage == "home" %}
+			{% set file_url = "static/themes/" + active_theme + "/js/theme.min.js" %}
+			<script type="text/javascript" src=" {{ file_url }} "></script>
+		{% endif %}
+	</body>
+</html>
