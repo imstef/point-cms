@@ -32,7 +32,7 @@ def homepage():
 	# execute query and get result
 	sections = connection.execute_query(query)
 
-	return render_template('bootstrap.html.j2', sections=sections)
+	return render_template('home-page.html.j2', sections=sections)
 
 # end def
 
@@ -78,13 +78,13 @@ def login():
 			else:
 				message = "Wrong username or password"
 				flash(message)
-				return render_template("login.html.j2")
+				return render_template("login-page.html.j2")
 		else:
 			message = "Enter username and password"
 			flash(message)
-			return render_template("login.html.j2")
+			return render_template("login-page.html.j2")
 
-	return render_template('login.html.j2')
+	return render_template('login-page.html.j2')
 # end def
 
 @app.route("/dashboard/")
@@ -95,7 +95,7 @@ def dashboard():
 	query = "SELECT * FROM section_list JOIN section_type USING (tid) ORDER BY position"
 	# execute query and get result
 	sections = connection.execute_query(query)
-	return render_template("admin/dashboard.html.j2", sections=sections)
+	return render_template("dashboard-page.html.j2", sections=sections)
 # end def
 
 @app.route("/logout/")

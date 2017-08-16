@@ -1,6 +1,6 @@
 {% set active_webpage = "login" %}
 {% set active_theme = "point-theme" %}
-{% extends "template-parts/master-header.html.j2" %}
+{% extends "template-loaders/master-header.html.j2" %}
 
 {% block body %}
 	
@@ -12,7 +12,13 @@
 					<h1 class="login-text"><img src="/static/uploads/logos/point-cms-logo.svg" alt=""></h1>
 					<h4 class="login-description">Welcome to the login page</h4>
 
-					{% include "_messages.html.j2" %}
+					<div class="login-status-wrapper">
+						<div class="login-status">
+							{% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages %}
+							<p>{{ message }}</p>
+							{% endfor %} {% endif %} {% endwith %}
+						</div>
+					</div>
 				
 					<form id="login" action="" method="POST">
 						<div class="form-group">

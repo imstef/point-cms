@@ -1,0 +1,13 @@
+{% set active_webpage = "home" %}
+{% set active_theme = "point-theme" %}
+{% extends "template-loaders/master-header.html.j2" %}
+
+{% block body %}
+
+	{% include 'template-loaders/master-content.html.j2' %}
+	
+	{% include 'template-loaders/master-footer.html.j2' %}
+
+	{{ close() }}
+
+{% endblock %}
