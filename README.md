@@ -1,6 +1,4 @@
-<p align="center">
-<img src="https://raw.githubusercontent.com/imstef/point-cms/staging/static/uploads/logos/point-cms-logo.png" alt="Official Point CMS Logo">
-</p>
+<p align="center"><img src="static/uploads/logos/point-cms-logo.png" alt="Official Point CMS Logo"></p>
 
 # Point CMS
 Point is a lightweight, minimal and super-fast content management system for portfolio websites.
