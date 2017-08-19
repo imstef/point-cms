@@ -1,5 +1,5 @@
 <p align="center">
-![Official Point CMS Logo](https://raw.githubusercontent.com/imstef/point-cms/master/static/uploads/logos/point-cms-logo.png)
+<img src="https://raw.githubusercontent.com/imstef/point-cms/master/static/uploads/logos/point-cms-logo.png" alt="Official Point CMS Logo">
 </p>
 
 # Point CMS
