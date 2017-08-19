@@ -11,15 +11,13 @@
 					<div class="back-home">Back to <a href="http://localhost:5000">homepage</a>.</div>
 					<h1 class="login-text"><img src="/static/uploads/logos/point-cms-logo.svg" alt=""></h1>
 					<h4 class="login-description">Welcome to the login page</h4>
-
 					<div class="login-status-wrapper">
 						<div class="login-status">
 							{% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages %}
 							<p>{{ message }}</p>
 							{% endfor %} {% endif %} {% endwith %}
 						</div>
-					</div>
-				
+					</div>	
 					<form id="login" action="" method="POST">
 						<div class="form-group">
 							<input type="text" name="username" class="login-user" placeholder="username/email" value={{ request.form.username }}>

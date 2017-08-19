@@ -3,7 +3,7 @@
 MYSQL_HOST = 'localhost'
 MYSQL_USER = 'root'
 MYSQL_PASSWORD = 'root'
-MYSQL_DB = 'moonbow'
+MYSQL_DB = 'point'
 
 
 #Add run arguments into [], splitted by comma.

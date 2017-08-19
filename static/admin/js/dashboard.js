@@ -101,45 +101,36 @@ $(document).ready(function() {
 			inputs.push($(this).val());
 	  	});
 		
-		console.log(form_id);
-		console.log(inputs);
-		// if ($(this).hasClass('delete-btn')) {
-		// 	var confirm = window.confirm("You are about to remove a section from the database. This action is permanent and you can't undo it. Proceed?");
+		// console.log(form_id);
+		// console.log(inputs);
 
-		// 	if (confirm === true) {
-		// 		input_values = {
-		// 		  	data: inputs,
-		// 		  	form_id: form_id,
-		// 		};
-		// 	} else {
-		// 		console.log('Mission aborted!');
-		// 		return;
-		// 	}
-		// } else {
-		// 	input_values = {
-		//   		data: inputs,
-		//   		form_id: form_id,
-		// 	};
-		// }
-		input_values = {
-			data: inputs,
-			form_id: form_id
+		if ($(this).hasClass('delete-btn')) {
+			var confirm = window.confirm("You are about to remove a section from the database. This action is permanent and you can't undo it. Proceed?");
+
+			if (confirm === true) {
+				input_values = {
+				  	data: inputs,
+				  	form_id: form_id,
+				};
+
+				$.ajax({
+					type: "POST",
+					url: "/api/",
+					data: input_values,
+					error: function (response) {
+						alert("error" + response);
+					},
+					success: function (response) {
+						console.log("success " + response);
+					}
+				});
+
+				location.reload();
+			} else {
+				console.log('Mission aborted!');
+				return;
+			}
 		}
-		
-	  	$.ajax({
-	   		type: "POST",
-	    	url: "/api/",
-	    	data: input_values,
-	    	error: function(response) {
-	     		alert("error" + response);
-	   		},
-	    	success: function(response) {
-	     		console.log("success " + response);
-	    	}
-		});
-
-		//location.reload();
-
 	});
 
 	$('.default-btn').on('click', function(e) {
