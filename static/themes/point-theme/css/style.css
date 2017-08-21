@@ -372,7 +372,7 @@ a:link, a:visited {
   position: relative;
   width: 355px;
   height: 230px; }
-#portfolio .item-preview {
+#portfolio .item-preview-modal {
   display: none;
   position: absolute;
   top: 0;
@@ -381,28 +381,28 @@ a:link, a:visited {
   right: 0;
   background-color: #404040;
   color: #FFFFFF; }
-  #portfolio .item-preview .preview-content {
+  #portfolio .item-preview-modal .preview-content {
     padding-top: 25px; }
-    #portfolio .item-preview .preview-content .item-title {
+    #portfolio .item-preview-modal .preview-content .item-title {
       font-size: 1.2em;
       margin-bottom: 5px; }
-    #portfolio .item-preview .preview-content .item-description {
+    #portfolio .item-preview-modal .preview-content .item-description {
       font-size: 0.8em;
       margin-bottom: 15px;
       letter-spacing: 0.002em;
       line-height: 1.2em; }
-    #portfolio .item-preview .preview-content .item-tech-stack {
+    #portfolio .item-preview-modal .preview-content .item-tech-stack {
       margin-bottom: 15px; }
-      #portfolio .item-preview .preview-content .item-tech-stack .tech-stack-title {
+      #portfolio .item-preview-modal .preview-content .item-tech-stack .tech-stack-title {
         margin-bottom: 15px; }
-      #portfolio .item-preview .preview-content .item-tech-stack .tech-stack-title-text {
+      #portfolio .item-preview-modal .preview-content .item-tech-stack .tech-stack-title-text {
         font-size: 0.9em;
         position: relative;
         top: -5px;
         left: 5px; }
-      #portfolio .item-preview .preview-content .item-tech-stack .icon-stack {
+      #portfolio .item-preview-modal .preview-content .item-tech-stack .icon-stack {
         font-size: 1.5em; }
-      #portfolio .item-preview .preview-content .item-tech-stack .tech-stack-icon {
+      #portfolio .item-preview-modal .preview-content .item-tech-stack .tech-stack-icon {
         padding: 4px 12px;
         margin-right: 5px;
         font-size: 0.7em;
@@ -410,9 +410,9 @@ a:link, a:visited {
         border-radius: 3px;
         background: rgba(40, 40, 40, 0.8);
         color: #FFF; }
-  #portfolio .item-preview .link-github {
+  #portfolio .item-preview-modal .link-github {
     font-size: 2em; }
-    #portfolio .item-preview .link-github a {
+    #portfolio .item-preview-modal .link-github a {
       color: #FFFFFF;
       text-decoration: none; }
 #portfolio .item-preview-modal {

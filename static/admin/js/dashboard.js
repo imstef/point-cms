@@ -51,10 +51,8 @@ $(document).ready(function() {
 		$(this).addClass('dashboard-section-' + item);
 	});
 
-	if (window.location.href.indexOf("/dashboard/") > -1) {
-		dashboard_nav_items[0].addClass('current-nav-item');
-		dashboard_sections[0].fadeIn();
-	}
+	dashboard_nav_items[0].addClass('current-nav-item');
+	dashboard_sections[0].fadeIn();
 
 	$('.dashboard-nav-item').on('click', function() {
 		$('.dashboard-nav-item').each(function() {
@@ -124,13 +122,30 @@ $(document).ready(function() {
 						console.log("success " + response);
 					}
 				});
-
+				
 				location.reload();
 			} else {
 				console.log('Mission aborted!');
 				return;
 			}
 		}
+
+		input_values = {
+			data: inputs,
+			form_id: form_id,
+		};
+
+		$.ajax({
+			type: "POST",
+			url: "/api/",
+			data: input_values,
+			error: function (response) {
+				alert("error" + response);
+			},
+			success: function (response) {
+				console.log("success " + response);
+			}
+		});
 	});
 
 	$('.default-btn').on('click', function(e) {
@@ -142,22 +157,20 @@ $(document).ready(function() {
 	 * Section Expand and Collapse
 	 *
 	**/
-	if (window.location.href.indexOf("/dashboard/") > -1) {
-	    $('.db-section-content-expand').on('click', function() {
-			$(this).css({'display': 'none'});
-			$(this).parent().find('.db-section-content-hide').css({'width': '100%'});
-			$(this).parent().css({ 'background-color': 'rgba(58, 133, 194, 0.85)'});
-	    	$(this).parent().find('.db-section-item-content').slideDown();
-			$(this).parent().find('.db-section-content-hide').css({ 'display': 'block', 'color': '#FFF'});
-		});
+	$('.db-section-content-expand').on('click', function() {
+		$(this).css({'display': 'none'});
+		$(this).parent().find('.db-section-content-hide').css({'width': '100%'});
+		$(this).parent().css({ 'background-color': 'rgba(58, 133, 194, 0.85)'});
+		$(this).parent().find('.db-section-item-content').slideDown();
+		$(this).parent().find('.db-section-content-hide').css({ 'display': 'block', 'color': '#FFF'});
+	});
 
-	    $('.db-section-content-hide').on('click', function() {
-			$(this).parent().find('.db-section-content-expand').css({ 'display': 'block' });
-			$(this).parent().css({ 'background-color': '#EEE', 'color': '#404040' });
-	    	$(this).parent().find('.db-section-item-content').slideUp();
-	    	$(this).css({'display': 'none'});
-	    });
-	}
+	$('.db-section-content-hide').on('click', function() {
+		$(this).parent().find('.db-section-content-expand').css({ 'display': 'block' });
+		$(this).parent().css({ 'background-color': '#EEE', 'color': '#404040' });
+		$(this).parent().find('.db-section-item-content').slideUp();
+		$(this).css({'display': 'none'});
+	});
 	
 	/**
 	 *

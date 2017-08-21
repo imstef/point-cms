@@ -60,13 +60,13 @@
 									</div>
 									<div class="db-section-content">
 										{% if (section_names[i] == 'overview'): %}
-											{% include "admin/dashboard-pages/_dashboard_overview.html.j2" %}
+											{% include "admin/_dashboard_overview.html.j2" %}
 
 										{% elif (section_names[i] == 'settings'): %}
-											{% include "admin/dashboard-pages/_dashboard_settings.html.j2" %}
+											{% include "admin/_dashboard_settings.html.j2" %}
 
 										{% elif (section_names[i] == 'sections'): %}
-											{% include "admin/dashboard-pages/_dashboard_sections.html.j2" %}
+											{% include "admin/_dashboard_sections.html.j2" %}
 										{% endif %}
 									</div>
 								</section>

@@ -28,7 +28,7 @@
 		<!-- JS Scripts -->
 		<script type="text/javascript" src="{{ url_for('static', filename='dependencies/jquery-3.2.1.min.js') }}"></script>
 		{% if active_webpage == "dashboard": %}
-			<script type="text/javascript" src=" {{ url_for('static', filename='admin/js/min/dashboard.min.js') }} "></script>
+			<script type="text/javascript" src=" {{ url_for('static', filename='admin/js/dashboard.js') }} "></script>
 		{% elif active_webpage == "login" %}
 			<script type="text/javascript" src=" {{ url_for('static', filename='admin/js/min/login.min.js') }} "></script>
 		{% elif active_webpage == "home" %}

@@ -57,8 +57,8 @@
 													<div class="form-group">
 														<p class="db-quick-inner-text">Portfolio Items</p>
 														<div class="db-new-portfolio-item-wrapper">
-															{% include 'admin/dashboard-pages/includes/_portfolio_item_table_view.html.j2' %}
-															{% include 'admin/dashboard-pages/includes/_portfolio_item_modal.html.j2' %}
+															{% include 'admin/includes/_portfolio_item_table_view.html.j2' %}
+															{% include 'admin/includes/_portfolio_item_modal.html.j2' %}
 														</div>
 														<p class="db-add-portfolio-item">Add New</p>
 													</div>
@@ -109,12 +109,11 @@
 								</div>
 						{% endfor %}
 						{% else %}
-							<p class="db-empty-section">No sections. Click on the <strong>+Section</strong> field to create your first section.</p>
+							<p class="db-empty-section">Click on the <strong>+Section</strong> field to create your first section.</p>
 					{% endif %}
 			</div>
 			<div class="column-3">
 				<p class="db-quick-title">User Actions</p>
-				<p class="db-quick-subtitle">Add New</p>
 				<div class="db-quick-row">
 					<div class="db-section-item">
 						<div class="db-section-item-wrapper">
@@ -172,7 +171,55 @@
                             </div>
                         </div>
                     </div>
-                {% endif %}
+				<div class="db-quick-row">
+					<div class="db-section-item">
+						<div class="db-section-item-wrapper">
+							<p class="db-section-item-title db-section-content-expand">~ Change Category Name</p>
+							<p class="db-section-content-hide">Change Caregory Name</p>
+							<div class="db-section-item-content">
+								<form class="portfolio-category-add-form">
+									<div class="db-quick-row">
+										<div class="form-group">
+											<p class="db-quick-inner-text">Old Name</p>
+											<div class="form-group">
+												<input type="text" name="portfolio-category-add-name" value="" class="portfolio-category-add-input">
+											</div>
+											<p class="db-quick-inner-text">New Name</p>
+											<div class="form-group">
+												<input type="text" name="portfolio-category-add-name" value="" class="portfolio-category-add-input">
+											</div>
+										</div>
+										<div class="align-right">
+											<button type="submit" class="save-btn" id="portfolio-category-add-submit">Save</button>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="db-quick-row">
+					<div class="db-section-item">
+						<div class="db-section-item-wrapper">
+							<p class="db-section-item-title db-section-content-expand">- Portfolio Category</p>
+							<p class="db-section-content-hide">Remove Portfolio Caregory</p>
+							<div class="db-section-item-content">
+								<form class="portfolio-category-add-form">
+									<div class="db-quick-row">
+										<div class="form-group">
+											<p class="db-quick-inner-text">Category Name</p>
+											<input type="text" name="portfolio-category-add-name" value="" class="portfolio-category-add-input">
+										</div>
+										<div class="align-right">
+											<button type="submit" class="save-btn delete-btn" id="portfolio-category-add-submit">Delete</button>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				{% endif %}
 			</div>
 		</div>				
 	</div>
