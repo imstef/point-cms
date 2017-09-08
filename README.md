@@ -1,19 +1,38 @@
 <p align="center"><img src="static/uploads/logos/point-cms-logo.png" width="163" height="84" alt="Official Point CMS Logo"></p>
 
-# Point CMS
 Point is a lightweight, minimal and super-fast content management system for portfolio websites.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine or live server. There are 2 important things you need to know. This project is split up in two, different branches - master and staging. 
+
+The master branch is very similar to the staging one, except it is stripped down version of the project, with minifed files and optimized file structure. This means that this branch should be used only when deploying.
+
+If you want get a copy of the project on your local machine for testing and development purposes, you will need to download/pull the staging branch. It contains non-minified Javascript and CSS files, as well as the SCSS. If you want to deploy Point CMS without playing around, download the master brach, which is production ready.
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+This section covers what things you need to install the software and how to install them. Here's the list:
+
+List of technologies:
+```
+Linux (version and distro doesn't matter, but Ubuntu is preferred)
+Apache
+Python 2.7 or later
+Pip
+MariaDB/MySQL
+WSGI (Web Server Gateway Interface)
 
 ```
-Give examples
+List of Python Pip packages:
 ```
+virtualenv
+Flask
+passlib
+MySQLdb
+```
+
+For instructions on how to install all this stuff, you can reffer to 
 
 ### Installing
 
@@ -33,10 +52,6 @@ until finished
 
 End with an example of getting some data out of the system or using it for a little demo
 
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
 ## Built With
 
 * [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
@@ -46,10 +61,6 @@ Add additional notes about how to deploy this on a live system
 ## Contributing
 
 Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
 
 ## Authors
 
