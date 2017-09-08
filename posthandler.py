@@ -66,5 +66,14 @@ def update_database(connection, form_id, data):
 		position = connection.execute_query(query)[0]["position"]
 		query = """INSERT INTO template_portfolio_categories(category, position) VALUES('{}', {})""".format(data[0], int(position)) 
 
+	elif form_id.startswith("portfolio-category-name-change"):
+		query = """UPDATE template_portfolio_categories SET category = '{}' WHERE category = '{}'""".format(data[1], data[0])
+
+	elif form_id.startswith("portfolio-category-remove"):
+		query = """DELETE FROM template_portfolio_categories WHERE category = '{}'""".format(data[0])
+
+	elif form_id.startswith("theme-settings"):
+		query = """UPDATE settings SET theme = '{}', homepage_color = '{}', dashboard_color = '{}' """.format(data[0], data[2], data[1])	
+
 	return query
 # end def
