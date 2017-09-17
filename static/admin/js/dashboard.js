@@ -101,9 +101,9 @@ $(document).ready(function() {
 		
 		// console.log(form_id);
 		// console.log(inputs);
-
+		// Delete something with a warning
 		if ($(this).hasClass('delete-btn')) {
-			var confirm = window.confirm("You are about to remove a section from the database. This action is permanent and you can't undo it. Proceed?");
+			var confirm = window.confirm("You are about to remove something important from the database. This action is permanent and you can't undo it. Proceed?");
 
 			if (confirm === true) {
 				input_values = {
@@ -119,6 +119,10 @@ $(document).ready(function() {
 						alert("error" + response);
 					},
 					success: function (response) {
+						$('.save-btn').html('Saved!');
+						setTimeout(function() {
+							$('.save-btn').html('Save');
+						}, 500);
 						console.log("success " + response);
 					}
 				});
@@ -130,6 +134,8 @@ $(document).ready(function() {
 			}
 		}
 
+
+		// Normal post request
 		input_values = {
 			data: inputs,
 			form_id: form_id,
@@ -143,6 +149,10 @@ $(document).ready(function() {
 				alert("error" + response);
 			},
 			success: function (response) {
+				$('.save-btn:not(.delete-btn)').text('Done').addClass('req-success');
+				setTimeout(function() {
+					$('.save-btn:not(.delete-btn)').text('Save');
+				}, 500);
 				console.log("success " + response);
 			}
 		});

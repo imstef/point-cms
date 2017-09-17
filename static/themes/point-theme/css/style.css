@@ -1,16 +1,3 @@
-/*
- *
- * Main stylesheet file with a .scss extension. This file loads everything and compiles it to /css/style.css
- *
- *
- * TABLE OF CONTENTS
- * 1. Import
- * 2. Base styles
- * 3. Header
- * 4. Sections
- *
- *
-*/
 /* Global reset styles */
 *, *:after, *:before {
   margin: 0;
@@ -372,7 +359,7 @@ a:link, a:visited {
   position: relative;
   width: 355px;
   height: 230px; }
-#portfolio .item-preview-modal {
+#portfolio .item-preview {
   display: none;
   position: absolute;
   top: 0;
@@ -381,28 +368,28 @@ a:link, a:visited {
   right: 0;
   background-color: #404040;
   color: #FFFFFF; }
-  #portfolio .item-preview-modal .preview-content {
+  #portfolio .item-preview .preview-content {
     padding-top: 25px; }
-    #portfolio .item-preview-modal .preview-content .item-title {
+    #portfolio .item-preview .preview-content .item-title {
       font-size: 1.2em;
       margin-bottom: 5px; }
-    #portfolio .item-preview-modal .preview-content .item-description {
+    #portfolio .item-preview .preview-content .item-description {
       font-size: 0.8em;
       margin-bottom: 15px;
       letter-spacing: 0.002em;
       line-height: 1.2em; }
-    #portfolio .item-preview-modal .preview-content .item-tech-stack {
+    #portfolio .item-preview .preview-content .item-tech-stack {
       margin-bottom: 15px; }
-      #portfolio .item-preview-modal .preview-content .item-tech-stack .tech-stack-title {
+      #portfolio .item-preview .preview-content .item-tech-stack .tech-stack-title {
         margin-bottom: 15px; }
-      #portfolio .item-preview-modal .preview-content .item-tech-stack .tech-stack-title-text {
+      #portfolio .item-preview .preview-content .item-tech-stack .tech-stack-title-text {
         font-size: 0.9em;
         position: relative;
         top: -5px;
         left: 5px; }
-      #portfolio .item-preview-modal .preview-content .item-tech-stack .icon-stack {
+      #portfolio .item-preview .preview-content .item-tech-stack .icon-stack {
         font-size: 1.5em; }
-      #portfolio .item-preview-modal .preview-content .item-tech-stack .tech-stack-icon {
+      #portfolio .item-preview .preview-content .item-tech-stack .tech-stack-icon {
         padding: 4px 12px;
         margin-right: 5px;
         font-size: 0.7em;
@@ -410,9 +397,9 @@ a:link, a:visited {
         border-radius: 3px;
         background: rgba(40, 40, 40, 0.8);
         color: #FFF; }
-  #portfolio .item-preview-modal .link-github {
+  #portfolio .item-preview .link-github {
     font-size: 2em; }
-    #portfolio .item-preview-modal .link-github a {
+    #portfolio .item-preview .link-github a {
       color: #FFFFFF;
       text-decoration: none; }
 #portfolio .item-preview-modal {
@@ -501,303 +488,5 @@ a:link, a:visited {
     .footer-wrapper .icon-heart-footer:hover {
       color: #db1111;
       opacity: 1; }
-
-.alternate-bg {
-  background-color: #EEE; }
-
-.login-wrapper {
-  margin: 120px auto;
-  background: #FFF;
-  -webkit-box-shadow: 0.5px 0.5px 10px 0px #dadada;
-  -moz-box-shadow: 0.5px 0.5px 10px 0px #dadada;
-  box-shadow: 0.5px 0.5px 10px 0px #dadada;
-  color: #707070; }
-  .login-wrapper .login-form {
-    padding: 80px 80px 40px 80px; }
-    .login-wrapper .login-form .login-text {
-      font-size: 2em;
-      font-weight: 300;
-      margin-bottom: 5px; }
-    .login-wrapper .login-form .login-description {
-      font-size: 0.9em;
-      font-weight: 300;
-      margin-bottom: 55px; }
-    .login-wrapper .login-form .lost-pw {
-      padding-top: 40px;
-      font-size: 0.7em;
-      color: #909090; }
-    .login-wrapper .login-form .login-status-wrapper {
-      margin: 20px 0;
-      height: 50px; }
-    .login-wrapper .login-form .login-status {
-      font-size: 0.8em;
-      padding: 5px;
-      color: #db3939;
-      border: 1px solid;
-      display: none; }
-  .login-wrapper .back-home {
-    font-size: 0.7em;
-    color: #909090;
-    position: relative;
-    top: -65px;
-    left: -65px;
-    text-align: left; }
-
-.dashboard-header {
-  background-color: #404040;
-  padding: 0 30px;
-  color: #FFF;
-  height: 60px;
-  text-align: left;
-  width: 100%; }
-  .dashboard-header .dashboard-nav-wrapper .dashboard-nav ul {
-    cursor: pointer; }
-    .dashboard-header .dashboard-nav-wrapper .dashboard-nav ul .dashboard-nav-item {
-      list-style-type: none;
-      display: inline-block;
-      border: 1px solid #404040;
-      margin-right: 10px;
-      padding: 5px 10px;
-      font-size: 0.8em;
-      font-weight: 400;
-      letter-spacing: 0.03em;
-      color: rgba(255, 255, 255, 0.7);
-      -webkit-transition: color 450ms ease;
-      -moz-transition: color 450ms ease;
-      -ms-transition: color 450ms ease;
-      -o-transition: color 450ms ease;
-      transition: color 450ms ease; }
-      .dashboard-header .dashboard-nav-wrapper .dashboard-nav ul .dashboard-nav-item.current-nav-item, .dashboard-header .dashboard-nav-wrapper .dashboard-nav ul .dashboard-nav-item:hover {
-        color: white; }
-  .dashboard-header .user-meta {
-    text-align: right;
-    position: relative; }
-    .dashboard-header .user-meta .welcome-user {
-      padding-top: 6px;
-      font-size: 0.8em; }
-      .dashboard-header .user-meta .welcome-user .username {
-        text-decoration: underline;
-        cursor: pointer; }
-      .dashboard-header .user-meta .welcome-user .user-nav-wrapper {
-        display: none;
-        position: absolute;
-        top: 30px;
-        right: 0;
-        width: 150px;
-        background-color: #333333;
-        z-index: 999; }
-        .dashboard-header .user-meta .welcome-user .user-nav-wrapper .user-nav {
-          text-align: left;
-          -webkit-box-shadow: 0.5px 0.5px 5px 0px #404040;
-          -moz-box-shadow: 0.5px 0.5px 5px 0px #404040;
-          box-shadow: 0.5px 0.5px 5px 0px #404040; }
-          .dashboard-header .user-meta .welcome-user .user-nav-wrapper .user-nav ul {
-            margin: 0;
-            padding: 0; }
-            .dashboard-header .user-meta .welcome-user .user-nav-wrapper .user-nav ul li {
-              list-style-type: none; }
-              .dashboard-header .user-meta .welcome-user .user-nav-wrapper .user-nav ul li a {
-                display: block;
-                color: #FFF;
-                padding: 10px;
-                font-size: 0.9em;
-                -webkit-transition: background-color 450ms ease;
-                -moz-transition: background-color 450ms ease;
-                -ms-transition: background-color 450ms ease;
-                -o-transition: background-color 450ms ease;
-                transition: background-color 450ms ease; }
-                .dashboard-header .user-meta .welcome-user .user-nav-wrapper .user-nav ul li a:hover {
-                  background: #222222; }
-        .dashboard-header .user-meta .welcome-user .user-nav-wrapper.nav-open {
-          display: block; }
-
-.website-meta .website-name {
-  font-weight: 400;
-  padding-top: 5px; }
-.website-meta a {
-  color: #FFF; }
-
-.dashboard-content {
-  padding: 30px;
-  margin-bottom: 50px;
-  min-height: 1000px;
-  background-color: #FFF;
-  text-align: left;
-  position: relative; }
-  .dashboard-content .cms-meta {
-    position: absolute;
-    bottom: 5px;
-    right: 10px; }
-    .dashboard-content .cms-meta .cms-version {
-      font-size: 0.8em;
-      font-style: italic;
-      color: #999; }
-  .dashboard-content .db-section-meta {
-    margin-bottom: 20px; }
-    .dashboard-content .db-section-meta .db-section-title {
-      font-size: 1.4em;
-      font-weight: 400; }
-    .dashboard-content .db-section-meta .db-section-description {
-      font-size: 0.8em;
-      font-style: italic; }
-  .dashboard-content .db-quick-title {
-    font-size: 1.2em;
-    font-weight: 400;
-    margin: 30px 0; }
-  .dashboard-content .db-quick-subtitle {
-    font-size: 1.1em;
-    margin: 20px 0; }
-  .dashboard-content .db-quick-row {
-    margin: 10px 0; }
-  .dashboard-content .db-quick-item {
-    margin-top: 20px; }
-  .dashboard-content .db-quick-text {
-    margin: 10px 0; }
-  .dashboard-content .db-quick-inner-text {
-    font-size: 0.9em;
-    margin-bottom: 10px; }
-  .dashboard-content .db-quick-select {
-    width: 90px; }
-  .dashboard-content .db-section-item {
-    border: 1px solid #F2F2F2;
-    width: 90%;
-    border-radius: 3px;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    overflow: hidden; }
-  .dashboard-content .db-section-item-wrapper {
-    background-color: #EEE;
-    -webkit-transition: background-color 450ms ease;
-    -moz-transition: background-color 450ms ease;
-    -ms-transition: background-color 450ms ease;
-    -o-transition: background-color 450ms ease;
-    transition: background-color 450ms ease; }
-    .dashboard-content .db-section-item-wrapper:hover {
-      background-color: #F2F2F2; }
-  .dashboard-content .db-section-content-expand, .dashboard-content .db-section-content-hide {
-    padding: 10px;
-    cursor: pointer;
-    width: 100%;
-    font-size: 0.9em; }
-  .dashboard-content .db-section-content-hide {
-    display: none;
-    text-align: center; }
-  .dashboard-content .db-section-item-description {
-    font-size: 0.8em;
-    letter-spacing: 0.04em;
-    line-height: 1.5em; }
-  .dashboard-content .db-section-item-content {
-    padding: 10px;
-    background-color: #FFF;
-    display: none; }
-  .dashboard-content .portfolio-item-modal-overlay {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    display: none;
-    z-index: 999;
-    background: #404040;
-    overflow-x: hidden;
-    overflow-y: scroll; }
-    .dashboard-content .portfolio-item-modal-overlay .modal-wrapper {
-      max-width: 65%;
-      margin: 5% auto;
-      background-color: #FFFFFF;
-      -webkit-transform: translateY(100%);
-      -moz-transform: translateY(100%);
-      -ms-transform: translateY(100%);
-      -o-transform: translateY(100%);
-      transform: translateY(100%);
-      -webkit-transition: transform 500ms ease;
-      -moz-transition: transform 500ms ease;
-      -ms-transition: transform 500ms ease;
-      -o-transition: transform 500ms ease;
-      transition: transform 500ms ease; }
-      .dashboard-content .portfolio-item-modal-overlay .modal-wrapper.open {
-        -webkit-transform: translateY(0px);
-        -moz-transform: translateY(0px);
-        -ms-transform: translateY(0px);
-        -o-transform: translateY(0px);
-        transform: translateY(0px); }
-      .dashboard-content .portfolio-item-modal-overlay .modal-wrapper .modal-content {
-        padding: 30px; }
-      .dashboard-content .portfolio-item-modal-overlay .modal-wrapper textarea {
-        max-width: 80%; }
-      .dashboard-content .portfolio-item-modal-overlay .modal-wrapper [class*='db-portfolio-item'] {
-        display: none; }
-  .dashboard-content .db-new-portfolio-item-wrapper {
-    width: 100%; }
-  .dashboard-content .db-portfolio-item-meta-columns {
-    font-size: 0.8em;
-    border: 1px solid #F2F2F2;
-    background-color: #F2F2F2;
-    padding: 12px 5px 10px 5px;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px; }
-  .dashboard-content .db-portfolio-item-meta {
-    padding: 12px 5px 10px 5px;
-    border: 1px solid #F2F2F2;
-    border-top: 0; }
-  .dashboard-content .db-portfolio-item-text {
-    font-size: 0.9em;
-    padding-top: 2px; }
-  .dashboard-content .db-portfolio-item-edit, .dashboard-content .db-portfolio-item-delete, .dashboard-content .db-add-portfolio-item {
-    font-size: 0.8em;
-    margin: 0;
-    line-height: 1.5em;
-    letter-spacing: 0.02em;
-    font-weight: 300;
-    padding: 2px 5px;
-    color: #404040;
-    border: 1px solid #F4F4F4;
-    margin-right: 5px;
-    cursor: pointer;
-    -webkit-transition: border-color 450ms ease;
-    -moz-transition: border-color 450ms ease;
-    -ms-transition: border-color 450ms ease;
-    -o-transition: border-color 450ms ease;
-    transition: border-color 450ms ease; }
-  .dashboard-content .db-portfolio-item-edit:hover {
-    border-color: #3a85c2; }
-  .dashboard-content .db-portfolio-item-delete {
-    margin: 0; }
-    .dashboard-content .db-portfolio-item-delete:hover {
-      border-color: #dd2020; }
-  .dashboard-content .db-add-portfolio-item {
-    max-width: 70px;
-    margin: 0 auto;
-    text-align: center; }
-    .dashboard-content .db-add-portfolio-item:hover {
-      border-color: #3a85c2; }
-  .dashboard-content .db-portfolio-item-category {
-    font-size: 0.7em;
-    padding: 5px;
-    background-color: #F2F2F2;
-    border-radius: 5px; }
-  .dashboard-content .db-empty-section {
-    font-size: 0.8em;
-    color: #808080;
-    text-align: center; }
-  .dashboard-content input {
-    font-size: 0.9em; }
-  .dashboard-content textarea {
-    -webkit-transition: border-color 750ms ease;
-    -moz-transition: border-color 750ms ease;
-    -ms-transition: border-color 750ms ease;
-    -o-transition: border-color 750ms ease;
-    transition: border-color 750ms ease;
-    width: 100%;
-    height: 125px; }
-  .dashboard-content textarea:focus {
-    border-color: #3a85c2; }
-  .dashboard-content .align-right {
-    text-align: right;
-    margin-right: 5%; }
-
-[class*='dashboard-section'] {
-  margin-top: -6px;
-  display: none; }
 
 /*# sourceMappingURL=style.css.map */

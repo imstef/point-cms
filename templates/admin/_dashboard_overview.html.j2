@@ -1,5 +1,3 @@
-
-{% set data = execute_query("SELECT theme, homepage_color, dashboard_color FROM settings")[0] %}
 {% set active_theme = data["theme"] %}
 {% set dashboard_color = data["dashboard_color"] %}
 {% set homepage_color = data["homepage_color"] %}
