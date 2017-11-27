@@ -11,9 +11,9 @@
 	    <link rel="profile" href="https://gmpg.org/xfn/11">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">
 		{% if active_webpage == "dashboard" or active_webpage == "login": %}
-			<link rel="stylesheet" href="{{ url_for('static', filename='admin/css/style.css') }}">
+			<link rel="stylesheet" href="{{ url_for('static', filename='admin/css/style.min.css') }}">
 		{% else: %}
-			{% set css_url = "themes/" + active_theme + "/css/style.css" %}
+			{% set css_url = "themes/" + active_theme + "/css/style.min.css" %}
 			<link rel="stylesheet" href="{{ url_for('static', filename=css_url) }}">
 		{% endif %}
 		<link rel="stylesheet" href="{{ url_for('static', filename='themes/point-theme/css/devicon.min.css') }}">
@@ -35,7 +35,7 @@
 		<!-- JS Scripts -->
 		<script type="text/javascript" src="{{ url_for('static', filename='dependencies/jquery-3.2.1.min.js') }}"></script>
 		{% if active_webpage == "dashboard": %}
-			<script type="text/javascript" src=" {{ url_for('static', filename='admin/js/dashboard.js') }} "></script>
+			<script type="text/javascript" src=" {{ url_for('static', filename='admin/js/dashboard.min.js') }} "></script>
 		{% elif active_webpage == "login" %}
 			<script type="text/javascript" src=" {{ url_for('static', filename='admin/js/min/login.min.js') }} "></script>
 		{% elif active_webpage == "home" %}
