@@ -1,4 +1,4 @@
-<p align="center"><img src="static/uploads/logos/point-cms-logo.png" width="163" height="84" alt="Official Point CMS Logo"></p>
+<p align="center"><img src="static/uploads/logos/point-blue.png" width="163" height="84" alt="Official Point CMS Logo"></p>
 
 Point is a lightweight, minimal and super-fast content management system for portfolio websites.
 
@@ -21,6 +21,7 @@ Apache
 Python 2.7 or later
 Pip
 MariaDB/MySQL
+MySQLdb
 WSGI (Web Server Gateway Interface)
 
 ```
@@ -29,45 +30,41 @@ List of Python Pip packages:
 virtualenv
 Flask
 passlib
-MySQLdb
+flask-mysqldb
 ```
-
-For instructions on how to install all this stuff, you can reffer to 
 
 ### Installing
 
-A step by step series of examples that tell you have to get a development env running
+For instructions on how to install and setup Flask, please check the following resource: https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps
 
-Say what the step will be
+As for installing pip packages, you can simply type: pip install [package-name].
 
-```
-Give the example
-```
+Once you have Flask installed and all the required pip packages, you can go ahead and create a MySQL database. Then, import the point-cms.sql file into the freshly created dabatase to setup the database tables.
 
-And repeat
+Once the tables are loaded, you'll need to create a user using the register.py script that's in the root directory. And finally, you'll need ton configure the mbconf.py file with the database credentials so PointCMS can establish a connnection and be able to write/read data fron the database.
 
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
+Notice: The setup for the database should work in MySQL and the open-source form MariaDB.
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* Python 2.7 (https://www.python.org/)
+* Flask(http://flask.pocoo.org/)
+* MariaDB (https://mariadb.org/)
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+If you like to contribute in any way, please do so. At this point, there aren't specific rules. Just download/clone this git repo, switch to staging branch and do stuff. If you manage to make an improvement or do something better, please submit a pull requiest and we'll review it.
+
+List of features that we could use a help to implement:
+* X
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Stefan Ivanovski** - *Front-end and Dashboard* - [imstef](https://github.com/imstef)
+* **Milos Kostadinovski** - *Database and Backend/APPI* - [imilosk](https://github.com/imilosk)
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+This project is licensed under the GPLv2 License - see the [LICENSE.md](LICENSE.md) file for details.
