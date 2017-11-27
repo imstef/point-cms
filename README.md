@@ -1,5 +1,5 @@
 <br />
-<p align="center"><img src="static/uploads/logos/point-blue.png" width="260" height="147" alt="Official Point CMS Logo"></p>
+<p align="center"><img src="static/uploads/logos/point-blue.png" width="220" height="124" alt="Official Point CMS Logo"></p>
 <br />
 Point is a lightweight, minimal and super-fast content management system for portfolio websites.
 
