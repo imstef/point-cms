@@ -1,6 +1,8 @@
+{% set data = execute_query("SELECT theme, homepage_color, dashboard_color FROM settings")[0] %}
 {% set active_webpage = "dashboard" %}
-{% set active_theme = "point-theme" %}
-{% extends "template-parts/master-header.html.j2" %}
+{% set active_theme = data["theme"] %}
+
+{% extends "template-loaders/master-header.html.j2" %}
 
 {% block body %}
 	{% set home_url = url_for("homepage") %}
@@ -60,13 +62,13 @@
 									</div>
 									<div class="db-section-content">
 										{% if (section_names[i] == 'overview'): %}
-											{% include "admin/dashboard-pages/_dashboard_overview.html.j2" %}
+											{% include "admin/_dashboard_overview.html.j2" %}
 
 										{% elif (section_names[i] == 'settings'): %}
-											{% include "admin/dashboard-pages/_dashboard_settings.html.j2" %}
+											{% include "admin/_dashboard_settings.html.j2" %}
 
 										{% elif (section_names[i] == 'sections'): %}
-											{% include "admin/dashboard-pages/_dashboard_sections.html.j2" %}
+											{% include "admin/_dashboard_sections.html.j2" %}
 										{% endif %}
 									</div>
 								</section>

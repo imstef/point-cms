@@ -83,7 +83,6 @@ import sys
 import logging
 logging.basicConfig(stream=sys.stderr)
 sys.path.insert(0,'/var/www/$app_name/')
-
 from $app_name import app as application
 application.secret_key = '$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)'" | tee "$path"
 
