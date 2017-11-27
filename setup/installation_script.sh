@@ -83,14 +83,14 @@ import sys
 import logging
 logging.basicConfig(stream=sys.stderr)
 sys.path.insert(0,'/var/www/$app_name/')
-
 from $app_name import app as application
 application.secret_key = '$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)'" | tee "$path"
 
 (pip install flask-mysqldb)
+(pip install passlib)
 (mysql -u root -p -e ' DROP DATABASE IF EXISTS $app_name; CREATE DATABASE $app_name;')
-(mysql -u root -p $app_name < ./moonbow.sql)
-(apt-get install python-mysql)
+(mysql -u root -p $app_name < ./setup/installation_script.sql)
+(apt-get install python-mysqldb)
 (service --assume-yes apache2 restart)
 
 echo "done"
