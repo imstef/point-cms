@@ -62,7 +62,7 @@ List of features that we could use a help to implement:
 ## Authors
 
 * **Stefan Ivanovski** - *Front-end and Dashboard* - [imstef](https://github.com/imstef)
-* **Milos Kostadinovski** - *Database and Backend/APPI* - [imilosk](https://github.com/imilosk)
+* **Milos Kostadinovski** - *Database and Backend/API* - [imilosk](https://github.com/imilosk)
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
