@@ -9,7 +9,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 The master branch is very similar to the staging one, except it is stripped down version of the project, with minifed files and optimized file structure. This means that this branch should be used only when deploying.
 
-If you want get a copy of the project on your local machine for testing and development purposes, you will need to download/pull the staging branch. It contains non-minified Javascript and CSS files, as well as the SCSS. If you want to deploy Point CMS without playing around, download the master brach, which is production ready.
+If you want get a copy of the project on your local machine for testing and development purposes, you will need to download/pull the staging branch. It contains non-minified Javascript and CSS files. If you want to deploy Point CMS without playing around, download the master brach, which is production ready.
 
 ### Prerequisites
 
