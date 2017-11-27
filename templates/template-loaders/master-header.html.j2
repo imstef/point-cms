@@ -16,6 +16,10 @@
 			{% set css_url = "themes/" + active_theme + "/css/style.css" %}
 			<link rel="stylesheet" href="{{ url_for('static', filename=css_url) }}">
 		{% endif %}
+		<link rel="stylesheet" href="{{ url_for('static', filename='themes/point-theme/css/devicon.min.css') }}">
+		{% if website_info['custom_css' is defined ] %}
+			<style>.test {}</style>
+		{% endif %}
 	</head>
 	<body class="preload">
 		{# Include navigation file on the theme, not in dashboard or login page #}

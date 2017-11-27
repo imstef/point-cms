@@ -283,15 +283,15 @@ a:link, a:visited {
   box-shadow: 0.5px 0.5px 10px 0px #dadada;
   color: #707070; }
   .login-wrapper .login-form {
-    padding: 80px 80px 40px 80px; }
-    .login-wrapper .login-form .login-text {
-      font-size: 2em;
-      font-weight: 300;
-      margin-bottom: 5px; }
+    padding: 60px 80px 40px 80px; }
+    .login-wrapper .login-form .login-logo {
+      width: 125px;
+      height: auto;
+      margin: 15px auto; }
     .login-wrapper .login-form .login-description {
       font-size: 0.9em;
       font-weight: 300;
-      margin-bottom: 55px; }
+      margin: 35px 0; }
     .login-wrapper .login-form .lost-pw {
       padding-top: 40px;
       font-size: 0.7em;
@@ -309,7 +309,7 @@ a:link, a:visited {
     font-size: 0.7em;
     color: #909090;
     position: relative;
-    top: -65px;
+    top: -45px;
     left: -65px;
     text-align: left; }
 
@@ -420,6 +420,10 @@ a:link, a:visited {
   .dashboard-content .db-quick-row {
     margin: 10px 0; }
   .dashboard-content .db-quick-item {
+    width: 97%;
+    margin-right: 3%;
+    border: 1px solid #F2F2F2;
+    padding: 15px;
     margin-top: 20px; }
   .dashboard-content .db-quick-text {
     margin: 10px 0; }
@@ -520,6 +524,7 @@ a:link, a:visited {
     letter-spacing: 0.02em;
     font-weight: 300;
     padding: 2px 5px;
+    border-radius: 3px;
     color: #404040;
     border: 1px solid #F4F4F4;
     margin-right: 5px;
@@ -565,6 +570,12 @@ a:link, a:visited {
   .dashboard-content .align-right {
     text-align: right;
     margin-right: 5%; }
+  .dashboard-content .db-master-section {
+    padding: 25px;
+    width: 97%;
+    margin-right: 3%;
+    border: 1px solid #F2F2F2;
+  }
 
 [class*='dashboard-section'] {
   margin-top: -6px;

@@ -1,4 +1,3 @@
-
 from flask import Flask, render_template, url_for, request, session, logging, redirect, flash, jsonify
 from passlib.hash import sha256_crypt
 from datetime import timedelta

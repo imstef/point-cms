@@ -55,11 +55,14 @@
                     <div class="column-4">
                         <div class="portfolio-item display-table">
                             <div class="item-content display-table-cell">
-                                <div class="item-title">{{ data[j]["title"] }}</div>
+                                {# <div class="item-title">{{ data[j]["title"] }}</div> #}
 
                                 {% set logo = data[j]["logo"] %}
-
-                                <div class="item-logo"><img src="{{ url_for('static', filename=logo) }}"/></div>
+                
+                                {% if logo is defined %}
+                                    {% set logo_path = "uploads/logos/" + logo %}
+                                    <div class="item-logo"><img src="{{ url_for('static', filename=logo_path) }}"/></div>
+                                {% endif %}
 
                                 <div class="item-preview">
                                     <span class="icon icon-circle-up item-toggle-modal" data-mod="portfolio-item-{{ project_numb[0] }}"></span>
@@ -72,7 +75,7 @@
                                             </div>
 
                                             {% for lang in data[j]["technologies"].split(";") %}
-                                                <span class="tech-stack-icon lang-{{ lang }}">{{ lang }}</span>
+                                                <span class="devicon devicon-font devicon-{{ lang }}-plain colored"></span>
                                             {% endfor %}
 
                                         </div>
