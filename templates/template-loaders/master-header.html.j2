@@ -37,7 +37,7 @@
 		{% if active_webpage == "dashboard": %}
 			<script type="text/javascript" src=" {{ url_for('static', filename='admin/js/dashboard.min.js') }} "></script>
 		{% elif active_webpage == "login" %}
-			<script type="text/javascript" src=" {{ url_for('static', filename='admin/js/min/login.min.js') }} "></script>
+			<script type="text/javascript" src=" {{ url_for('static', filename='admin/js/login.min.js') }} "></script>
 		{% elif active_webpage == "home" %}
 			{% set file_url = "themes/" + active_theme + "/js/theme.min.js" %}
 			<script type="text/javascript" src=" {{ url_for('static', filename=file_url) }} "></script>
