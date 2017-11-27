@@ -22,6 +22,8 @@ flask/
 static/themes/scss
 static/themes/point-theme/js/theme.js
 static/admin/scss
+/static/admin/css/style.css
+/static/themes/point-theme/css/style.css
 static/admin/js/dashboard.js
 static/admin/js/login.js
 mbconf.py
