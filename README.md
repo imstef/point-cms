@@ -26,8 +26,8 @@ Pip
 MariaDB/MySQL
 MySQLdb
 WSGI (Web Server Gateway Interface)
-
 ```
+
 List of Python Pip packages:
 ```
 virtualenv
@@ -38,7 +38,7 @@ flask-mysqldb
 
 ### Installing
 
-#### Overview:
+#### Overview
 
 Here's a brief overview of the things you'll need to install in order to use Point:
 
@@ -56,13 +56,13 @@ For instructions on how to install and setup Flask, please check the following r
 
 As for installing pip packages, you can simply type: pip install [package-name].
 
-Once you have Flask installed and all the required pip packages, you can go ahead and create a MySQL database. Then, import the point-cms.sql file into the freshly created database to setup the database tables.
+Once you have Flask installed and all the required pip packages, you can go ahead and create a MySQL database. Then, import the **point-cms.sql** file into the freshly created database to setup the database tables.
 
-Once the tables are loaded, you'll need to create a user for Point using the register.py script that's in the root directory. And finally, you'll need ton configure the mbconf.py file with the database credentials so PointCMS can establish a connection and be able to write/read data from the database. At last, compile the main (init.py) file to start the server.
+Once the tables are loaded, you'll need to create a user for Point using the register.py script that's in the root directory. And finally, you'll need ton configure the **mbconf.py** file with the database credentials so PointCMS can establish a connection and be able to write/read data from the database. At last, compile the main (init.py) file to start the server.
 
 To compile and start Point, run the following command while in the root directory:
 ```
-python **__init__.py**
+python** __init__.py
 ```
 
 Notice: The setup for the database should work in MySQL and the open-source fork MariaDB.
