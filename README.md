@@ -62,7 +62,7 @@ Once the tables are loaded, you'll need to create a user for Point using the reg
 
 To compile and start Point, run the following command while in the root directory:
 ```
-python** __init__.py
+python __init__.py
 ```
 
 Notice: The setup for the database should work in MySQL and the open-source fork MariaDB.
