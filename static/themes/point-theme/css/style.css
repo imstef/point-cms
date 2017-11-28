@@ -460,7 +460,7 @@ a:link, a:visited {
         text-decoration: none; }
       .portfolio-item .item-title { font-size: 1.3em; margin-bottom: 20px; }
       .portfolio-item .item-logo {
-        max-width: 145px;
+        max-width: 125px;
         height: auto;
         margin: 0 auto;
       }
