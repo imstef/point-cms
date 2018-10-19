@@ -89,7 +89,7 @@ application.secret_key = '$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 |
 (pip install flask-mysqldb)
 (pip install passlib)
 (mysql -u root -p -e ' DROP DATABASE IF EXISTS $app_name; CREATE DATABASE $app_name;')
-(mysql -u root -p $app_name < ./setup/installation_script.sql)
+(mysql -u root -p $app_name < ./setup/point.sql)
 (apt-get install python-mysqldb)
 (service --assume-yes apache2 restart)
 
